@@ -5,6 +5,7 @@ rm(list = ls())
 # Load libraries
 # ------------------------------------------------------------------------------
 library("tidyverse")
+library("foreign")
 
 # Define functions
 # ------------------------------------------------------------------------------
@@ -12,14 +13,10 @@ source(file = "R/99_project_functions.R")
 
 # Load data
 # ------------------------------------------------------------------------------
-my_data_raw <- read_tsv(file = "data/_raw/my_raw_data.tsv")
+prostate_raw <- read.dta("data/_raw/prostate.dta")
 
-
-# Wrangle data
-# ------------------------------------------------------------------------------
-my_data <- my_data_raw # %>% ...
 
 # Write data
 # ------------------------------------------------------------------------------
-# write_tsv(x = my_data,
-#           path = "data/01_my_data.tsv")
+write_tsv(x = prostate_raw,
+          path = "data/01_prostate.tsv")
