@@ -37,11 +37,8 @@ prostate_data <- prostate_data %>%
 prostate_data <- prostate_data %>%
   mutate(`Estrogen(mg)`= as.numeric(x = `Estrogen(mg)`, digits = 2))
 
-# prostate_data <- prostate_data %>%
-#   mutate("Status" = as.integer(prostate_data$Status) -1)
-
-prostate_data <- prostate_data %>%
-  mutate("Date_on_study" = as.Date(x = "Date_on_study", origin = "1960-01-01") )
+prostate_data <- prostate_data %>% 
+  mutate("Date_on_study" = as.Date(x = `Date_on_study`, origin = "1960-01-01"))
 
 # Write data
 # ------------------------------------------------------------------------------
