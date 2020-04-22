@@ -16,9 +16,6 @@ prostate_data <- read_tsv(file = "data/02_prostate_data_clean.tsv")
 
 # Wrangle data
 # ------------------------------------------------------------------------------
-# prostate_data_status_in_numbers <- prostate_data %>% 
-#   mutate(Status = as.integer(Status) -1) 
-# isn't working for some reason - but is it actually usefull? why do we need this? 
 
 #one hot encoding factors (which are actually characters!)
 prostate_one_hot_EKG <- prostate_data %>% 
@@ -58,10 +55,10 @@ prostate_one_hot_status3 <- prostate_one_hot_factors %>%
   
 # ------------------------------------------------------------------------------
 # write_tsv(x = prostate_data_status_in_numbers,
-#           path = "data/03_postate_status_in_numbers.tsv")
+#           path = "data/03_prostate_status_in_numbers.tsv")
 
 write_tsv(x = prostate_one_hot_factors,
-          path = "data/03_postate_one_hot_factors.tsv")
+          path = "data/03_prostate_one_hot_factors.tsv")
 
 write_tsv(x = prostate_one_hot_status3,
-          path = "data/03_postate_one_hot_status3.tsv")
+          path = "data/03_prostate_one_hot_status3.tsv")
