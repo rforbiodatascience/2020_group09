@@ -12,23 +12,35 @@ library(ggplot2)
 require(gridExtra)
 ```
 
+Importing the datasets:
+prostate_raw is the dataset from the paper "Selectiong optimal treatment in clinical trails using covariate information; Byar, D.P.; Corle, D.K. (1976)", http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/prostate.html 
+
+TCGA_prostate_raw and TCGA_prostate_survival are two datasets from https://xenabrowser.net/datapages/?cohort=GDC%20TCGA%20Prostate%20Cancer%20(PRAD)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443, paper "Unbiased data mining identifies cell cycle transcripts that predict non-indolent Gleason score 7 prostate cancer, Wendy L. Johnston, Charles N. Catton and Carol J. Swallow" that we used to complete the first dataset in order to have more data for the analyses. 
 
 ```{r}
-prostate_raw <- read.dta("Data/_raw/prostate.dta")
+prostate_raw <- read.dta("data/_raw/prostate.dta") #read.dta is a function to import files in the .dta format
 
-colnames(prostate_raw)
-```
-We decided to change the name of the columns in order to have a better description of the data. 
-```{r}
-col_names <- c("Patient_ID", "Stage", "Estrogen(mg)", "Months_FU", "Status", "Age", "Weight_index", "Activity_level", "CV_history", "SBP", "DBP", "EKG", "Serum_HG", "Tumour_size", "SG", "AP", "Bone_metastases", "Date_on_study")
+TCGA_prostate_raw <- read.table("../2020_group09/data/_raw/TCGA-PRAD.GDC_phenotype.tsv", sep = "\t", header = T, quote = "", na.strings=c("","NA"))
+TCGA_prostate_survival_raw <- read.table("../2020_group09/data/_raw/TCGA-PRAD.survival.tsv", sep = "\t", header = T, quote = "", na.strings=c("","NA"))
+#in both cases we used na.strings to fill the empty cells with NAs, quote = "" disables the quoting (without disabling quotes the file is not fully loaded in R). 
 
-colnames(prostate_raw) <- col_names
 ```
 
 ```{r}
 prostate_raw <- as_tibble(prostate_raw) #conversion of the data into a tibble
-
 prostate_data <- prostate_raw %>% 
+  mutate("Dataset" = "prostate") #column which identifies the dataset (it will be useful later)
+```
+
+We decided to change the name of the columns of prostate_raw in order to have a better description of the data. 
+```{r}
+col_names <- c("Patient_ID", "Stage", "Estrogen(mg)", "Months_FU", "Status", "Age", "Weight_index", "Activity_level", "CV_history", "SBP", "DBP", "EKG", "Serum_HG", "Tumour_size", "SG", "AP", "Bone_metastases", "Date_on_study", "Dataset")
+
+colnames(prostate_data) <- col_names
+```
+
+```{r}
+prostate_data <- prostate_data %>% 
                   na.exclude(.)         #removing the rows which contain at least one NA
 
 prostate_data <- prostate_data %>% 
@@ -36,31 +48,97 @@ prostate_data <- prostate_data %>%
   separate(data = ., col = `Estrogen(mg)`, into = c("Estrogen(mg)", "Estr"), sep = "mg") %>% 
   dplyr::select(-Estr)
 
+#we want to have the Estrogen column filled with numbers that correspond to the mg of estrogen used to treat the patient. 
+#So, we used str.replace to replace the word "placebo" with 0.0 and then we remove the "mg estrogen" string in each cell by splitting the estrogen (mg) col into two cols using "mg" as separator. 
+
 prostate_data <- prostate_data %>% 
   mutate(`Estrogen(mg)`= as.numeric(x = `Estrogen(mg)`, digits = 2))
 
-#split the estrogen (mg) col into two cols + deletion of the Estr col, since it contains only the word "estrogen"
+#deletion of the Estr col, since it contains only the word "estrogen"
+
+
 ```
-Now we modify the Status column assigning a number to each possible status (0 - alive, 1 - dead for X cause....)
+Now we modify the Status column assigning a number to each possible status
+0 - alive
+1 - dead from prostatic cancer 
+2 - dead from heart or CV disease
+3 - dead from cerebrovascular accident
+4 - dead from pulmonary embolus
+5 - dead from other cancer 
+6 - dead from respiratory disease
+7 - dead from other specific non-cancer case
+8 - dead from unspecific non-cancer cause
+9 - dead from unknown cause
 
 ```{r}
 prostate_data <- prostate_data %>% 
   mutate("Status" = as.integer(prostate_data$Status) -1)
 
-#we also checked that the correspondence between numbers and causes of deaths is correct
+#we also checked that the correspondence between numbers and causes of deaths is correct, before deleting the original column
 ```
-Transfom the data variable in a readable version
+Transfom the data variable in a more readable version
 ```{r}
 prostate_data <- prostate_data %>% 
   mutate("Date_on_study" = as.Date(x = `Date_on_study`, origin = "1960-01-01") )
 ```
 
+Working in the TCGA datasets
+```{r}
+colnames(TCGA_prostate_raw)[1] <- "Sample_ID"
+colnames(TCGA_prostate_survival_raw)[1] <- colnames(TCGA_prostate_raw)[1] #we modified the name of the first column of both TCGA datasets into "Sample_ID" in order to be able to use left_join using Sample_ID as the key column. 
+
+!any(TCGA_prostate_raw$Sample_ID %in% TCGA_prostate_survival_raw$Sample_ID) # before unifing the two columns we check if the two Sample_ID columns contain the same IDs (just to be sure that we are not loosing data without knowning it). 
+#based on the logical test performed above, they are, so we decide to use dplyr::left_join to unify the two tables by the "Sample_ID" column. 
+
+TCGA_prostate_tot <- left_join(x = TCGA_prostate_raw, y = TCGA_prostate_survival_raw, by = "Sample_ID") %>% 
+  mutate("Dataset" = "TCGA") #column which identifies the dataset (it will be useful later)
+
+```
+Now we examine the TCGA new dataset to find columns containing the same type of information contained in "prostate_data", in order to join the two datasets and perform the analyses. 
+
+prostate data          TCGA
+Patient id            patient_id
+Age                   age_at_initial_pathologic_diagnosis
+bone_metastasis       bone_scan_results --> retain only normal + abnormal == 0, prostate cancer == 1, while equivocal == NA. 
+monts of FU           OS.time --> those are days, we have to transform them in months
+AP correlates with gleason score --> find a way to transform one into the other  ????????
+
+```{r}
+TCGA_prostate_def <- TCGA_prostate_tot %>% 
+                      select("Patient_ID" = patient_id, age_at_initial_pathologic_diagnosis, bone_scan_results, OS.time, Dataset) #we select the columns we are interested in and we rename the patient_id column in the TCGA dataset. In this way, both datasets has the same name for the column containing the patient ids. 
+
+TCGA_prostate_def <- TCGA_prostate_def %>%
+                      unique()
+#with unique() we remove duplicated in the datasets. So, we remove rows with the exact same content. 
+
+prostate_data$Patient_ID <- as.factor(prostate_data$Patient_ID) #conversion of the Patient_ID col in prostate_data into a factor column, in order to be able to use full_join (you cannot use full_join if the key columns belong to different classes). 
+
+TCGA_prostate_def <- TCGA_prostate_def %>% 
+  mutate("Months_FU" = round(OS.time/30, digits = 0), OS.time = NULL) %>% 
+  select(Patient_ID, age_at_initial_pathologic_diagnosis, Months_FU, bone_scan_results, Dataset) #here we convert the content of the OS.time column from days to months. 
+
+TCGA_prostate_def <- TCGA_prostate_def %>% 
+  mutate("Bone_metastases" = (case_when(
+                          bone_scan_results == "Normal (no evidence of prostate cancer) [cM0]" ~ 0, 
+                          bone_scan_results == "Abnormal (not related to prostate cancer)" ~ 0, 
+                          bone_scan_results == "Prostate Cancer Metastases Present [cM1b]" ~ 1)), bone_scan_results = NULL) %>% 
+  select(Patient_ID, age_at_initial_pathologic_diagnosis, Months_FU, Bone_metastases, Dataset)
+
+
+
+colnames(TCGA_prostate_def) <- c("Patient_ID", "Age", "Months_FU", "Bone_metastases", "Dataset")
+
+prostate_tidy <- full_join(x = prostate_data, y = TCGA_prostate_def, by = c("Patient_ID", "Age", "Months_FU", "Dataset", "Bone_metastases")) %>% 
+                  select(Patient_ID, Age, Months_FU, Bone_metastases, everything())
+
+```
+
 Data visualization using ggplot2
 
 ```{r}
-View(prostate_data)
-data_to_plot <- prostate_data %>% 
-  dplyr::select(c(Months_FU, Age, Weight_index, SBP, DBP, Serum_HG, Tumour_size, AP))
+
+data_to_plot <- prostate_tidy %>% 
+  dplyr::select(c(Months_FU, Age))
 
 plot_list <- vector("list", length = length(colnames(data_to_plot)))
 for (i in 1:length(plot_list)) {
@@ -68,20 +146,20 @@ for (i in 1:length(plot_list)) {
   
 }
 
-j <- 1
+j <-1
 
 for (i in data_to_plot) {
   
- barplot_i <- ggplot(data = data_to_plot, 
+ barplot_i <- ggplot(data = prostate_tidy, 
          mapping = aes(x = i)) +
-    geom_histogram(aes(y=..density..)) +
-   geom_density(color = "red") +
+    geom_histogram(aes(y=..density.., fill = Dataset), binwidth = 4) +
+   geom_density() +
    labs(x = colnames(data_to_plot)[j])
  
 #plot_list[[j]]$barplot <- barplot_i
  
- boxplot_i <- ggplot(data = data_to_plot, 
-         mapping = aes(y = i)) +
+ boxplot_i <- ggplot(data = prostate_tidy, 
+         mapping = aes(y = i, color = Dataset)) +
           geom_boxplot() +
    labs(x = colnames(data_to_plot)[j])
     
@@ -105,9 +183,8 @@ plot(data_to_plot, pch = 16, col = ifelse(prostate_data$Status == 0, "black", "r
 getwd()
 ```
 
-outlier 999
-medical info about AP 
-github 
+
+
 
 
 
