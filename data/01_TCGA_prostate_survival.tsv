@@ -1,503 +1,624 @@
-patno	stage	rx	dtime	status	age	wt	pf	hx	sbp	dbp	ekg	hg	sz	sg	ap	bm	sdate
-1	3	0.2 mg estrogen	72	alive	75	76	normal activity	0	15	9	heart strain	13.7988281	2	8	0.299987793	0	2778
-2	3	0.2 mg estrogen	1	dead - other ca	54	116	normal activity	0	13	7	heart block or conduction def	14.5996094	42	NA	0.699951172	0	2820
-3	3	5.0 mg estrogen	40	dead - cerebrovascular	69	102	normal activity	1	14	8	heart strain	13.3984375	3	9	0.299987793	0	2933
-4	3	0.2 mg estrogen	20	dead - cerebrovascular	75	94	in bed < 50% daytime	1	14	7	benign	17.5976562	4	8	0.899902344	0	2999
-5	3	placebo	65	alive	67	99	normal activity	0	17	10	normal	13.3984375	34	8	0.5	0	3002
-6	3	0.2 mg estrogen	24	dead - prostatic ca	71	98	normal activity	0	19	10	normal	15.0996094	10	11	0.599975586	0	3086
-7	3	placebo	46	dead - heart or vascular	75	100	normal activity	0	14	10	benign	13	13	9	0.799926758	0	3099
-8	3	placebo	62	alive	73	114	normal activity	1	17	11	heart strain	12.5996094	3	9	0.599975586	0	3100
-9	3	1.0 mg estrogen	61	alive	60	110	normal activity	0	12	8	normal	14.5996094	4	10	0.699951172	0	3134
-10	3	1.0 mg estrogen	60	alive	78	107	normal activity	1	13	8	old MI	13	21	6	0.399963379	0	3140
-11	3	1.0 mg estrogen	60	alive	77	89	normal activity	0	15	8	normal	15.5996094	3	8	0.599975586	0	3141
-12	3	5.0 mg estrogen	59	alive	74	105	normal activity	1	18	14	normal	13.5996094	6	8	0.399963379	0	3176
-13	3	0.2 mg estrogen	59	alive	74	107	normal activity	0	14	9	old MI	14.3984375	6	9	0.299987793	0	3183
-14	3	placebo	49	dead - prostatic ca	55	112	normal activity	1	16	9	heart strain	13.8984375	4	9	1	0	3183
-15	3	5.0 mg estrogen	20	dead - cerebrovascular	73	88	normal activity	0	19	10	heart strain	12	15	10	0.599975586	0	3196
-16	3	5.0 mg estrogen	3	dead - heart or vascular	87	81	in bed < 50% daytime	1	17	12	rhythmic disturb & electrolyte ch	13.3984375	3	9	0.399963379	0	3196
-17	3	placebo	58	alive	64	90	normal activity	0	14	8	normal	16.1992188	6	9	0.699951172	0	3218
-18	3	1.0 mg estrogen	29	dead - pulmonary embolus	79	104	normal activity	0	13	8	benign	15	5	8	0.5	0	3230
-19	3	5.0 mg estrogen	26	dead - heart or vascular	62	90	normal activity	1	13	8	benign	14.3984375	2	9	0.699951172	0	3386
-20	3	5.0 mg estrogen	52	alive	74	107	normal activity	0	13	8	heart strain	16.3984375	10	9	0.699951172	0	3400
-21	3	5.0 mg estrogen	20	dead - heart or vascular	83	72	in bed < 50% daytime	1	13	9	heart strain	15	1	10	0.699951172	0	3400
-22	3	1.0 mg estrogen	51	alive	65	113	normal activity	0	16	10	normal	14.0996094	21	9	0.699951172	0	3428
-23	3	placebo	51	alive	61	97	normal activity	0	11	8	normal	13.5	8	8	0.599975586	0	3433
-24	4	5.0 mg estrogen	31	dead - prostatic ca	56	95	normal activity	0	15	10	rhythmic disturb & electrolyte ch	14.7988281	26	13	35.6953125	1	2791
-25	4	1.0 mg estrogen	42	dead - cerebrovascular	73	103	normal activity	0	16	10	normal	14.5996094	6	11	3.89990234	0	2831
-26	4	0.2 mg estrogen	38	dead - heart or vascular	69	75	normal activity	0	16	8	heart strain	10.6992188	25	11	6.19921875	0	2861
-27	4	placebo	69	alive	76	82	normal activity	0	12	8	old MI	11.6992188	12	10	2.5	0	2869
-28	4	placebo	39	dead - prostatic ca	71	103	normal activity	0	12	7	normal	14.3984375	11	11	12	0	2873
-29	4	1.0 mg estrogen	33	dead - other ca	66	126	normal activity	0	17	10	heart strain	14	32	13	24.1992188	0	2884
-30	4	0.2 mg estrogen	8	dead - prostatic ca	76	90	normal activity	0	15	9	heart strain	12.7988281	40	13	2.29980469	0	2895
-31	4	0.2 mg estrogen	13	dead - prostatic ca	74	77	in bed > 50% daytime	0	16	9	heart strain	10.5	17	13	316	1	2905
-32	4	5.0 mg estrogen	33	dead - other specific non-ca	71	150	normal activity	1	16	10	old MI	15	9	11	1.89990234	0	2924
-33	4	1.0 mg estrogen	9	dead - prostatic ca	71	88	normal activity	1	16	9	heart strain	12.2988281	38	13	35.3984375	0	2932
-34	4	placebo	21	dead - prostatic ca	79	89	normal activity	0	16	9	heart strain	12.7988281	26	12	12.0996094	0	2940
-35	4	5.0 mg estrogen	66	dead - prostatic ca	75	101	normal activity	0	15	9	normal	14.5996094	8	14	3.79980469	0	2953
-36	4	5.0 mg estrogen	5	dead - prostatic ca	76	86	normal activity	1	16	6	heart strain	8.19921875	10	11	99.1875	1	2953
-37	4	placebo	27	dead - other specific non-ca	72	93	normal activity	0	16	10	heart strain	13	2	11	1.29980469	0	2933
-38	4	0.2 mg estrogen	2	dead - heart or vascular	69	84	normal activity	1	12	8	benign	10.3984375	15	13	28.8984375	1	2979
-39	4	0.2 mg estrogen	20	dead - prostatic ca	53	99	normal activity	0	12	9	benign	14.1992188	26	13	5.59960938	1	3050
-40	4	1.0 mg estrogen	19	dead - prostatic ca	76	85	normal activity	0	14	9	heart strain	13	6	11	1.39990234	1	3141
-41	4	placebo	60	alive	72	95	normal activity	1	17	8	heart strain	13.5996094	12	12	2.29980469	0	3162
-42	4	1.0 mg estrogen	58	alive	NA	76	normal activity	0	15	8	heart strain	12.7988281	35	13	30	1	3202
-43	4	5.0 mg estrogen	32	dead - prostatic ca	82	89	normal activity	0	14	8	normal	13	27	13	22.296875	1	3204
-44	4	placebo	53	alive	74	124	normal activity	0	16	8	heart block or conduction def	9.3984375	26	15	1.29980469	0	3350
-45	4	1.0 mg estrogen	53	alive	75	93	normal activity	0	13	9	rhythmic disturb & electrolyte ch	15.2988281	16	13	3.29980469	0	3372
-46	4	5.0 mg estrogen	43	dead - prostatic ca	74	81	normal activity	0	17	10	heart strain	13.3984375	28	11	20	1	3395
-47	4	0.2 mg estrogen	21	dead - prostatic ca	60	96	normal activity	0	12	8	normal	14.2988281	27	13	7	0	3433
-48	3	5.0 mg estrogen	30	dead - unknown cause	59	116	in bed < 50% daytime	0	12	8	heart strain	15.1992188	NA	9	0.699951172	0	2730
-49	3	5.0 mg estrogen	74	alive	49	99	normal activity	0	13	7	normal	14.7988281	14	8	0.5	0	2735
-50	3	placebo	72	alive	74	96	in bed < 50% daytime	1	11	6	old MI	10.3984375	20	11	0.599975586	0	2779
-51	3	placebo	14	dead - prostatic ca	73	101	normal activity	0	16	7	normal	12.3984375	18	11	0.599975586	0	2905
-52	3	5.0 mg estrogen	33	dead - heart or vascular	76	98	normal activity	1	17	10	old MI	17.0976562	13	8	0.5	0	2995
-53	3	0.2 mg estrogen	8	dead - cerebrovascular	72	84	normal activity	1	12	8	heart strain	14.7988281	15	8	0.599975586	0	3001
-54	3	1.0 mg estrogen	10	dead - heart or vascular	73	82	normal activity	1	16	8	heart strain	14.0996094	20	9	0.5	0	3022
-55	3	placebo	51	dead - prostatic ca	78	108	in bed > 50% daytime	1	18	8	old MI	14.7988281	24	9	0.299987793	0	3023
-56	3	0.2 mg estrogen	7	dead - heart or vascular	71	112	normal activity	1	15	9	normal	13.1992188	14	11	0.399963379	0	3048
-57	3	1.0 mg estrogen	63	alive	75	92	normal activity	0	13	8	heart strain	15.1992188	41	NA	0.799926758	0	3059
-58	3	0.2 mg estrogen	33	dead - prostatic ca	64	130	normal activity	0	13	9	normal	14.1992188	23	11	0.199981689	0	3219
-59	3	0.2 mg estrogen	3	dead - cerebrovascular	78	118	normal activity	1	16	9	heart strain	12.3984375	3	9	0.399963379	0	3347
-60	3	placebo	43	dead - other ca	60	99	normal activity	0	12	9	normal	13.5996094	7	9	0.599975586	0	3375
-61	4	1.0 mg estrogen	37	dead - prostatic ca	68	104	normal activity	0	14	9	heart strain	14.3984375	32	13	7.29980469	1	2712
-62	4	placebo	5	dead - cerebrovascular	77	93	in bed < 50% daytime	0	21	9	old MI	12.8984375	24	13	11.6992188	0	2856
-63	4	0.2 mg estrogen	6	dead - prostatic ca	73	102	normal activity	1	14	9	heart strain	12	51	15	8.69921875	0	2856
-64	4	placebo	2	dead - prostatic ca	70	76	in bed > 50% daytime	0	12	8	normal	7.79980469	26	11	2	1	2863
-65	4	0.2 mg estrogen	5	dead - prostatic ca	53	106	normal activity	0	14	8	heart strain	14.2988281	10	11	0.699951172	0	2982
-66	4	5.0 mg estrogen	64	alive	55	116	normal activity	0	13	9	heart strain	14.7988281	26	15	4.59960938	1	3043
-67	4	5.0 mg estrogen	1	dead - unspecified non-ca	80	91	in bed < 50% daytime	1	14	8	old MI	11.6992188	15	13	1.29980469	0	3259
-68	4	1.0 mg estrogen	21	dead - prostatic ca	59	71	normal activity	0	8	4	heart strain	8.69921875	27	11	175.09375	1	3298
-69	4	placebo	16	dead - other specific non-ca	80	111	normal activity	0	16	9	normal	11.2988281	34	15	1.09985352	1	3345
-70	3	1.0 mg estrogen	21	dead - cerebrovascular	68	97	in bed < 50% daytime	1	14	8	old MI	12.0996094	18	8	0.599975586	0	2660
-71	3	1.0 mg estrogen	12	dead - heart or vascular	77	103	normal activity	1	13	7	rhythmic disturb & electrolyte ch	14.3984375	5	9	0.699951172	0	2686
-72	3	1.0 mg estrogen	75	alive	74	110	normal activity	0	16	8	benign	13.5996094	7	8	0.5	0	2686
-73	3	placebo	74	alive	70	94	normal activity	0	15	7	benign	13.6992188	24	7	0.799926758	0	2714
-74	3	0.2 mg estrogen	74	alive	72	142	in bed < 50% daytime	1	14	13	normal	12.5996094	NA	9	0.5	0	2714
-75	3	0.2 mg estrogen	54	dead - prostatic ca	65	90	normal activity	0	14	8	normal	14	47	9	0.299987793	0	2723
-76	3	5.0 mg estrogen	73	alive	74	97	normal activity	1	13	7	normal	12.8984375	6	8	0.199981689	0	2754
-77	3	placebo	36	dead - heart or vascular	72	110	normal activity	1	22	13	old MI	14.6992188	5	10	0.599975586	0	2763
-78	3	placebo	59	dead - other specific non-ca	69	97	normal activity	1	13	7	normal	14.2988281	4	9	0.299987793	0	2763
-79	3	5.0 mg estrogen	6	dead - cerebrovascular	72	115	normal activity	1	16	10	normal	12	5	8	0.299987793	0	2772
-80	3	0.2 mg estrogen	58	dead - heart or vascular	71	87	normal activity	1	13	10	rhythmic disturb & electrolyte ch	13.3984375	13	9	0.799926758	0	2789
-81	3	1.0 mg estrogen	16	dead - respiratory disease	73	93	normal activity	0	11	7	normal	13.7988281	8	9	0.299987793	0	2798
-82	3	5.0 mg estrogen	19	dead - heart or vascular	79	106	normal activity	1	16	7	old MI	13.5996094	13	9	0.199981689	0	2805
-83	3	5.0 mg estrogen	39	dead - heart or vascular	63	86	normal activity	1	16	8	old MI	16	7	9	0.399963379	0	2839
-84	3	0.2 mg estrogen	26	dead - other ca	74	101	normal activity	1	14	9	rhythmic disturb & electrolyte ch	10.5996094	14	8	0.399963379	0	2856
-85	3	placebo	60	dead - respiratory disease	72	118	normal activity	1	17	11	normal	15.5996094	9	9	0.599975586	0	2856
-86	3	0.2 mg estrogen	43	dead - other specific non-ca	78	117	normal activity	1	10	7	heart strain	13.5996094	16	8	0.399963379	0	2862
-87	3	5.0 mg estrogen	7	dead - heart or vascular	76	92	normal activity	1	12	7	old MI	13.5996094	12	9	0.5	0	2903
-88	3	1.0 mg estrogen	9	dead - other ca	70	72	normal activity	1	16	9	heart block or conduction def	12	17	8	0.0999908447	0	2903
-89	3	1.0 mg estrogen	67	alive	69	120	normal activity	1	16	10	heart strain	13.5996094	21	10	0.699951172	0	2938
-90	3	5.0 mg estrogen	62	dead - other ca	76	102	normal activity	1	12	8	normal	13.1992188	13	8	0.5	0	2951
-91	3	placebo	17	dead - respiratory disease	84	104	normal activity	1	15	10	benign	13.3984375	8	6	0.399963379	0	3049
-92	3	0.2 mg estrogen	25	dead - other ca	80	98	normal activity	1	15	8	normal	12.2988281	8	9	0.5	0	3049
-93	3	1.0 mg estrogen	0	dead - respiratory disease	81	97	normal activity	0	10	7	normal	13.3984375	11	9	0.699951172	0	3087
-94	3	5.0 mg estrogen	5	dead - heart or vascular	81	76	normal activity	1	13	7	heart strain	14.8984375	28	9	0.5	0	3094
-95	3	5.0 mg estrogen	34	dead - heart or vascular	71	100	normal activity	1	12	10	heart strain	14.3984375	11	6	0.299987793	0	3127
-96	3	placebo	59	alive	77	109	normal activity	0	14	7	normal	12	7	10	0.299987793	0	3182
-97	3	0.2 mg estrogen	31	dead - heart or vascular	70	109	normal activity	1	18	8	heart strain	12	28	9	0.5	0	3197
-98	3	placebo	58	alive	76	108	normal activity	1	12	7	old MI	12	3	9	0.299987793	0	3204
-99	3	1.0 mg estrogen	30	dead - cerebrovascular	76	102	normal activity	1	16	9	old MI	18.1992188	52	11	0.599975586	0	3216
-100	3	0.2 mg estrogen	57	alive	71	97	normal activity	0	13	7	heart block or conduction def	13.3984375	19	9	0.599975586	0	3232
-101	3	0.2 mg estrogen	5	dead - heart or vascular	76	96	normal activity	1	17	8	normal	13.6992188	33	9	0.599975586	0	3239
-102	3	5.0 mg estrogen	55	alive	64	100	normal activity	1	16	10	normal	13.6992188	6	9	0.199981689	0	3295
-103	3	1.0 mg estrogen	55	alive	74	113	normal activity	0	12	7	normal	14.2988281	7	10	0.799926758	0	3317
-104	3	placebo	52	alive	76	88	normal activity	1	16	9	normal	12.2988281	3	8	0.599975586	0	3394
-105	3	5.0 mg estrogen	0	dead - pulmonary embolus	82	82	normal activity	1	13	9	rhythmic disturb & electrolyte ch	11.5996094	5	10	0.599975586	0	3406
-106	3	1.0 mg estrogen	51	alive	65	87	normal activity	1	16	8	normal	14.5	2	9	0.799926758	0	3421
-107	4	0.2 mg estrogen	17	dead - heart or vascular	70	83	in bed < 50% daytime	0	14	6	normal	12.6992188	14	11	9.69921875	1	2660
-108	4	5.0 mg estrogen	70	dead - other ca	76	92	normal activity	0	13	6	heart strain	9.69921875	6	10	6.19921875	1	2660
-109	4	placebo	74	alive	77	93	normal activity	0	10	6	benign	11	0	12	4.89941406	0	2714
-110	4	0.2 mg estrogen	74	alive	77	99	normal activity	1	17	9	normal	12.7988281	15	12	2.39990234	0	2723
-111	4	1.0 mg estrogen	20	dead - heart or vascular	70	103	normal activity	1	12	7	normal	13.5	23	11	10.1992188	0	2786
-112	4	placebo	2	dead - prostatic ca	73	80	normal activity	1	13	8	heart strain	12.8984375	61	12	39.6953125	0	2867
-113	4	0.2 mg estrogen	8	dead - prostatic ca	63	119	normal activity	1	13	8	heart strain	12.7988281	14	15	41.6953125	1	2936
-114	4	5.0 mg estrogen	27	dead - other specific non-ca	71	91	normal activity	0	13	6	heart strain	12	1	10	1.19995117	0	2966
-115	4	1.0 mg estrogen	23	dead - cerebrovascular	78	103	in bed < 50% daytime	1	14	8	normal	10	38	12	1.79980469	1	2994
-116	4	placebo	1	dead - heart or vascular	74	100	normal activity	1	13	8	old MI	14.3984375	1	11	1.09985352	0	3294
-117	4	5.0 mg estrogen	52	alive	70	110	normal activity	1	16	8	old MI	15.8984375	4	10	2	0	3381
-118	4	1.0 mg estrogen	51	alive	73	106	normal activity	1	11	8	benign	11.1992188	10	13	1.19995117	1	3414
-119	4	5.0 mg estrogen	6	dead - prostatic ca	74	98	normal activity	1	13	6	rhythmic disturb & electrolyte ch	14	41	12	78.390625	1	3427
-120	4	1.0 mg estrogen	0	dead - prostatic ca	77	91	normal activity	1	12	7	heart strain	14.2988281	6	11	1.69995117	1	3434
-121	4	5.0 mg estrogen	26	dead - heart or vascular	85	85	normal activity	1	15	7	normal	14	12	12	25.8984375	0	3434
-122	3	placebo	65	dead - respiratory disease	72	79	normal activity	1	13	7	normal	12.2988281	16	9	0.799926758	0	2813
-123	3	placebo	52	dead - unspecified non-ca	74	106	normal activity	0	14	6	old MI	13.7988281	17	NA	0.199981689	0	2813
-124	3	0.2 mg estrogen	26	dead - prostatic ca	78	83	normal activity	0	13	7	normal	10.2988281	25	11	0.5	0	2852
-125	3	5.0 mg estrogen	70	alive	60	110	normal activity	0	14	10	heart strain	14.2988281	13	NA	0.5	0	2853
-126	3	placebo	6	dead - other ca	72	76	normal activity	0	11	9	benign	10	16	10	0.699951172	0	2868
-127	3	0.2 mg estrogen	6	dead - pulmonary embolus	68	124	normal activity	0	13	7	rhythmic disturb & electrolyte ch	14.5	17	9	1.79980469	0	2868
-128	3	1.0 mg estrogen	68	alive	71	93	normal activity	0	15	9	normal	14.5	19	9	0.299987793	0	2902
-129	3	5.0 mg estrogen	33	dead - heart or vascular	65	125	normal activity	0	17	9	old MI	15	19	8	0.799926758	0	2924
-130	3	0.2 mg estrogen	67	alive	67	96	normal activity	0	13	7	old MI	15.6992188	7	9	0.5	0	2954
-131	3	0.2 mg estrogen	58	dead - heart or vascular	76	94	normal activity	0	12	7	normal	14.1992188	NA	7	0.299987793	0	2985
-132	3	5.0 mg estrogen	23	dead - prostatic ca	74	98	normal activity	0	15	9	heart block or conduction def	14.1992188	3	12	4.09960938	0	2989
-133	3	5.0 mg estrogen	6	dead - other ca	78	91	normal activity	0	11	7	normal	11	4	9	0.299987793	0	3021
-134	3	1.0 mg estrogen	11	dead - heart or vascular	74	85	normal activity	0	14	8	benign	14	16	9	0.899902344	0	3052
-135	3	placebo	6	dead - prostatic ca	71	92	normal activity	0	13	7	heart block or conduction def	14	9	9	0.799926758	0	3079
-136	3	1.0 mg estrogen	57	alive	74	113	normal activity	0	14	7	rhythmic disturb & electrolyte ch	10.5	20	9	0.5	0	3240
-137	3	1.0 mg estrogen	57	alive	72	110	normal activity	0	17	10	heart strain	14.5	20	8	0.399963379	0	3246
-138	3	placebo	29	dead - heart or vascular	57	97	normal activity	0	14	8	heart strain	14.6992188	20	9	0.699951172	0	3311
-139	3	0.2 mg estrogen	9	dead - other ca	74	104	normal activity	0	14	7	normal	13.7988281	25	8	0.799926758	0	3325
-140	3	1.0 mg estrogen	53	alive	72	105	normal activity	0	12	6	rhythmic disturb & electrolyte ch	13.5996094	5	9	0.699951172	0	3372
-141	3	1.0 mg estrogen	51	alive	65	99	normal activity	0	13	8	normal	14.3984375	10	9	0.599975586	0	3423
-142	3	5.0 mg estrogen	8	dead - pulmonary embolus	83	115	normal activity	0	17	9	heart strain	16.6992188	25	9	0.599975586	0	3428
-143	4	placebo	0	dead - other specific non-ca	71	98	in bed > 50% daytime	1	18	9	heart strain	12.2988281	34	13	42.8984375	1	2768
-144	4	5.0 mg estrogen	21	dead - heart or vascular	73	103	normal activity	0	12	8	normal	12.7988281	21	11	2.79980469	0	2790
-145	4	0.2 mg estrogen	27	dead - prostatic ca	71	102	normal activity	0	14	7	normal	10.5	30	13	367	1	2889
-146	4	1.0 mg estrogen	22	dead - respiratory disease	75	124	normal activity	0	18	11	heart strain	15.5996094	22	11	7	0	2889
-147	4	1.0 mg estrogen	12	dead - prostatic ca	71	77	normal activity	0	10	6	rhythmic disturb & electrolyte ch	7	17	13	3.59960938	1	2895
-148	4	1.0 mg estrogen	68	alive	56	69	normal activity	0	13	8	normal	10.6992188	11	13	1.39990234	1	2902
-149	4	1.0 mg estrogen	21	dead - other specific non-ca	83	88	normal activity	0	13	7	normal	13.2988281	15	13	21.6992188	0	2910
-150	4	0.2 mg estrogen	68	alive	71	116	normal activity	0	15	8	heart strain	15	46	10	3.19970703	0	2916
-151	4	5.0 mg estrogen	0	dead - other specific non-ca	73	98	in bed < 50% daytime	1	15	8	rhythmic disturb & electrolyte ch	10.1992188	23	13	127.796875	0	2950
-152	4	5.0 mg estrogen	2	dead - prostatic ca	78	74	normal activity	0	12	9	heart strain	14	32	11	4.69921875	1	3021
-153	4	placebo	14	dead - prostatic ca	50	109	normal activity	0	12	8	normal	9.29882812	17	11	225.1875	1	3069
-154	4	placebo	18	dead - heart or vascular	73	101	normal activity	0	16	11	heart strain	14	9	11	2.69970703	0	3099
-155	4	5.0 mg estrogen	5	dead - prostatic ca	67	111	normal activity	0	12	9	old MI	9.59960938	17	11	7	1	3149
-156	4	1.0 mg estrogen	60	alive	72	96	normal activity	0	15	9	normal	15.2988281	2	15	43.59375	1	3155
-157	4	placebo	40	dead - cerebrovascular	72	96	normal activity	0	14	10	benign	10.5	26	12	29.8984375	1	3156
-158	4	placebo	31	dead - prostatic ca	68	98	normal activity	0	18	10	old MI	15	NA	13	1.69995117	0	3365
-159	4	0.2 mg estrogen	51	alive	78	116	normal activity	0	15	10	heart strain	15.6992188	6	13	1.09985352	0	3427
-160	3	placebo	50	dead - unknown cause	72	91	normal activity	1	19	9	heart strain	12	16	8	0.599975586	0	2896
-161	3	0.2 mg estrogen	46	dead - unknown cause	76	118	normal activity	1	18	8	heart strain	14.5	4	8	0.699951172	0	2925
-162	3	0.2 mg estrogen	65	alive	77	111	normal activity	0	19	9	heart block or conduction def	12.5	20	9	0.799926758	0	3009
-163	3	5.0 mg estrogen	9	dead - pulmonary embolus	70	127	normal activity	0	13	9	rhythmic disturb & electrolyte ch	11.7988281	14	8	0.199981689	0	3051
-164	3	0.2 mg estrogen	21	dead - other ca	74	96	normal activity	1	10	7	normal	10.1992188	18	9	0.899902344	0	3097
-165	3	0.2 mg estrogen	27	dead - unknown cause	71	92	normal activity	1	15	8	old MI	10.5996094	5	8	0.399963379	0	3181
-166	3	1.0 mg estrogen	54	alive	69	89	normal activity	1	12	7	normal	13.5	4	8	0.5	0	3346
-167	3	1.0 mg estrogen	52	alive	70	111	normal activity	1	18	8	rhythmic disturb & electrolyte ch	8.19921875	22	9	0.799926758	0	3384
-168	4	1.0 mg estrogen	75	alive	58	99	normal activity	0	19	12	heart strain	13.0996094	24	11	1.59985352	0	2691
-169	4	5.0 mg estrogen	75	alive	78	99	normal activity	0	14	7	normal	12.5996094	27	NA	4.59960938	1	2685
-170	4	1.0 mg estrogen	30	dead - heart or vascular	73	105	normal activity	1	14	6	old MI	13.7988281	9	15	5.09960938	0	2744
-171	4	5.0 mg estrogen	70	alive	69	108	normal activity	0	12	8	normal	12.1992188	23	11	2	0	2852
-172	4	1.0 mg estrogen	14	dead - other ca	73	94	normal activity	0	12	7	old MI	13.3984375	31	13	3.39990234	0	2863
-173	4	placebo	0	dead - other specific non-ca	73	93	normal activity	0	14	8	normal	7.79980469	23	15	1.19995117	0	3106
-174	4	5.0 mg estrogen	42	dead - heart or vascular	68	100	normal activity	0	17	10	heart strain	11.6992188	32	13	26.3984375	0	3112
-175	4	1.0 mg estrogen	12	dead - heart or vascular	75	88	normal activity	1	14	6	normal	13.3984375	31	13	21.5976562	1	3118
-176	4	placebo	40	dead - heart or vascular	68	104	normal activity	1	17	10	old MI	15	25	10	0.899902344	1	3122
-177	4	placebo	2	dead - prostatic ca	76	88	normal activity	1	16	7	normal	11.1992188	32	13	26.1992188	0	3125
-178	4	1.0 mg estrogen	12	dead - prostatic ca	76	87	in bed < 50% daytime	1	14	5	heart strain	11.6992188	28	14	42.796875	1	3225
-179	4	0.2 mg estrogen	53	alive	75	89	normal activity	1	14	8	normal	12.5996094	8	11	2	0	3355
-180	4	0.2 mg estrogen	11	dead - prostatic ca	59	116	normal activity	1	10	6	normal	12.7988281	6	11	2.39990234	0	3358
-181	3	5.0 mg estrogen	18	dead - heart or vascular	72	96	normal activity	0	11	8	normal	10.2988281	9	11	3.29980469	1	2734
-182	3	1.0 mg estrogen	13	dead - cerebrovascular	80	91	normal activity	0	15	8	rhythmic disturb & electrolyte ch	12.2988281	4	8	0.599975586	0	2805
-183	3	0.2 mg estrogen	45	dead - other specific non-ca	78	112	normal activity	1	16	8	normal	15	7	9	0.299987793	0	2839
-184	3	1.0 mg estrogen	8	dead - unknown cause	52	90	normal activity	1	13	8	heart strain	14.7988281	4	9	0.299987793	0	2841
-185	3	5.0 mg estrogen	28	dead - prostatic ca	75	87	normal activity	0	9	5	heart strain	12.6992188	8	8	1	0	2917
-186	3	5.0 mg estrogen	67	alive	67	109	normal activity	1	14	8	normal	14	3	9	0.799926758	0	2925
-187	3	0.2 mg estrogen	67	alive	74	103	normal activity	0	16	6	heart strain	13	4	9	0.399963379	0	2937
-188	3	placebo	24	dead - heart or vascular	79	107	in bed < 50% daytime	1	23	10	heart strain	11.5996094	2	9	0.199981689	0	2945
-189	3	0.2 mg estrogen	64	alive	73	96	normal activity	0	15	10	rhythmic disturb & electrolyte ch	12	4	9	0.5	0	3022
-190	3	1.0 mg estrogen	26	dead - heart or vascular	75	113	in bed > 50% daytime	0	12	7	heart strain	13.5	1	13	0.699951172	0	3036
-191	4	0.2 mg estrogen	57	dead - prostatic ca	72	88	normal activity	0	14	7	heart strain	12	7	12	59.3984375	0	2796
-192	4	0.2 mg estrogen	32	dead - prostatic ca	55	96	normal activity	1	15	9	heart strain	10.2988281	12	11	0.199981689	0	2810
-193	4	placebo	71	alive	68	NA	in bed < 50% daytime	1	16	9	normal	14.5996094	18	11	0.199981689	0	2812
-194	4	0.2 mg estrogen	42	dead - cerebrovascular	48	100	in bed < 50% daytime	1	14	10	heart strain	12.2988281	3	11	1.5	0	2812
-195	4	placebo	20	dead - heart or vascular	75	88	normal activity	1	9	5	heart strain	14	1	11	4.79980469	0	2817
-196	4	1.0 mg estrogen	71	alive	56	94	normal activity	0	12	8	normal	14.3984375	1	10	1.09985352	0	2818
-197	4	5.0 mg estrogen	54	dead - respiratory disease	70	86	normal activity	0	14	9	heart strain	14.3984375	4	11	1.19995117	0	3030
-198	4	5.0 mg estrogen	64	alive	54	89	normal activity	0	15	6	rhythmic disturb & electrolyte ch	14.7988281	8	13	1.19995117	1	3035
-199	4	5.0 mg estrogen	51	dead - heart or vascular	87	82	normal activity	0	14	7	normal	11	3	15	2.09960938	1	3035
-200	3	5.0 mg estrogen	1	dead - heart or vascular	73	94	normal activity	1	14	9	heart strain	13.2988281	22	8	0.799926758	0	2691
-201	3	placebo	2	dead - other specific non-ca	76	94	normal activity	0	16	10	normal	10.6992188	8	9	0.599975586	0	2708
-202	3	5.0 mg estrogen	0	dead - prostatic ca	68	106	normal activity	0	15	9	normal	10.6992188	69	13	0.899902344	0	2734
-203	3	placebo	54	dead - cerebrovascular	70	97	normal activity	1	17	10	rhythmic disturb & electrolyte ch	13.7988281	10	9	0.599975586	0	2734
-204	3	0.2 mg estrogen	69	alive	65	83	normal activity	0	12	6	normal	16	8	9	0.599975586	0	2877
-205	3	placebo	68	alive	79	95	normal activity	0	14	8	heart strain	13.3984375	11	9	0.399963379	0	2894
-206	3	placebo	67	alive	70	120	normal activity	0	19	11	normal	14.6992188	7	9	0.5	0	2931
-207	3	1.0 mg estrogen	66	alive	70	99	normal activity	0	12	8	normal	16	8	9	0.599975586	0	2978
-208	3	placebo	64	alive	59	90	normal activity	1	14	8	normal	10.3984375	2	9	0.299987793	0	3022
-209	3	0.2 mg estrogen	63	alive	72	73	in bed > 50% daytime	0	13	8	normal	14.1992188	11	8	0.599975586	0	3065
-210	3	1.0 mg estrogen	35	dead - cerebrovascular	76	88	normal activity	1	14	9	normal	15.1992188	4	5	0.599975586	0	3083
-211	3	5.0 mg estrogen	62	alive	78	123	normal activity	0	13	8	benign	16.796875	0	10	0.899902344	0	3093
-212	3	1.0 mg estrogen	7	dead - other specific non-ca	76	113	normal activity	1	14	6	heart strain	12.7988281	3	8	0.699951172	0	3119
-213	3	5.0 mg estrogen	35	dead - other specific non-ca	66	87	normal activity	0	14	9	normal	14.2988281	3	8	0.399963379	0	3134
-214	3	1.0 mg estrogen	24	dead - pulmonary embolus	69	91	normal activity	1	16	10	heart block or conduction def	15	11	8	0.299987793	0	3218
-215	3	5.0 mg estrogen	57	alive	71	88	normal activity	0	16	8	heart strain	15.3984375	3	9	0.5	0	3248
-216	3	0.2 mg estrogen	1	dead - other ca	75	120	normal activity	0	15	7	heart strain	15.0996094	4	8	0.599975586	0	3287
-217	3	0.2 mg estrogen	4	dead - heart or vascular	74	99	normal activity	1	17	9	rhythmic disturb & electrolyte ch	15.6992188	7	7	0.599975586	0	3330
-218	4	0.2 mg estrogen	74	dead - other ca	72	103	normal activity	0	15	9	heart block or conduction def	16.5	4	10	1	0	2699
-219	4	0.2 mg estrogen	0	dead - prostatic ca	78	96	in bed > 50% daytime	0	16	9	heart strain	10.0996094	54	12	4.59960938	1	2700
-220	4	0.2 mg estrogen	51	dead - heart or vascular	71	110	normal activity	0	14	9	old MI	13.3984375	6	10	0.699951172	1	2723
-221	4	5.0 mg estrogen	36	dead - heart or vascular	75	101	normal activity	1	16	10	heart strain	11	15	10	1.59985352	0	2754
-222	4	0.2 mg estrogen	16	dead - prostatic ca	73	89	in bed > 50% daytime	0	15	8	heart strain	7.19921875	14	11	20.3984375	1	2770
-223	4	1.0 mg estrogen	32	dead - prostatic ca	79	79	in bed > 50% daytime	0	15	7	benign	13.2988281	16	13	28.8984375	1	2832
-224	4	5.0 mg estrogen	68	alive	70	92	normal activity	0	16	8	normal	13.5	22	14	2.69970703	0	2897
-225	4	0.2 mg estrogen	17	dead - prostatic ca	73	76	normal activity	0	17	8	normal	13.3984375	50	13	8.8984375	0	2905
-226	4	placebo	66	alive	75	98	normal activity	1	14	8	normal	14.6992188	16	13	2.79980469	0	2973
-227	4	1.0 mg estrogen	65	alive	76	83	normal activity	0	12	6	rhythmic disturb & electrolyte ch	11.3984375	13	11	596	1	2995
-228	4	placebo	19	dead - prostatic ca	71	77	in bed < 50% daytime	0	17	7	old MI	11.7988281	61	15	4.29980469	1	3000
-229	4	1.0 mg estrogen	41	dead - prostatic ca	76	91	normal activity	0	17	8	normal	15.0996094	24	11	8.19921875	0	3003
-230	4	placebo	28	dead - heart or vascular	73	106	normal activity	1	16	9	normal	14.6992188	11	11	36.8984375	0	3017
-231	4	placebo	0	dead - heart or vascular	70	80	normal activity	1	10	8	heart strain	12.1992188	5	11	4.29980469	0	3023
-232	4	5.0 mg estrogen	46	dead - prostatic ca	72	100	normal activity	1	12	7	old MI	16	62	11	54.796875	1	3038
-233	4	5.0 mg estrogen	63	alive	74	101	normal activity	0	14	9	old MI	14.7988281	25	10	2.39990234	0	3066
-234	4	1.0 mg estrogen	60	alive	62	98	normal activity	0	12	8	heart strain	15.5996094	15	13	4.5	0	3139
-235	4	1.0 mg estrogen	59	alive	53	116	normal activity	0	13	8	normal	16.3984375	7	12	1	0	3184
-236	3	5.0 mg estrogen	46	dead - heart or vascular	54	91	normal activity	0	13	10	normal	13	15	9	0.699951172	0	2677
-237	3	1.0 mg estrogen	63	dead - prostatic ca	58	94	normal activity	1	16	10	heart block or conduction def	13.7988281	12	9	0.199981689	0	2677
-238	3	5.0 mg estrogen	8	dead - heart or vascular	78	99	normal activity	1	17	9	old MI	12	9	8	0.0999908447	0	2720
-239	3	1.0 mg estrogen	74	alive	77	100	normal activity	1	10	7	heart block or conduction def	12.3984375	25	9	0.399963379	0	2722
-240	3	placebo	18	dead - heart or vascular	61	152	normal activity	1	15	10	heart strain	14.0996094	18	7	0.199981689	0	2728
-241	3	placebo	33	dead - other specific non-ca	78	98	in bed < 50% daytime	1	13	7	heart strain	13.5996094	9	9	0.5	0	2811
-242	3	placebo	12	dead - heart or vascular	68	88	in bed < 50% daytime	1	24	12	heart strain	14.3984375	12	9	0.199981689	0	2824
-243	3	0.2 mg estrogen	1	dead - other specific non-ca	62	76	in bed < 50% daytime	0	10	6	NA	11.5996094	13	9	0.299987793	0	2826
-244	3	1.0 mg estrogen	66	alive	70	109	normal activity	0	15	10	normal	14.5	15	11	0.599975586	0	2981
-245	3	1.0 mg estrogen	28	dead - other ca	75	81	normal activity	0	16	10	normal	13.6992188	19	10	0.5	0	3090
-246	3	0.2 mg estrogen	30	dead - heart or vascular	80	91	normal activity	0	12	8	heart strain	10.7988281	22	11	0.899902344	0	3170
-247	3	0.2 mg estrogen	57	dead - other specific non-ca	76	99	normal activity	1	13	8	old MI	11.1992188	20	8	0.5	0	3183
-248	3	1.0 mg estrogen	50	dead - prostatic ca	68	102	normal activity	0	16	8	normal	12	20	11	0.699951172	0	3185
-249	3	placebo	39	dead - heart or vascular	73	81	normal activity	1	19	4	heart strain	12.5	18	11	0.299987793	0	3213
-250	3	placebo	40	dead - heart or vascular	79	96	normal activity	0	15	10	heart strain	14	16	6	0.299987793	0	3213
-251	3	0.2 mg estrogen	24	dead - cerebrovascular	78	81	normal activity	1	14	7	old MI	11	4	9	0.399963379	0	3381
-252	3	5.0 mg estrogen	6	dead - heart or vascular	79	94	normal activity	1	11	8	old MI	12.1992188	4	6	0.399963379	0	3441
-253	4	0.2 mg estrogen	30	dead - heart or vascular	72	90	in bed < 50% daytime	1	22	12	heart strain	12.2988281	15	14	0.5	1	2782
-254	4	0.2 mg estrogen	58	dead - prostatic ca	52	106	normal activity	1	11	7	normal	15	13	14	5.29980469	0	2807
-255	4	1.0 mg estrogen	68	alive	76	97	normal activity	1	15	10	heart strain	14.5996094	19	11	353.5	0	2908
-256	4	0.2 mg estrogen	24	dead - prostatic ca	74	85	normal activity	0	16	10	rhythmic disturb & electrolyte ch	10	19	13	13.8984375	1	2924
-257	4	placebo	33	dead - unspecified non-ca	71	86	normal activity	0	14	8	normal	10.1992188	8	11	0.399963379	1	2933
-258	4	5.0 mg estrogen	65	alive	72	96	normal activity	0	14	10	rhythmic disturb & electrolyte ch	12.2988281	17	12	20	0	3006
-259	4	5.0 mg estrogen	2	dead - pulmonary embolus	77	113	normal activity	0	15	8	normal	13.7988281	22	12	5.5	0	3006
-260	4	0.2 mg estrogen	64	alive	73	100	normal activity	1	16	10	heart strain	13.7988281	23	11	9.69921875	0	3023
-261	4	placebo	19	dead - prostatic ca	75	83	normal activity	0	12	7	rhythmic disturb & electrolyte ch	11.7988281	17	13	2.29980469	0	3077
-262	4	placebo	58	alive	73	NA	normal activity	0	13	7	old MI	13.2988281	20	13	1.09985352	0	3204
-263	4	5.0 mg estrogen	15	dead - prostatic ca	71	98	normal activity	0	15	10	heart strain	14.6992188	12	11	43.09375	1	3364
-264	4	0.2 mg estrogen	10	dead - prostatic ca	76	94	normal activity	1	16	9	normal	10.5	20	12	33.59375	0	3367
-265	4	5.0 mg estrogen	12	dead - prostatic ca	49	90	in bed < 50% daytime	0	14	8	heart strain	14.0996094	21	15	5.59960938	1	3367
-266	4	5.0 mg estrogen	53	alive	74	91	in bed > 50% daytime	1	13	7	rhythmic disturb & electrolyte ch	13.3984375	17	11	278.25	1	3373
-267	4	1.0 mg estrogen	51	alive	59	97	normal activity	0	13	6	normal	14.0996094	17	13	2.19970703	0	3412
-268	4	1.0 mg estrogen	1	dead - heart or vascular	79	116	normal activity	1	15	9	rhythmic disturb & electrolyte ch	12.5996094	23	11	3.79980469	0	3436
-269	3	1.0 mg estrogen	40	dead - prostatic ca	78	113	normal activity	0	20	10	NA	13.1992188	36	11	0.599975586	0	2849
-270	3	placebo	40	dead - prostatic ca	78	110	normal activity	0	14	8	NA	14.7988281	15	9	0.299987793	0	2953
-271	3	1.0 mg estrogen	66	alive	79	96	normal activity	0	14	8	NA	14.7988281	19	8	0.399963379	0	2960
-272	3	0.2 mg estrogen	2	dead - pulmonary embolus	72	82	normal activity	0	13	7	heart strain	9.3984375	33	11	0.599975586	0	2971
-273	3	0.2 mg estrogen	21	dead - prostatic ca	58	136	in bed < 50% daytime	1	14	8	benign	10.5	30	12	0.699951172	0	3020
-274	3	5.0 mg estrogen	35	dead - prostatic ca	73	101	normal activity	0	12	6	normal	12.7988281	46	11	0.599975586	0	3023
-275	3	placebo	29	dead - prostatic ca	75	113	normal activity	1	19	8	old MI	10.8984375	21	11	0.399963379	0	3188
-276	3	5.0 mg estrogen	54	dead - prostatic ca	78	107	normal activity	0	14	9	normal	12.7988281	42	11	29.6992188	0	3265
-277	3	5.0 mg estrogen	37	dead - heart or vascular	60	94	normal activity	0	15	9	normal	13	10	9	0.399963379	0	3307
-278	3	0.2 mg estrogen	10	dead - other ca	72	83	normal activity	0	11	7	normal	13.7988281	15	9	0.399963379	0	3353
-279	4	5.0 mg estrogen	29	dead - prostatic ca	59	99	confined to bed	0	13	8	normal	12.6992188	17	13	999.875	1	2673
-280	4	1.0 mg estrogen	71	alive	84	107	normal activity	0	14	7	NA	13	15	11	37.8984375	1	2826
-281	4	placebo	12	dead - prostatic ca	74	107	normal activity	1	15	8	normal	14.5996094	18	11	8.3984375	0	2826
-282	4	0.2 mg estrogen	13	dead - prostatic ca	76	97	normal activity	0	14	8	normal	13.6992188	36	15	15.5	0	2848
-283	4	placebo	27	dead - prostatic ca	80	135	normal activity	1	11	7	old MI	12.8984375	17	11	3.79980469	0	2894
-284	4	0.2 mg estrogen	66	dead - prostatic ca	72	123	normal activity	1	15	8	rhythmic disturb & electrolyte ch	15.7988281	0	13	1.79980469	0	2868
-285	4	placebo	28	dead - prostatic ca	59	100	normal activity	0	14	8	NA	15.7988281	21	11	5.29980469	0	2981
-286	4	1.0 mg estrogen	31	dead - prostatic ca	74	111	normal activity	0	13	8	normal	15.1992188	25	13	4.19921875	0	3015
-287	4	1.0 mg estrogen	12	dead - prostatic ca	65	102	normal activity	0	15	9	normal	15.5	19	11	2.19970703	0	3063
-288	4	placebo	9	dead - heart or vascular	71	119	normal activity	0	19	10	heart strain	13.5996094	24	13	25.5976562	1	3063
-289	4	0.2 mg estrogen	21	dead - prostatic ca	76	94	normal activity	0	14	6	normal	10.5996094	24	11	10.8984375	1	3212
-290	4	5.0 mg estrogen	19	dead - prostatic ca	74	74	confined to bed	0	14	5	heart block or conduction def	11.1992188	2	11	3.69970703	1	3253
-291	4	1.0 mg estrogen	51	alive	75	114	normal activity	0	18	7	old MI	13.7988281	22	11	2.29980469	0	3430
-292	3	placebo	71	dead - prostatic ca	73	134	in bed < 50% daytime	1	22	10	heart strain	14	22	11	0.599975586	0	2652
-293	3	1.0 mg estrogen	76	alive	74	99	normal activity	1	17	7	normal	11.0996094	12	11	0.399963379	0	2658
-294	3	5.0 mg estrogen	46	dead - prostatic ca	72	112	in bed < 50% daytime	1	16	8	normal	13	30	11	0.599975586	0	2667
-295	3	0.2 mg estrogen	47	dead - other ca	75	107	normal activity	1	15	9	heart strain	16.1992188	7	9	1.09985352	0	2681
-296	3	0.2 mg estrogen	75	alive	70	99	in bed < 50% daytime	0	12	7	normal	13.8984375	7	9	0.899902344	0	2681
-297	3	5.0 mg estrogen	75	alive	61	94	normal activity	0	12	7	heart strain	12	4	9	0.799926758	0	2681
-298	3	1.0 mg estrogen	49	dead - heart or vascular	71	94	normal activity	1	16	7	heart strain	15.5996094	9	9	0.299987793	0	2681
-299	3	5.0 mg estrogen	75	alive	57	84	normal activity	0	12	8	normal	13.8984375	6	8	0.5	0	2686
-300	3	5.0 mg estrogen	75	alive	65	111	normal activity	0	14	8	old MI	13.6992188	15	9	0.799926758	0	2691
-301	3	placebo	31	dead - heart or vascular	78	96	in bed < 50% daytime	1	17	11	normal	14.8984375	2	10	0.199981689	0	2707
-302	3	placebo	69	dead - prostatic ca	60	122	normal activity	0	13	9	normal	16.0976562	26	9	0.5	0	2712
-303	3	0.2 mg estrogen	74	alive	72	102	normal activity	0	16	8	normal	14	23	7	0.299987793	0	2730
-304	3	1.0 mg estrogen	25	dead - other specific non-ca	81	102	in bed < 50% daytime	0	15	8	old MI	12.7988281	4	8	0.5	0	2747
-305	3	5.0 mg estrogen	72	alive	70	87	normal activity	0	15	8	normal	14.5996094	5	10	0.299987793	0	2783
-306	3	0.2 mg estrogen	28	dead - other specific non-ca	62	88	normal activity	1	12	7	recent MI	13.5	10	8	0.299987793	0	2789
-307	3	1.0 mg estrogen	36	dead - other specific non-ca	68	98	normal activity	0	16	7	rhythmic disturb & electrolyte ch	13.2988281	40	9	0.399963379	0	2793
-308	3	placebo	8	dead - prostatic ca	74	97	normal activity	0	14	8	heart strain	13.5996094	14	8	0.5	0	2799
-309	3	0.2 mg estrogen	71	alive	65	117	normal activity	1	15	8	normal	16.5	9	9	0.799926758	0	2827
-310	3	placebo	60	dead - cerebrovascular	74	95	normal activity	1	18	9	normal	9.79882812	2	8	0.699951172	0	2839
-311	3	1.0 mg estrogen	14	dead - pulmonary embolus	76	99	normal activity	1	15	9	heart strain	12	9	11	0.799926758	0	2859
-312	3	0.2 mg estrogen	22	dead - other specific non-ca	70	78	normal activity	0	14	7	rhythmic disturb & electrolyte ch	14.8984375	9	11	0.199981689	0	2889
-313	3	5.0 mg estrogen	67	dead - unspecified non-ca	73	105	normal activity	0	13	6	rhythmic disturb & electrolyte ch	14.8984375	39	9	0.5	0	2894
-314	3	placebo	62	dead - heart or vascular	71	107	normal activity	1	18	10	heart strain	14.5	9	8	0.299987793	0	2905
-315	3	5.0 mg estrogen	68	alive	73	118	normal activity	0	17	9	heart block or conduction def	13.3984375	4	9	0.699951172	0	2905
-316	3	placebo	68	alive	71	108	normal activity	0	16	12	heart strain	14.0996094	7	9	0.399963379	0	2910
-317	3	1.0 mg estrogen	27	dead - cerebrovascular	75	145	normal activity	0	13	8	benign	15.3984375	4	9	0.5	0	2912
-318	3	0.2 mg estrogen	68	alive	70	98	normal activity	0	11	7	heart strain	14.1992188	19	10	0.5	0	2919
-319	3	1.0 mg estrogen	68	alive	77	98	normal activity	0	12	6	old MI	15.5	9	9	0.399963379	0	2919
-320	3	placebo	67	alive	71	87	normal activity	0	15	8	normal	15.5996094	8	8	0.599975586	0	2925
-321	3	placebo	67	alive	75	101	normal activity	0	14	7	heart block or conduction def	13.5	18	7	0.5	0	2925
-322	3	0.2 mg estrogen	3	dead - heart or vascular	74	105	normal activity	1	16	7	heart strain	14.0996094	10	11	0.299987793	0	2925
-323	3	5.0 mg estrogen	49	dead - heart or vascular	72	100	normal activity	0	11	6	heart strain	15	8	11	0.299987793	0	2936
-324	3	5.0 mg estrogen	12	dead - respiratory disease	89	92	normal activity	1	13	6	old MI	13.5996094	8	9	0.699951172	0	2937
-325	3	0.2 mg estrogen	30	dead - respiratory disease	75	96	normal activity	0	12	6	heart strain	14.2988281	10	12	0.699951172	0	2937
-326	3	1.0 mg estrogen	67	alive	71	101	normal activity	0	14	8	heart strain	14.6992188	3	11	0.5	0	2947
-327	3	1.0 mg estrogen	5	dead - other ca	80	95	normal activity	1	16	10	heart strain	14.5	7	9	0.899902344	0	2952
-328	3	1.0 mg estrogen	65	dead - other ca	51	96	normal activity	0	13	8	normal	11.7988281	2	6	0.599975586	0	2964
-329	3	placebo	24	dead - other specific non-ca	71	81	normal activity	0	9	4	normal	13.6992188	10	9	0.399963379	0	2965
-330	3	0.2 mg estrogen	66	alive	72	95	normal activity	1	10	5	normal	14	8	8	0.699951172	0	2971
-331	3	5.0 mg estrogen	36	dead - heart or vascular	70	91	normal activity	1	16	9	heart block or conduction def	15.8984375	7	9	1	0	2974
-332	3	placebo	66	alive	55	103	normal activity	0	16	10	old MI	16.6992188	2	8	0.799926758	0	2978
-333	3	0.2 mg estrogen	40	dead - cerebrovascular	76	104	normal activity	1	15	7	heart strain	14.5996094	3	9	0.5	0	2978
-334	3	0.2 mg estrogen	13	dead - other specific non-ca	68	97	normal activity	0	17	9	heart strain	9.5	11	8	0.5	0	2978
-335	3	5.0 mg estrogen	40	dead - cerebrovascular	75	81	normal activity	1	12	8	old MI	15.5	14	8	0.399963379	0	3001
-336	3	0.2 mg estrogen	65	alive	52	101	normal activity	1	15	10	heart strain	14	4	NA	0.599975586	0	3007
-337	3	0.2 mg estrogen	0	dead - other specific non-ca	75	91	normal activity	0	20	10	heart strain	11.7988281	3	11	0.199981689	0	3013
-338	3	1.0 mg estrogen	14	dead - heart or vascular	75	94	normal activity	1	11	7	heart strain	17.5	15	9	0.799926758	0	3023
-339	3	1.0 mg estrogen	45	dead - cerebrovascular	72	77	normal activity	0	13	7	normal	11	4	8	0.5	0	3023
-340	3	1.0 mg estrogen	64	alive	74	118	normal activity	0	14	8	normal	14.1992188	4	6	0.599975586	0	3023
-341	3	1.0 mg estrogen	13	dead - respiratory disease	75	91	normal activity	0	13	7	rhythmic disturb & electrolyte ch	12.0996094	5	8	0.5	0	3023
-342	3	placebo	24	dead - other ca	75	79	normal activity	1	13	9	old MI	10.8984375	8	8	0.399963379	0	3030
-343	3	placebo	15	dead - heart or vascular	71	96	normal activity	1	12	8	heart strain	17.296875	5	11	0.799926758	0	3048
-344	3	placebo	26	dead - heart or vascular	76	102	normal activity	1	15	9	heart strain	11.1992188	10	8	0.5	0	3051
-345	3	1.0 mg estrogen	5	dead - prostatic ca	70	83	normal activity	0	14	7	old MI	11.6992188	33	13	0.299987793	0	3051
-346	3	0.2 mg estrogen	63	alive	73	129	normal activity	1	21	11	heart strain	16.6992188	10	8	0.699951172	0	3055
-347	3	5.0 mg estrogen	35	dead - heart or vascular	70	107	normal activity	1	13	8	old MI	16.0976562	7	11	0.799926758	0	3111
-348	3	placebo	61	alive	75	93	normal activity	0	13	8	normal	13.6992188	10	12	0.0999908447	0	3111
-349	3	5.0 mg estrogen	61	alive	70	127	normal activity	0	14	7	normal	16.1992188	8	9	0.599975586	0	3122
-350	3	5.0 mg estrogen	50	dead - unknown cause	74	97	normal activity	1	13	7	normal	12.2988281	1	8	0.399963379	0	3127
-351	3	5.0 mg estrogen	57	dead - heart or vascular	72	109	normal activity	0	16	10	normal	17.5	8	9	0.699951172	0	3134
-352	3	5.0 mg estrogen	21	dead - cerebrovascular	62	109	normal activity	1	16	8	heart strain	16.3984375	15	9	0.699951172	0	3140
-353	3	placebo	26	dead - prostatic ca	72	111	normal activity	0	14	8	normal	15.2988281	37	11	0.5	0	3140
-354	3	placebo	11	dead - respiratory disease	77	74	normal activity	0	12	6	rhythmic disturb & electrolyte ch	12.3984375	45	11	0.5	0	3140
-355	3	1.0 mg estrogen	59	alive	52	90	normal activity	0	12	7	heart strain	11.8984375	5	8	0.5	0	3188
-356	3	placebo	42	dead - prostatic ca	57	89	normal activity	0	12	6	normal	13.8984375	24	12	0.5	0	3190
-357	3	1.0 mg estrogen	27	dead - cerebrovascular	80	90	normal activity	1	14	8	heart strain	14.2988281	9	8	0.599975586	0	3195
-358	3	0.2 mg estrogen	50	dead - heart or vascular	62	85	normal activity	1	11	7	normal	13.6992188	6	9	0.299987793	0	3253
-359	3	1.0 mg estrogen	57	alive	72	101	normal activity	0	13	8	normal	14.5996094	8	10	0.5	0	3253
-360	3	1.0 mg estrogen	57	alive	72	116	normal activity	0	14	8	heart strain	15.1992188	11	9	0.799926758	0	3253
-361	3	placebo	0	dead - heart or vascular	77	91	normal activity	1	14	10	old MI	14.5	5	9	0.5	0	3272
-362	3	0.2 mg estrogen	1	dead - heart or vascular	72	134	normal activity	1	15	8	heart strain	14.7988281	23	9	0.699951172	0	3275
-363	3	1.0 mg estrogen	54	alive	73	100	normal activity	0	18	10	old MI	11.6992188	8	9	0.699951172	0	3346
-364	3	0.2 mg estrogen	53	dead - prostatic ca	74	98	normal activity	1	16	8	old MI	13.7988281	11	8	1	0	3358
-365	3	0.2 mg estrogen	23	dead - heart or vascular	74	82	normal activity	1	17	4	old MI	10.8984375	8	8	0.399963379	0	3359
-366	3	5.0 mg estrogen	8	dead - heart or vascular	72	110	normal activity	0	15	8	normal	13.0996094	4	9	0.799926758	0	3370
-367	3	5.0 mg estrogen	51	dead - pulmonary embolus	76	85	normal activity	1	14	8	old MI	15.8984375	25	9	0.899902344	0	3374
-368	3	placebo	27	dead - other specific non-ca	78	111	normal activity	1	15	7	heart strain	12.2988281	7	9	0.5	0	3380
-369	3	5.0 mg estrogen	52	alive	83	88	normal activity	1	16	8	old MI	10	1	7	0.599975586	0	3384
-370	3	0.2 mg estrogen	52	alive	80	99	normal activity	1	13	7	heart strain	13	6	9	0.5	0	3402
-371	3	5.0 mg estrogen	52	alive	76	90	normal activity	0	15	8	heart block or conduction def	13.2988281	52	13	0.399963379	0	3407
-372	3	placebo	45	dead - cerebrovascular	79	126	normal activity	0	13	8	old MI	15.3984375	7	11	0.699951172	0	3407
-373	3	0.2 mg estrogen	48	dead - other specific non-ca	76	116	normal activity	1	13	8	heart strain	16.8984375	2	9	0.399963379	0	3423
-374	3	placebo	18	dead - prostatic ca	71	110	normal activity	1	14	8	heart strain	13	7	11	0.299987793	0	3427
-375	4	placebo	2	dead - other specific non-ca	61	95	normal activity	0	12	8	heart strain	11.5	37	12	25.5976562	1	2652
-376	4	5.0 mg estrogen	2	dead - heart or vascular	77	96	in bed < 50% daytime	1	14	7	heart strain	11.8984375	36	10	0.899902344	1	2670
-377	4	1.0 mg estrogen	35	dead - cerebrovascular	76	82	normal activity	0	10	6	heart strain	10.2988281	10	13	9.29882812	1	2686
-378	4	1.0 mg estrogen	75	alive	71	106	normal activity	0	15	8	normal	14.0996094	26	13	10	0	2695
-379	4	placebo	75	alive	77	87	normal activity	0	11	6	benign	12.5	5	11	2.19970703	0	2707
-380	4	placebo	9	dead - pulmonary embolus	78	89	normal activity	1	18	8	rhythmic disturb & electrolyte ch	14.2988281	39	13	25.296875	1	2729
-381	4	1.0 mg estrogen	39	dead - prostatic ca	58	92	normal activity	0	12	8	heart strain	13.6992188	5	11	10.7988281	1	2772
-382	4	5.0 mg estrogen	0	dead - heart or vascular	74	113	normal activity	1	11	8	heart strain	14.1992188	41	13	2.29980469	0	2772
-383	4	placebo	26	dead - cerebrovascular	75	116	normal activity	1	18	9	rhythmic disturb & electrolyte ch	16	26	11	0.5	1	2835
-384	4	placebo	17	dead - pulmonary embolus	62	102	normal activity	0	18	11	old MI	14.5996094	16	13	10.0996094	0	2854
-385	4	0.2 mg estrogen	43	dead - respiratory disease	80	92	normal activity	0	15	9	heart strain	13.0996094	0	13	1.09985352	0	2887
-386	4	5.0 mg estrogen	53	dead - prostatic ca	61	79	in bed < 50% daytime	0	13	8	normal	10.2988281	14	11	4	0	2894
-387	4	1.0 mg estrogen	47	dead - cerebrovascular	76	98	normal activity	1	17	9	old MI	13.3984375	19	11	3.79980469	0	2919
-388	4	0.2 mg estrogen	11	dead - prostatic ca	79	99	in bed < 50% daytime	0	16	8	heart strain	9.09960938	38	13	31.3984375	1	3009
-389	4	0.2 mg estrogen	65	alive	66	116	normal activity	0	12	8	normal	14.8984375	18	12	58.09375	0	3009
-390	4	1.0 mg estrogen	16	dead - prostatic ca	61	83	normal activity	1	12	6	rhythmic disturb & electrolyte ch	13.5996094	4	15	38.5	1	3010
-391	4	5.0 mg estrogen	21	dead - unspecified non-ca	79	99	normal activity	0	17	9	heart strain	16.0976562	4	13	6.09960938	0	3010
-392	4	0.2 mg estrogen	64	alive	70	99	normal activity	1	13	7	normal	14.1992188	11	11	1.09985352	0	3035
-393	4	0.2 mg estrogen	7	dead - prostatic ca	73	105	normal activity	1	15	7	heart block or conduction def	15.5996094	10	9	1.09985352	0	3111
-394	4	5.0 mg estrogen	38	dead - prostatic ca	72	90	normal activity	0	11	8	heart strain	14.7988281	11	15	1.5	0	3115
-395	4	1.0 mg estrogen	55	dead - prostatic ca	81	98	normal activity	1	13	6	normal	11.1992188	38	12	8.69921875	1	3097
-396	4	placebo	5	dead - respiratory disease	77	92	normal activity	0	15	9	heart strain	11.5	6	10	0.599975586	0	3097
-397	4	0.2 mg estrogen	28	dead - prostatic ca	76	76	normal activity	0	11	6	heart strain	14.7988281	29	13	1.79980469	0	3143
-398	4	placebo	38	dead - prostatic ca	75	113	normal activity	1	10	6	rhythmic disturb & electrolyte ch	13.2988281	9	13	0.399963379	1	3150
-399	4	0.2 mg estrogen	20	dead - prostatic ca	72	79	normal activity	0	14	7	normal	12.1992188	24	11	7.19921875	1	3150
-400	4	5.0 mg estrogen	24	dead - prostatic ca	74	108	normal activity	0	16	9	normal	12.5996094	12	13	1.09985352	0	3155
-401	4	5.0 mg estrogen	27	dead - prostatic ca	70	85	normal activity	0	16	8	rhythmic disturb & electrolyte ch	16.3984375	9	13	1.79980469	0	3157
-402	4	1.0 mg estrogen	31	dead - prostatic ca	61	91	normal activity	1	14	8	benign	10.6992188	25	13	152.1875	1	3195
-403	4	placebo	9	dead - prostatic ca	77	116	normal activity	1	14	8	rhythmic disturb & electrolyte ch	15.1992188	7	13	47	0	3196
-404	4	1.0 mg estrogen	9	dead - prostatic ca	60	73	normal activity	0	11	8	NA	14.0996094	46	13	17	1	3204
-405	4	1.0 mg estrogen	11	dead - unspecified non-ca	72	86	in bed < 50% daytime	0	12	7	rhythmic disturb & electrolyte ch	14	50	15	1.09985352	0	3238
-406	4	5.0 mg estrogen	56	dead - prostatic ca	64	104	normal activity	0	17	7	normal	12	43	13	2.39990234	1	3253
-407	4	placebo	36	dead - prostatic ca	78	95	normal activity	0	15	9	heart strain	13.7988281	55	10	3.19970703	0	3261
-408	4	0.2 mg estrogen	56	alive	74	108	normal activity	1	14	8	old MI	10.5996094	4	15	1.09985352	0	3272
-409	4	5.0 mg estrogen	15	dead - other ca	73	83	normal activity	1	12	7	heart strain	11.1992188	0	11	4.19921875	0	3272
-410	4	5.0 mg estrogen	51	alive	71	104	normal activity	0	15	7	heart block or conduction def	16	26	11	0.799926758	1	3429
-411	3	placebo	33	dead - cerebrovascular	75	113	normal activity	1	17	9	heart strain	13.7988281	9	9	0.699951172	0	2824
-412	3	1.0 mg estrogen	70	alive	72	105	normal activity	0	13	8	normal	13.7988281	3	9	0.799926758	0	2838
-413	3	5.0 mg estrogen	32	dead - heart or vascular	68	89	normal activity	1	19	10	heart strain	13.7988281	3	9	0.599975586	0	2895
-414	3	1.0 mg estrogen	5	dead - other ca	74	91	normal activity	0	15	8	normal	15.0996094	3	9	0.399963379	0	2965
-415	3	5.0 mg estrogen	23	dead - heart or vascular	72	93	normal activity	1	16	8	heart strain	16.5976562	4	9	0.199981689	0	3000
-416	3	placebo	63	alive	79	110	normal activity	0	15	9	old MI	16.8984375	2	9	0.699951172	0	3056
-417	3	0.2 mg estrogen	30	dead - prostatic ca	62	104	normal activity	1	12	8	heart strain	16	32	11	0.399963379	0	3078
-418	3	0.2 mg estrogen	12	dead - prostatic ca	69	92	normal activity	1	17	7	old MI	15.5	22	NA	0.899902344	0	3083
-419	3	placebo	53	dead - heart or vascular	62	119	normal activity	0	19	11	heart strain	16.3984375	14	9	0.5	0	3113
-420	3	placebo	12	dead - heart or vascular	72	128	normal activity	0	15	8	heart strain	16.3984375	15	9	0.599975586	0	3176
-421	3	placebo	58	alive	72	109	normal activity	0	13	8	heart strain	13.2988281	12	9	0.599975586	0	3203
-422	3	1.0 mg estrogen	54	alive	51	112	normal activity	0	13	9	normal	15.7988281	7	8	0.799926758	0	3322
-423	3	placebo	36	dead - prostatic ca	72	104	normal activity	0	18	10	normal	16.3984375	4	9	0.599975586	0	3337
-424	3	0.2 mg estrogen	20	dead - respiratory disease	81	104	normal activity	0	15	8	normal	16.8984375	16	13	0.799926758	0	3364
-425	4	5.0 mg estrogen	74	alive	71	81	normal activity	0	11	7	old MI	13.0996094	29	11	11.7988281	0	2714
-426	4	placebo	34	dead - prostatic ca	77	103	normal activity	0	14	7	rhythmic disturb & electrolyte ch	14.2988281	35	11	1.29980469	0	2726
-427	4	0.2 mg estrogen	70	alive	73	114	normal activity	1	14	8	normal	14.6992188	26	11	0.5	0	2832
-428	4	placebo	25	dead - prostatic ca	56	100	normal activity	0	17	8	heart strain	13.7988281	30	11	50.59375	1	2973
-429	4	0.2 mg estrogen	65	alive	77	107	normal activity	0	14	9	heart strain	14.6992188	1	13	1.59985352	0	2987
-430	4	placebo	4	dead - prostatic ca	78	104	normal activity	0	16	9	heart block or conduction def	12.6992188	27	11	22.5976562	0	3022
-431	4	1.0 mg estrogen	10	dead - prostatic ca	76	96	normal activity	0	12	7	old MI	13.7988281	34	11	36	1	3119
-432	4	1.0 mg estrogen	58	alive	68	79	normal activity	0	18	9	rhythmic disturb & electrolyte ch	13.3984375	9	11	1.19995117	0	3205
-433	4	placebo	37	dead - prostatic ca	73	90	normal activity	0	14	9	benign	9.3984375	21	13	5.09960938	0	3223
-434	4	5.0 mg estrogen	56	alive	56	135	normal activity	0	16	9	normal	14.6992188	10	10	3.19970703	0	3279
-435	4	1.0 mg estrogen	6	dead - prostatic ca	74	112	normal activity	1	20	10	heart strain	13.0996094	9	11	21.296875	1	3392
-436	3	5.0 mg estrogen	54	dead - prostatic ca	76	84	normal activity	1	15	8	normal	12.5996094	19	NA	0.399963379	0	2720
-437	3	5.0 mg estrogen	0	dead - heart or vascular	69	113	normal activity	1	13	8	normal	11.2988281	1	9	0.0999908447	0	2813
-438	3	1.0 mg estrogen	70	alive	73	84	normal activity	1	10	6	benign	15.5996094	1	9	0.5	0	2853
-439	3	1.0 mg estrogen	70	alive	71	105	normal activity	0	12	8	normal	13.5996094	2	10	0.199981689	0	2859
-440	3	0.2 mg estrogen	28	dead - heart or vascular	75	97	normal activity	1	14	8	old MI	10.7988281	2	9	0.199981689	0	2875
-441	3	1.0 mg estrogen	40	dead - heart or vascular	69	85	normal activity	0	15	7	old MI	5.89941406	2	9	0.299987793	0	2917
-442	3	1.0 mg estrogen	67	alive	73	95	normal activity	0	11	7	normal	13.7988281	7	8	0.399963379	0	2943
-443	3	0.2 mg estrogen	36	dead - respiratory disease	59	81	normal activity	0	15	10	normal	16	2	9	0.399963379	0	3076
-444	3	placebo	23	dead - respiratory disease	68	93	normal activity	0	13	7	normal	12.5	2	8	0.899902344	0	3076
-445	3	placebo	23	dead - heart or vascular	78	115	normal activity	1	14	7	heart block or conduction def	13	2	8	0.0999908447	0	3076
-446	3	placebo	62	alive	63	95	normal activity	0	12	9	normal	13.1992188	3	8	0.299987793	0	3076
-447	3	0.2 mg estrogen	62	alive	74	85	normal activity	0	12	9	heart block or conduction def	14.0996094	2	9	0.399963379	0	3087
-448	3	placebo	62	alive	72	103	normal activity	0	16	7	heart strain	14.2988281	0	5	0.399963379	0	3100
-449	3	5.0 mg estrogen	2	dead - heart or vascular	78	103	normal activity	0	11	7	old MI	11.1992188	0	6	0.599975586	0	3140
-450	3	0.2 mg estrogen	34	dead - prostatic ca	70	85	normal activity	0	14	9	benign	14.8984375	2	12	0.599975586	0	3170
-451	3	1.0 mg estrogen	4	dead - heart or vascular	72	101	normal activity	0	14	10	rhythmic disturb & electrolyte ch	16.3984375	1	9	0.799926758	0	3205
-452	3	0.2 mg estrogen	12	dead - prostatic ca	76	103	normal activity	1	13	7	old MI	12.5	4	8	0.5	0	3213
-453	3	placebo	56	alive	66	106	normal activity	0	12	9	old MI	15.5	4	9	0.5	0	3260
-454	3	5.0 mg estrogen	1	dead - heart or vascular	88	99	normal activity	1	13	6	old MI	14.0996094	17	9	0.699951172	0	3275
-455	3	5.0 mg estrogen	7	dead - other specific non-ca	78	88	normal activity	1	11	6	old MI	10.8984375	5	9	0.299987793	0	3413
-456	4	placebo	4	dead - prostatic ca	79	105	normal activity	0	12	7	normal	12.1992188	5	12	3	0	2740
-457	4	placebo	70	alive	77	106	normal activity	1	15	8	rhythmic disturb & electrolyte ch	16	1	9	2.19970703	0	2841
-458	4	5.0 mg estrogen	65	alive	71	101	normal activity	0	12	7	normal	12.6992188	2	10	1.5	0	3006
-459	4	0.2 mg estrogen	7	dead - prostatic ca	74	91	normal activity	1	15	8	normal	12.5996094	8	13	11.2988281	0	3100
-460	4	1.0 mg estrogen	30	dead - heart or vascular	75	124	normal activity	0	15	10	rhythmic disturb & electrolyte ch	13.1992188	3	13	1.69995117	0	3132
-461	4	0.2 mg estrogen	40	dead - heart or vascular	77	90	normal activity	1	10	6	heart block or conduction def	14.6992188	2	12	8.19921875	0	3176
-462	4	placebo	13	dead - heart or vascular	75	74	normal activity	1	15	9	normal	15.7988281	4	11	1.09985352	0	3275
-463	4	0.2 mg estrogen	22	dead - prostatic ca	64	110	normal activity	0	16	10	rhythmic disturb & electrolyte ch	9.29882812	6	11	6.29980469	1	3332
-464	4	1.0 mg estrogen	0	dead - heart or vascular	79	89	normal activity	0	17	10	heart block or conduction def	10.2988281	19	13	2	1	3332
-465	4	placebo	18	dead - prostatic ca	60	134	in bed > 50% daytime	1	16	8	old MI	14.0996094	9	13	1.19995117	0	3367
-466	3	0.2 mg estrogen	64	dead - unknown cause	70	107	normal activity	0	14	9	heart strain	14.0996094	8	9	0.199981689	0	2806
-467	3	5.0 mg estrogen	13	dead - heart or vascular	73	111	normal activity	1	15	8	heart strain	17	4	9	0.699951172	0	2856
-468	3	placebo	26	dead - prostatic ca	61	109	normal activity	0	14	9	rhythmic disturb & electrolyte ch	14.2988281	3	11	0.399963379	0	2898
-469	3	5.0 mg estrogen	1	dead - pulmonary embolus	79	97	in bed < 50% daytime	1	16	8	heart strain	13.5996094	3	9	0.599975586	0	2943
-470	3	placebo	16	dead - heart or vascular	78	88	normal activity	0	12	7	NA	11.3984375	4	9	0.399963379	0	2985
-472	3	0.2 mg estrogen	33	dead - heart or vascular	72	106	normal activity	1	13	8	old MI	16.5	17	11	0.599975586	0	3267
-474	3	placebo	16	dead - heart or vascular	76	90	normal activity	0	13	8	rhythmic disturb & electrolyte ch	12	5	NA	1.09985352	0	3336
-476	4	0.2 mg estrogen	22	dead - prostatic ca	51	100	normal activity	0	16	9	normal	14.5996094	5	13	0.599975586	0	2698
-477	4	0.2 mg estrogen	30	dead - prostatic ca	59	87	normal activity	1	15	9	normal	15.0996094	32	13	3	0	2713
-478	4	5.0 mg estrogen	53	dead - cerebrovascular	73	91	normal activity	1	16	9	rhythmic disturb & electrolyte ch	14.5996094	4	10	3.19970703	0	2761
-479	4	0.2 mg estrogen	53	dead - prostatic ca	74	90	normal activity	1	13	7	rhythmic disturb & electrolyte ch	11.7988281	5	13	1.29980469	0	2806
-480	4	placebo	7	dead - prostatic ca	77	93	in bed > 50% daytime	1	14	9	old MI	11.7988281	43	11	43	1	2806
-481	4	0.2 mg estrogen	61	dead - prostatic ca	74	95	normal activity	0	15	7	rhythmic disturb & electrolyte ch	13.5	5	11	24.3984375	0	2841
-482	4	placebo	40	dead - prostatic ca	60	125	normal activity	0	11	7	normal	14	9	11	1.29980469	0	2852
-483	4	placebo	9	dead - heart or vascular	72	83	normal activity	1	14	8	rhythmic disturb & electrolyte ch	12.8984375	18	13	1.39990234	1	2943
-484	4	1.0 mg estrogen	14	dead - prostatic ca	79	88	normal activity	1	12	7	old MI	8.59960938	20	NA	1.39990234	0	3002
-485	4	1.0 mg estrogen	59	alive	50	117	normal activity	0	12	8	normal	15.2988281	NA	13	10.2988281	0	3169
-486	4	1.0 mg estrogen	59	alive	73	71	normal activity	0	16	8	normal	13.3984375	3	11	0.699951172	1	3192
-487	4	5.0 mg estrogen	7	dead - heart or vascular	72	110	normal activity	0	14	6	normal	13.6992188	4	11	2.09960938	0	3220
-489	4	5.0 mg estrogen	12	dead - prostatic ca	80	105	in bed > 50% daytime	1	14	7	old MI	8.5	6	5	160	1	3435
-490	4	5.0 mg estrogen	46	dead - cerebrovascular	69	71	in bed < 50% daytime	1	11	8	old MI	13.6992188	5	13	1.39990234	1	3465
-491	4	1.0 mg estrogen	50	alive	75	116	normal activity	0	14	8	normal	16	1	11	4.5	0	3465
-492	4	5.0 mg estrogen	0	dead - pulmonary embolus	71	99	in bed < 50% daytime	1	14	8	heart block or conduction def	14.0996094	1	11	1.69995117	0	3465
-493	3	5.0 mg estrogen	52	alive	73	114	normal activity	1	14	8	heart strain	13.5996094	8	8	0.5	0	3387
-494	3	1.0 mg estrogen	19	dead - other ca	76	99	normal activity	1	15	9	heart block or conduction def	16	7	9	0.199981689	0	3407
-495	3	placebo	52	alive	73	114	normal activity	0	15	7	normal	11.6992188	5	9	0.299987793	0	3407
-496	3	1.0 mg estrogen	51	alive	76	114	normal activity	1	30	18	heart strain	11.5996094	6	9	0.5	0	3440
-497	3	5.0 mg estrogen	51	alive	68	98	normal activity	0	14	8	normal	13.3984375	6	9	0.699951172	0	3440
-498	4	0.2 mg estrogen	14	dead - prostatic ca	64	100	in bed < 50% daytime	0	14	7	normal	14	23	11	0.599975586	0	3395
-499	4	0.2 mg estrogen	27	dead - prostatic ca	75	102	normal activity	0	16	8	normal	14.1992188	5	11	29.5976562	0	3430
-500	4	1.0 mg estrogen	51	alive	60	123	normal activity	1	14	10	heart strain	14.5	6	8	0.5	1	3429
-501	4	5.0 mg estrogen	5	dead - heart or vascular	73	100	normal activity	1	19	10	normal	16.796875	2	11	2.89990234	0	3433
-502	3	1.0 mg estrogen	0	dead - other ca	78	108	normal activity	0	11	6	normal	15.7988281	9	13	0.599975586	0	3297
-503	3	0.2 mg estrogen	41	dead - unspecified non-ca	78	127	normal activity	1	16	10	heart strain	15.7988281	5	9	0.5	0	3349
-504	3	1.0 mg estrogen	53	alive	77	93	normal activity	0	17	10	heart block or conduction def	16	11	9	0.799926758	0	3357
-505	4	5.0 mg estrogen	19	dead - prostatic ca	82	96	normal activity	1	12	6	heart strain	12.3984375	32	13	8.3984375	0	3311
-506	4	1.0 mg estrogen	4	dead - prostatic ca	74	97	in bed < 50% daytime	0	15	6	normal	21.1992188	33	NA	22.1992188	1	3428
+sample	OS	X_PATIENT	OS.time
+TCGA-HC-A4ZV-01A	0	TCGA-HC-A4ZV	23
+TCGA-TK-A8OK-01A	0	TCGA-TK-A8OK	27
+TCGA-CH-5761-11A	0	TCGA-CH-5761	28
+TCGA-CH-5761-01A	0	TCGA-CH-5761	28
+TCGA-CH-5740-01A	0	TCGA-CH-5740	31
+TCGA-CH-5764-01A	0	TCGA-CH-5764	31
+TCGA-CH-5764-11A	0	TCGA-CH-5764	31
+TCGA-CH-5753-01A	0	TCGA-CH-5753	31
+TCGA-CH-5748-01A	0	TCGA-CH-5748	31
+TCGA-CH-5766-01A	0	TCGA-CH-5766	31
+TCGA-CH-5766-11A	0	TCGA-CH-5766	31
+TCGA-HC-A6HX-01A	0	TCGA-HC-A6HX	38
+TCGA-HC-A6AS-01A	0	TCGA-HC-A6AS	44
+TCGA-HC-8264-01B	0	TCGA-HC-8264	48
+TCGA-HC-A6AN-01A	0	TCGA-HC-A6AN	49
+TCGA-HC-A631-01A	0	TCGA-HC-A631	54
+TCGA-CH-5744-01A	0	TCGA-CH-5744	60
+TCGA-HC-A632-01A	0	TCGA-HC-A632	61
+TCGA-CH-5769-11A	0	TCGA-CH-5769	62
+TCGA-CH-5769-01A	0	TCGA-CH-5769	62
+TCGA-CH-5754-01A	0	TCGA-CH-5754	62
+TCGA-HC-A6AL-01A	0	TCGA-HC-A6AL	67
+TCGA-HC-A6AP-01A	0	TCGA-HC-A6AP	71
+TCGA-KK-A8IB-11A	0	TCGA-KK-A8IB	83
+TCGA-KK-A8IB-01A	0	TCGA-KK-A8IB	83
+TCGA-XJ-A9DQ-01A	0	TCGA-XJ-A9DQ	91
+TCGA-CH-5737-01A	0	TCGA-CH-5737	91
+TCGA-CH-5792-01A	0	TCGA-CH-5792	91
+TCGA-CH-5745-01A	0	TCGA-CH-5745	91
+TCGA-KC-A7F5-01A	0	TCGA-KC-A7F5	91
+TCGA-ZG-A8QW-01A	0	TCGA-ZG-A8QW	94
+TCGA-QU-A6IL-01A	0	TCGA-QU-A6IL	97
+TCGA-HC-A6AQ-01A	0	TCGA-HC-A6AQ	106
+TCGA-H9-A6BY-01A	0	TCGA-H9-A6BY	112
+TCGA-2A-A8W1-01A	0	TCGA-2A-A8W1	112
+TCGA-EJ-7793-01A	0	TCGA-EJ-7793	114
+TCGA-EJ-7793-11A	0	TCGA-EJ-7793	114
+TCGA-ZG-A9LN-01A	0	TCGA-ZG-A9LN	115
+TCGA-EJ-A7NM-01A	0	TCGA-EJ-A7NM	128
+TCGA-ZG-A9KY-01A	0	TCGA-ZG-A9KY	130
+TCGA-EJ-AB20-01A	0	TCGA-EJ-AB20	131
+TCGA-ZG-A9NI-01A	0	TCGA-ZG-A9NI	132
+TCGA-HC-A6HY-01A	0	TCGA-HC-A6HY	134
+TCGA-EJ-A8FU-01A	0	TCGA-EJ-A8FU	138
+TCGA-EJ-AB27-01A	0	TCGA-EJ-AB27	145
+TCGA-XQ-A8TA-01A	1	TCGA-XQ-A8TA	146
+TCGA-YJ-A8SW-01A	0	TCGA-YJ-A8SW	148
+TCGA-HC-A76X-01A	0	TCGA-HC-A76X	150
+TCGA-MG-AAMC-01A	0	TCGA-MG-AAMC	173
+TCGA-J9-A52C-01A	0	TCGA-J9-A52C	178
+TCGA-J4-A67T-01A	0	TCGA-J4-A67T	183
+TCGA-H9-7775-01A	0	TCGA-H9-7775	185
+TCGA-VN-A88M-01A	0	TCGA-VN-A88M	189
+TCGA-EJ-7330-11A	0	TCGA-EJ-7330	191
+TCGA-EJ-7330-01A	0	TCGA-EJ-7330	191
+TCGA-KK-A7AP-01A	0	TCGA-KK-A7AP	196
+TCGA-KK-A7AP-11A	0	TCGA-KK-A7AP	196
+TCGA-EJ-A7NJ-01A	0	TCGA-EJ-A7NJ	197
+TCGA-EJ-A7NN-01A	0	TCGA-EJ-A7NN	197
+TCGA-V1-A8X3-01A	0	TCGA-V1-A8X3	202
+TCGA-J9-A52D-01A	0	TCGA-J9-A52D	212
+TCGA-CH-5738-01A	0	TCGA-CH-5738	212
+TCGA-HC-A76W-01A	0	TCGA-HC-A76W	213
+TCGA-EJ-A65M-01A	0	TCGA-EJ-A65M	230
+TCGA-EJ-A7NF-01A	0	TCGA-EJ-A7NF	250
+TCGA-KC-A7F6-01A	0	TCGA-KC-A7F6	263
+TCGA-EJ-A8FS-01A	0	TCGA-EJ-A8FS	266
+TCGA-VN-A88I-01A	0	TCGA-VN-A88I	269
+TCGA-KC-A7FD-01A	0	TCGA-KC-A7FD	270
+TCGA-YL-A8SR-01B	0	TCGA-YL-A8SR	273
+TCGA-XJ-A9DK-01A	0	TCGA-XJ-A9DK	275
+TCGA-EJ-A8FO-01A	0	TCGA-EJ-A8FO	282
+TCGA-EJ-A8FO-11A	0	TCGA-EJ-A8FO	282
+TCGA-HC-A8CY-01A	0	TCGA-HC-A8CY	290
+TCGA-EJ-A8FP-01A	0	TCGA-EJ-A8FP	299
+TCGA-CH-5789-01A	0	TCGA-CH-5789	304
+TCGA-ZG-A8QZ-01A	0	TCGA-ZG-A8QZ	308
+TCGA-J9-A8CK-01A	0	TCGA-J9-A8CK	321
+TCGA-J9-A52E-01A	0	TCGA-J9-A52E	323
+TCGA-J4-A83K-01A	0	TCGA-J4-A83K	328
+TCGA-EJ-A8FN-01A	0	TCGA-EJ-A8FN	329
+TCGA-ZG-A9N3-01A	0	TCGA-ZG-A9N3	349
+TCGA-4L-AA1F-01A	0	TCGA-4L-AA1F	350
+TCGA-KC-A7FE-01A	0	TCGA-KC-A7FE	352
+TCGA-EJ-A6RA-01A	0	TCGA-EJ-A6RA	353
+TCGA-ZG-A9L0-01A	0	TCGA-ZG-A9L0	355
+TCGA-CH-5763-11A	0	TCGA-CH-5763	365
+TCGA-CH-5763-01A	0	TCGA-CH-5763	365
+TCGA-ZG-A9LY-01A	0	TCGA-ZG-A9LY	370
+TCGA-V1-A9OQ-01A	0	TCGA-V1-A9OQ	371
+TCGA-XA-A8JR-01A	0	TCGA-XA-A8JR	376
+TCGA-ZG-A9LM-01A	0	TCGA-ZG-A9LM	378
+TCGA-M7-A720-01A	0	TCGA-M7-A720	384
+TCGA-J9-A8CP-01A	0	TCGA-J9-A8CP	386
+TCGA-EJ-A65D-01A	0	TCGA-EJ-A65D	393
+TCGA-CH-5741-01A	0	TCGA-CH-5741	395
+TCGA-CH-5750-01A	0	TCGA-CH-5750	396
+TCGA-CH-5771-11A	0	TCGA-CH-5771	396
+TCGA-CH-5771-01A	0	TCGA-CH-5771	396
+TCGA-M7-A721-01A	0	TCGA-M7-A721	400
+TCGA-ZG-A8QY-01A	0	TCGA-ZG-A8QY	404
+TCGA-EJ-5497-01A	1	TCGA-EJ-5497	405
+TCGA-J9-A8CL-01A	0	TCGA-J9-A8CL	405
+TCGA-ZG-A9ND-01A	0	TCGA-ZG-A9ND	410
+TCGA-J4-AATZ-01A	0	TCGA-J4-AATZ	412
+TCGA-EJ-A65E-01A	0	TCGA-EJ-A65E	417
+TCGA-J9-A52B-01A	0	TCGA-J9-A52B	422
+TCGA-CH-5743-01A	0	TCGA-CH-5743	425
+TCGA-YL-A9WH-01A	0	TCGA-YL-A9WH	427
+TCGA-EJ-A7NG-01A	0	TCGA-EJ-A7NG	432
+TCGA-HC-7209-01A	0	TCGA-HC-7209	440
+TCGA-ZG-A8QX-01A	0	TCGA-ZG-A8QX	442
+TCGA-V1-A8ML-01A	0	TCGA-V1-A8ML	448
+TCGA-WW-A8ZI-01A	0	TCGA-WW-A8ZI	449
+TCGA-EJ-A65J-01A	0	TCGA-EJ-A65J	451
+TCGA-ZG-A9MC-01A	0	TCGA-ZG-A9MC	455
+TCGA-CH-5767-01A	0	TCGA-CH-5767	458
+TCGA-CH-5767-11B	0	TCGA-CH-5767	458
+TCGA-J9-A8CM-01A	0	TCGA-J9-A8CM	463
+TCGA-FC-7961-01A	0	TCGA-FC-7961	469
+TCGA-HC-8266-01A	0	TCGA-HC-8266	473
+TCGA-EJ-A7NH-01A	0	TCGA-EJ-A7NH	474
+TCGA-V1-A8WS-01A	0	TCGA-V1-A8WS	474
+TCGA-EJ-A7NK-01A	0	TCGA-EJ-A7NK	476
+TCGA-V1-A9OT-01A	0	TCGA-V1-A9OT	476
+TCGA-VN-A88O-01A	0	TCGA-VN-A88O	481
+TCGA-HC-8265-11A	0	TCGA-HC-8265	483
+TCGA-HC-8265-01B	0	TCGA-HC-8265	483
+TCGA-HC-8265-01A	0	TCGA-HC-8265	483
+TCGA-CH-5772-11A	0	TCGA-CH-5772	486
+TCGA-CH-5772-01A	0	TCGA-CH-5772	486
+TCGA-M7-A71Y-01A	0	TCGA-M7-A71Y	493
+TCGA-VN-A943-01A	0	TCGA-VN-A943	496
+TCGA-V1-A8MK-01A	0	TCGA-V1-A8MK	508
+TCGA-YL-A8SA-01A	0	TCGA-YL-A8SA	512
+TCGA-J4-A6M7-01A	0	TCGA-J4-A6M7	512
+TCGA-ZG-A9LS-01A	0	TCGA-ZG-A9LS	516
+TCGA-HC-7750-01A	0	TCGA-HC-7750	522
+TCGA-EJ-A46E-01A	0	TCGA-EJ-A46E	524
+TCGA-FC-A66V-01A	0	TCGA-FC-A66V	524
+TCGA-Y6-A9XI-01A	0	TCGA-Y6-A9XI	526
+TCGA-TP-A8TT-01A	0	TCGA-TP-A8TT	526
+TCGA-HC-A6AO-01A	0	TCGA-HC-A6AO	530
+TCGA-HC-7744-01A	0	TCGA-HC-7744	531
+TCGA-V1-A9Z9-01A	0	TCGA-V1-A9Z9	540
+TCGA-HC-7819-01A	0	TCGA-HC-7819	543
+TCGA-HC-7819-11A	0	TCGA-HC-7819	543
+TCGA-J4-A83M-01A	0	TCGA-J4-A83M	543
+TCGA-HC-8261-01A	0	TCGA-HC-8261	546
+TCGA-HC-8261-11A	0	TCGA-HC-8261	546
+TCGA-HC-8261-01B	0	TCGA-HC-8261	546
+TCGA-ZG-A9M4-01A	0	TCGA-ZG-A9M4	547
+TCGA-SU-A7E7-01A	0	TCGA-SU-A7E7	551
+TCGA-J4-AATV-01A	0	TCGA-J4-AATV	553
+TCGA-EJ-A65F-01A	0	TCGA-EJ-A65F	560
+TCGA-M7-A725-01A	0	TCGA-M7-A725	573
+TCGA-HC-A8D1-01A	0	TCGA-HC-A8D1	573
+TCGA-ZG-A9LU-01A	0	TCGA-ZG-A9LU	579
+TCGA-ZG-A9LB-01A	0	TCGA-ZG-A9LB	583
+TCGA-HC-A9TE-01A	0	TCGA-HC-A9TE	587
+TCGA-HC-8213-01A	0	TCGA-HC-8213	589
+TCGA-EJ-5496-01A	1	TCGA-EJ-5496	595
+TCGA-KC-A7FA-01A	0	TCGA-KC-A7FA	598
+TCGA-HC-7075-01A	0	TCGA-HC-7075	601
+TCGA-KC-A4BO-01A	0	TCGA-KC-A4BO	607
+TCGA-TP-A8TV-01A	0	TCGA-TP-A8TV	610
+TCGA-J4-8198-01A	0	TCGA-J4-8198	614
+TCGA-2A-AAYU-01A	0	TCGA-2A-AAYU	615
+TCGA-FC-A8O0-01A	0	TCGA-FC-A8O0	616
+TCGA-ZG-A9L9-01A	0	TCGA-ZG-A9L9	617
+TCGA-2A-A8VL-01A	0	TCGA-2A-A8VL	621
+TCGA-EJ-A46D-01A	0	TCGA-EJ-A46D	626
+TCGA-KK-A8IL-01A	1	TCGA-KK-A8IL	628
+TCGA-KK-A8IL-11A	1	TCGA-KK-A8IL	628
+TCGA-V1-A9OA-01A	0	TCGA-V1-A9OA	636
+TCGA-M7-A71Z-01A	0	TCGA-M7-A71Z	643
+TCGA-EJ-A46B-01A	0	TCGA-EJ-A46B	657
+TCGA-VP-A87H-01A	0	TCGA-VP-A87H	663
+TCGA-KC-A7F3-01A	0	TCGA-KC-A7F3	665
+TCGA-EJ-A65G-01A	0	TCGA-EJ-A65G	666
+TCGA-EJ-A46G-01A	0	TCGA-EJ-A46G	668
+TCGA-KK-A8I6-01A	0	TCGA-KK-A8I6	668
+TCGA-KK-A8I6-11A	0	TCGA-KK-A8I6	668
+TCGA-EJ-A46I-01A	0	TCGA-EJ-A46I	668
+TCGA-CH-5739-01A	0	TCGA-CH-5739	671
+TCGA-2A-A8VV-01A	0	TCGA-2A-A8VV	671
+TCGA-HC-8262-01A	0	TCGA-HC-8262	679
+TCGA-HC-8262-11A	0	TCGA-HC-8262	679
+TCGA-HC-A48F-01A	0	TCGA-HC-A48F	680
+TCGA-FC-A5OB-01A	0	TCGA-FC-A5OB	680
+TCGA-HC-8216-01A	0	TCGA-HC-8216	682
+TCGA-J4-A83I-01A	0	TCGA-J4-A83I	685
+TCGA-V1-A8WV-01A	0	TCGA-V1-A8WV	686
+TCGA-HC-8260-01A	0	TCGA-HC-8260	686
+TCGA-HC-8260-11A	0	TCGA-HC-8260	686
+TCGA-ZG-A9L6-01A	0	TCGA-ZG-A9L6	687
+TCGA-ZG-A9LZ-01A	0	TCGA-ZG-A9LZ	692
+TCGA-J4-A83J-11A	0	TCGA-J4-A83J	696
+TCGA-J4-A83J-01A	0	TCGA-J4-A83J	696
+TCGA-CH-5765-01A	0	TCGA-CH-5765	700
+TCGA-CH-5765-11A	0	TCGA-CH-5765	700
+TCGA-EJ-A65B-01A	0	TCGA-EJ-A65B	710
+TCGA-HC-7740-01B	0	TCGA-HC-7740	717
+TCGA-HC-7740-11A	0	TCGA-HC-7740	717
+TCGA-HC-7740-01A	0	TCGA-HC-7740	717
+TCGA-J4-A83L-01A	0	TCGA-J4-A83L	720
+TCGA-HC-7745-01A	0	TCGA-HC-7745	721
+TCGA-HC-7745-11A	0	TCGA-HC-7745	721
+TCGA-HC-7749-01A	0	TCGA-HC-7749	724
+TCGA-EJ-A46H-01A	0	TCGA-EJ-A46H	724
+TCGA-HC-8257-01A	0	TCGA-HC-8257	726
+TCGA-G9-A9S7-01A	0	TCGA-G9-A9S7	728
+TCGA-VP-A879-01A	1	TCGA-VP-A879	728
+TCGA-CH-5746-01A	0	TCGA-CH-5746	731
+TCGA-CH-5768-11A	0	TCGA-CH-5768	731
+TCGA-CH-5768-01A	0	TCGA-CH-5768	731
+TCGA-YL-A9WL-01A	0	TCGA-YL-A9WL	740
+TCGA-EJ-7331-11A	0	TCGA-EJ-7331	742
+TCGA-EJ-7331-01A	0	TCGA-EJ-7331	742
+TCGA-VN-A88L-01A	0	TCGA-VN-A88L	746
+TCGA-HC-7820-11A	0	TCGA-HC-7820	747
+TCGA-HC-7820-01A	0	TCGA-HC-7820	747
+TCGA-HC-7747-01A	0	TCGA-HC-7747	748
+TCGA-HC-7747-11A	0	TCGA-HC-7747	748
+TCGA-EJ-8472-01A	0	TCGA-EJ-8472	756
+TCGA-EJ-8472-11A	0	TCGA-EJ-8472	756
+TCGA-M7-A723-01A	0	TCGA-M7-A723	763
+TCGA-G9-6384-11A	0	TCGA-G9-6384	765
+TCGA-G9-6384-01A	0	TCGA-G9-6384	765
+TCGA-EJ-8474-11A	0	TCGA-EJ-8474	766
+TCGA-EJ-8474-01A	0	TCGA-EJ-8474	766
+TCGA-VN-A88N-01A	0	TCGA-VN-A88N	766
+TCGA-J4-A6G1-01A	0	TCGA-J4-A6G1	769
+TCGA-J4-A67L-01A	0	TCGA-J4-A67L	770
+TCGA-XQ-A8TB-01A	0	TCGA-XQ-A8TB	770
+TCGA-EJ-7317-01A	0	TCGA-EJ-7317	771
+TCGA-EJ-7317-11A	0	TCGA-EJ-7317	771
+TCGA-HC-A8D0-01A	0	TCGA-HC-A8D0	775
+TCGA-VN-A88K-01A	0	TCGA-VN-A88K	776
+TCGA-EJ-7784-11A	0	TCGA-EJ-7784	781
+TCGA-EJ-7784-01A	0	TCGA-EJ-7784	781
+TCGA-HC-7752-01A	0	TCGA-HC-7752	782
+TCGA-HC-7752-11A	0	TCGA-HC-7752	782
+TCGA-EJ-A46F-01A	0	TCGA-EJ-A46F	783
+TCGA-VN-A88R-01A	0	TCGA-VN-A88R	784
+TCGA-EJ-7783-01A	0	TCGA-EJ-7783	787
+TCGA-EJ-7783-11A	0	TCGA-EJ-7783	787
+TCGA-FC-A6HD-01A	0	TCGA-FC-A6HD	789
+TCGA-G9-A9S0-01A	1	TCGA-G9-A9S0	791
+TCGA-HC-7748-01A	0	TCGA-HC-7748	792
+TCGA-KK-A8IF-01A	0	TCGA-KK-A8IF	804
+TCGA-KK-A8IF-11A	0	TCGA-KK-A8IF	804
+TCGA-G9-6373-11A	0	TCGA-G9-6373	811
+TCGA-G9-6373-01A	0	TCGA-G9-6373	811
+TCGA-CH-5788-01A	0	TCGA-CH-5788	821
+TCGA-KK-A7AV-11A	0	TCGA-KK-A7AV	822
+TCGA-KK-A7AV-01A	0	TCGA-KK-A7AV	822
+TCGA-EJ-7321-01A	0	TCGA-EJ-7321	824
+TCGA-EJ-7321-11A	0	TCGA-EJ-7321	824
+TCGA-J4-AAU2-01A	0	TCGA-J4-AAU2	825
+TCGA-V1-A9Z8-01A	0	TCGA-V1-A9Z8	827
+TCGA-G9-6385-11A	0	TCGA-G9-6385	830
+TCGA-G9-6385-01A	0	TCGA-G9-6385	830
+TCGA-J4-A67S-01A	0	TCGA-J4-A67S	833
+TCGA-J4-A67O-01A	0	TCGA-J4-A67O	839
+TCGA-EJ-7328-01A	0	TCGA-EJ-7328	842
+TCGA-EJ-7328-11A	0	TCGA-EJ-7328	842
+TCGA-HC-A9TH-01A	0	TCGA-HC-A9TH	844
+TCGA-HC-8258-01A	0	TCGA-HC-8258	847
+TCGA-HC-8258-01B	0	TCGA-HC-8258	847
+TCGA-HC-8258-11A	0	TCGA-HC-8258	847
+TCGA-J4-A6G3-01A	0	TCGA-J4-A6G3	849
+TCGA-G9-7519-01A	0	TCGA-G9-7519	849
+TCGA-V1-A8MG-01A	0	TCGA-V1-A8MG	857
+TCGA-G9-7523-01A	0	TCGA-G9-7523	857
+TCGA-EJ-7788-01A	0	TCGA-EJ-7788	859
+TCGA-HC-8256-11A	0	TCGA-HC-8256	860
+TCGA-HC-8256-01A	0	TCGA-HC-8256	860
+TCGA-2A-A8W3-01A	0	TCGA-2A-A8W3	863
+TCGA-FC-7708-01A	0	TCGA-FC-7708	864
+TCGA-HC-7210-01A	0	TCGA-HC-7210	868
+TCGA-HC-7212-01A	0	TCGA-HC-7212	870
+TCGA-EJ-A6RC-01A	0	TCGA-EJ-A6RC	873
+TCGA-V1-A9Z7-01A	0	TCGA-V1-A9Z7	874
+TCGA-YL-A8SH-01B	1	TCGA-YL-A8SH	875
+TCGA-FC-A4JI-01A	0	TCGA-FC-A4JI	877
+TCGA-CH-5794-01A	0	TCGA-CH-5794	882
+TCGA-M7-A724-01A	0	TCGA-M7-A724	889
+TCGA-KK-A7B3-01A	0	TCGA-KK-A7B3	899
+TCGA-KK-A7B3-11A	0	TCGA-KK-A7B3	899
+TCGA-G9-A9S4-01A	0	TCGA-G9-A9S4	906
+TCGA-ZG-A9L5-01A	0	TCGA-ZG-A9L5	908
+TCGA-J4-A67R-01A	0	TCGA-J4-A67R	910
+TCGA-EJ-5505-01A	0	TCGA-EJ-5505	922
+TCGA-EJ-7327-11A	0	TCGA-EJ-7327	923
+TCGA-EJ-7327-01A	0	TCGA-EJ-7327	923
+TCGA-HC-8259-01A	0	TCGA-HC-8259	924
+TCGA-HC-8259-11A	0	TCGA-HC-8259	924
+TCGA-V1-A8WN-01A	0	TCGA-V1-A8WN	924
+TCGA-HC-7817-01B	0	TCGA-HC-7817	928
+TCGA-XK-AAJA-01A	0	TCGA-XK-AAJA	930
+TCGA-KC-A4BL-01A	0	TCGA-KC-A4BL	934
+TCGA-J4-A67N-01A	0	TCGA-J4-A67N	937
+TCGA-HC-7742-11A	0	TCGA-HC-7742	938
+TCGA-HC-7742-01A	0	TCGA-HC-7742	938
+TCGA-HC-7818-01A	0	TCGA-HC-7818	938
+TCGA-HC-7231-01A	0	TCGA-HC-7231	939
+TCGA-H9-A6BX-01A	0	TCGA-H9-A6BX	941
+TCGA-J4-A67M-01A	0	TCGA-J4-A67M	941
+TCGA-G9-7521-01A	0	TCGA-G9-7521	942
+TCGA-CH-5752-01A	0	TCGA-CH-5752	943
+TCGA-HC-7821-01A	0	TCGA-HC-7821	956
+TCGA-G9-6377-01A	0	TCGA-G9-6377	958
+TCGA-HC-7738-11A	0	TCGA-HC-7738	964
+TCGA-HC-7738-01A	0	TCGA-HC-7738	964
+TCGA-KK-A8I8-11A	0	TCGA-KK-A8I8	967
+TCGA-KK-A8I8-01A	0	TCGA-KK-A8I8	967
+TCGA-XK-AAIR-01A	0	TCGA-XK-AAIR	972
+TCGA-XJ-A9DX-01A	0	TCGA-XJ-A9DX	973
+TCGA-CH-5790-01A	0	TCGA-CH-5790	974
+TCGA-J4-A67Q-01A	0	TCGA-J4-A67Q	975
+TCGA-X4-A8KS-01A	0	TCGA-X4-A8KS	979
+TCGA-XK-AAK1-01A	0	TCGA-XK-AAK1	979
+TCGA-EJ-7797-11A	0	TCGA-EJ-7797	983
+TCGA-EJ-7797-01A	0	TCGA-EJ-7797	983
+TCGA-YL-A8SL-01B	0	TCGA-YL-A8SL	987
+TCGA-KK-A7B4-11A	0	TCGA-KK-A7B4	987
+TCGA-KK-A7B4-01A	0	TCGA-KK-A7B4	987
+TCGA-Y6-A8TL-01A	0	TCGA-Y6-A8TL	992
+TCGA-J4-A83N-01A	0	TCGA-J4-A83N	992
+TCGA-G9-7525-01A	0	TCGA-G9-7525	994
+TCGA-KK-A8I9-11A	0	TCGA-KK-A8I9	1001
+TCGA-KK-A8I9-01A	0	TCGA-KK-A8I9	1001
+TCGA-HC-7230-01A	0	TCGA-HC-7230	1001
+TCGA-CH-5791-01A	0	TCGA-CH-5791	1004
+TCGA-J4-A67K-01A	0	TCGA-J4-A67K	1004
+TCGA-EJ-7315-01A	0	TCGA-EJ-7315	1008
+TCGA-EJ-7315-11A	0	TCGA-EJ-7315	1008
+TCGA-EJ-7318-01B	0	TCGA-EJ-7318	1029
+TCGA-KK-A7AW-11A	0	TCGA-KK-A7AW	1054
+TCGA-KK-A7AW-01A	0	TCGA-KK-A7AW	1054
+TCGA-M7-A722-01A	0	TCGA-M7-A722	1060
+TCGA-KK-A7B1-01A	0	TCGA-KK-A7B1	1063
+TCGA-KK-A7B1-11A	0	TCGA-KK-A7B1	1063
+TCGA-CH-5751-01A	0	TCGA-CH-5751	1065
+TCGA-V1-A9OY-01A	0	TCGA-V1-A9OY	1067
+TCGA-EJ-7325-01B	0	TCGA-EJ-7325	1070
+TCGA-EJ-7781-01A	0	TCGA-EJ-7781	1073
+TCGA-EJ-7781-11A	0	TCGA-EJ-7781	1073
+TCGA-G9-7522-01A	0	TCGA-G9-7522	1078
+TCGA-V1-A8WW-01A	0	TCGA-V1-A8WW	1078
+TCGA-HC-7737-01A	0	TCGA-HC-7737	1090
+TCGA-HC-7737-11A	0	TCGA-HC-7737	1090
+TCGA-EJ-7786-11A	0	TCGA-EJ-7786	1096
+TCGA-EJ-7786-01A	0	TCGA-EJ-7786	1096
+TCGA-YL-A9WY-01A	0	TCGA-YL-A9WY	1098
+TCGA-KK-A7B2-01A	0	TCGA-KK-A7B2	1099
+TCGA-KK-A7B2-11A	0	TCGA-KK-A7B2	1099
+TCGA-EJ-7312-01B	0	TCGA-EJ-7312	1099
+TCGA-HC-7736-01A	0	TCGA-HC-7736	1103
+TCGA-EJ-7789-01A	0	TCGA-EJ-7789	1105
+TCGA-EJ-7789-11A	0	TCGA-EJ-7789	1105
+TCGA-HC-7080-01A	0	TCGA-HC-7080	1106
+TCGA-ZG-A9L4-01A	0	TCGA-ZG-A9L4	1108
+TCGA-EJ-5525-01A	0	TCGA-EJ-5525	1115
+TCGA-EJ-7791-01A	0	TCGA-EJ-7791	1118
+TCGA-XK-AAJR-01A	0	TCGA-XK-AAJR	1124
+TCGA-XJ-A83F-01A	0	TCGA-XJ-A83F	1127
+TCGA-XK-AAIV-01A	0	TCGA-XK-AAIV	1133
+TCGA-V1-A9OX-01A	0	TCGA-V1-A9OX	1134
+TCGA-HC-7081-01A	0	TCGA-HC-7081	1136
+TCGA-EJ-7314-01A	0	TCGA-EJ-7314	1150
+TCGA-EJ-7314-11A	0	TCGA-EJ-7314	1150
+TCGA-ZG-A9L2-01A	0	TCGA-ZG-A9L2	1154
+TCGA-G9-6378-01A	0	TCGA-G9-6378	1155
+TCGA-G9-6370-01A	0	TCGA-G9-6370	1156
+TCGA-EJ-8470-01A	0	TCGA-EJ-8470	1159
+TCGA-HC-7232-01A	0	TCGA-HC-7232	1161
+TCGA-EJ-7782-01A	0	TCGA-EJ-7782	1167
+TCGA-EJ-7782-11A	0	TCGA-EJ-7782	1167
+TCGA-EJ-5502-01A	0	TCGA-EJ-5502	1171
+TCGA-EJ-7785-11A	0	TCGA-EJ-7785	1177
+TCGA-EJ-7785-01A	0	TCGA-EJ-7785	1177
+TCGA-V1-A9OF-01A	0	TCGA-V1-A9OF	1184
+TCGA-HC-7079-01A	0	TCGA-HC-7079	1184
+TCGA-G9-7510-01A	0	TCGA-G9-7510	1185
+TCGA-V1-A8MM-01A	0	TCGA-V1-A8MM	1195
+TCGA-G9-6364-11A	0	TCGA-G9-6364	1198
+TCGA-G9-6364-01A	0	TCGA-G9-6364	1198
+TCGA-G9-6369-01A	0	TCGA-G9-6369	1215
+TCGA-J4-8200-01A	0	TCGA-J4-8200	1218
+TCGA-XK-AAIW-01A	0	TCGA-XK-AAIW	1218
+TCGA-HC-7213-01A	0	TCGA-HC-7213	1219
+TCGA-HC-7211-11A	0	TCGA-HC-7211	1221
+TCGA-HC-7211-01A	0	TCGA-HC-7211	1221
+TCGA-G9-6367-11A	0	TCGA-G9-6367	1222
+TCGA-G9-6367-01A	0	TCGA-G9-6367	1222
+TCGA-G9-6371-01A	0	TCGA-G9-6371	1226
+TCGA-J9-A8CN-01A	0	TCGA-J9-A8CN	1237
+TCGA-QU-A6IM-01A	0	TCGA-QU-A6IM	1247
+TCGA-XK-AAJP-01A	0	TCGA-XK-AAJP	1259
+TCGA-VN-A88P-01A	0	TCGA-VN-A88P	1260
+TCGA-YL-A8SC-01A	0	TCGA-YL-A8SC	1261
+TCGA-XK-AAJ3-01A	0	TCGA-XK-AAJ3	1262
+TCGA-G9-6329-01A	0	TCGA-G9-6329	1266
+TCGA-2A-AAYO-01A	0	TCGA-2A-AAYO	1272
+TCGA-EJ-5531-01A	0	TCGA-EJ-5531	1273
+TCGA-XJ-A83H-01A	0	TCGA-XJ-A83H	1280
+TCGA-ZG-A9L1-01A	0	TCGA-ZG-A9L1	1302
+TCGA-VP-A87K-01A	0	TCGA-VP-A87K	1306
+TCGA-EJ-7794-11A	0	TCGA-EJ-7794	1306
+TCGA-EJ-7794-01A	0	TCGA-EJ-7794	1306
+TCGA-KC-A4BV-01A	0	TCGA-KC-A4BV	1328
+TCGA-HI-7171-01A	1	TCGA-HI-7171	1329
+TCGA-KK-A7B0-01A	0	TCGA-KK-A7B0	1329
+TCGA-KK-A7B0-11A	0	TCGA-KK-A7B0	1329
+TCGA-CH-5762-11A	0	TCGA-CH-5762	1339
+TCGA-CH-5762-01A	0	TCGA-CH-5762	1339
+TCGA-KC-A4BR-01A	0	TCGA-KC-A4BR	1349
+TCGA-HC-7233-01A	0	TCGA-HC-7233	1355
+TCGA-V1-A9ZR-01A	0	TCGA-V1-A9ZR	1361
+TCGA-G9-6365-11A	0	TCGA-G9-6365	1363
+TCGA-G9-6365-01A	0	TCGA-G9-6365	1363
+TCGA-2A-AAYF-01A	0	TCGA-2A-AAYF	1364
+TCGA-EJ-5501-01A	0	TCGA-EJ-5501	1365
+TCGA-VP-AA1N-01A	0	TCGA-VP-AA1N	1365
+TCGA-VN-A88Q-01A	0	TCGA-VN-A88Q	1366
+TCGA-YL-A8SF-01A	0	TCGA-YL-A8SF	1373
+TCGA-2A-A8VT-01A	0	TCGA-2A-A8VT	1373
+TCGA-G9-6363-01A	0	TCGA-G9-6363	1378
+TCGA-G9-6363-11A	0	TCGA-G9-6363	1378
+TCGA-2A-A8VX-01A	0	TCGA-2A-A8VX	1378
+TCGA-EJ-5506-01A	0	TCGA-EJ-5506	1381
+TCGA-V1-A9ZK-01A	0	TCGA-V1-A9ZK	1383
+TCGA-X4-A8KQ-01A	0	TCGA-X4-A8KQ	1383
+TCGA-EJ-5503-01A	0	TCGA-EJ-5503	1391
+TCGA-YL-A8SJ-01B	0	TCGA-YL-A8SJ	1395
+TCGA-EJ-7792-01A	0	TCGA-EJ-7792	1396
+TCGA-EJ-7792-11A	0	TCGA-EJ-7792	1396
+TCGA-YL-A8SK-01B	0	TCGA-YL-A8SK	1408
+TCGA-EJ-5499-01A	0	TCGA-EJ-5499	1415
+TCGA-G9-6361-01A	0	TCGA-G9-6361	1415
+TCGA-EJ-5504-01A	0	TCGA-EJ-5504	1427
+TCGA-G9-6356-01A	0	TCGA-G9-6356	1434
+TCGA-G9-6356-11A	0	TCGA-G9-6356	1434
+TCGA-XK-AAJT-01A	0	TCGA-XK-AAJT	1434
+TCGA-G9-6362-01A	0	TCGA-G9-6362	1443
+TCGA-G9-6362-11A	0	TCGA-G9-6362	1443
+TCGA-V1-A8MF-01A	0	TCGA-V1-A8MF	1449
+TCGA-EJ-5507-01A	0	TCGA-EJ-5507	1457
+TCGA-XJ-A83G-01A	0	TCGA-XJ-A83G	1461
+TCGA-XJ-A9DI-01A	0	TCGA-XJ-A9DI	1461
+TCGA-EJ-5509-01A	0	TCGA-EJ-5509	1464
+TCGA-EJ-5511-01A	0	TCGA-EJ-5511	1476
+TCGA-EJ-5494-01A	0	TCGA-EJ-5494	1477
+TCGA-YL-A8HM-01A	0	TCGA-YL-A8HM	1482
+TCGA-KK-A6E0-01A	0	TCGA-KK-A6E0	1483
+TCGA-KK-A6E0-11A	0	TCGA-KK-A6E0	1483
+TCGA-YL-A8HK-01A	0	TCGA-YL-A8HK	1491
+TCGA-EJ-5542-01A	0	TCGA-EJ-5542	1513
+TCGA-G9-6348-11A	0	TCGA-G9-6348	1515
+TCGA-G9-6348-01A	0	TCGA-G9-6348	1515
+TCGA-V1-A9ZG-01A	0	TCGA-V1-A9ZG	1517
+TCGA-YL-A9WX-01A	0	TCGA-YL-A9WX	1518
+TCGA-KK-A7AZ-01A	0	TCGA-KK-A7AZ	1519
+TCGA-KK-A7AZ-11A	0	TCGA-KK-A7AZ	1519
+TCGA-G9-6353-11A	0	TCGA-G9-6353	1542
+TCGA-G9-6353-01A	0	TCGA-G9-6353	1542
+TCGA-G9-6499-11A	0	TCGA-G9-6499	1543
+TCGA-G9-6499-01A	0	TCGA-G9-6499	1543
+TCGA-KK-A8IJ-11A	0	TCGA-KK-A8IJ	1559
+TCGA-KK-A8IJ-01A	0	TCGA-KK-A8IJ	1559
+TCGA-YL-A8HL-01A	0	TCGA-YL-A8HL	1565
+TCGA-XK-AAJU-01A	0	TCGA-XK-AAJU	1576
+TCGA-G9-7509-01A	0	TCGA-G9-7509	1610
+TCGA-KK-A7AQ-01A	0	TCGA-KK-A7AQ	1610
+TCGA-KK-A7AQ-11A	0	TCGA-KK-A7AQ	1610
+TCGA-YL-A8HJ-01A	0	TCGA-YL-A8HJ	1611
+TCGA-YL-A8SI-01A	0	TCGA-YL-A8SI	1614
+TCGA-YL-A9WI-01A	0	TCGA-YL-A9WI	1623
+TCGA-V1-A9ZI-01A	0	TCGA-V1-A9ZI	1640
+TCGA-VP-A87C-01A	0	TCGA-VP-A87C	1690
+TCGA-G9-6342-11A	0	TCGA-G9-6342	1696
+TCGA-G9-6342-01A	0	TCGA-G9-6342	1696
+TCGA-2A-A8VO-01A	0	TCGA-2A-A8VO	1701
+TCGA-YL-A8SB-01A	0	TCGA-YL-A8SB	1719
+TCGA-EJ-5498-01A	0	TCGA-EJ-5498	1720
+TCGA-G9-6496-01A	0	TCGA-G9-6496	1726
+TCGA-G9-6496-11A	0	TCGA-G9-6496	1726
+TCGA-EJ-5512-01A	0	TCGA-EJ-5512	1733
+TCGA-KK-A7AY-01A	0	TCGA-KK-A7AY	1754
+TCGA-KK-A7AY-11A	0	TCGA-KK-A7AY	1754
+TCGA-EJ-5495-01A	0	TCGA-EJ-5495	1760
+TCGA-KK-A6E8-01A	0	TCGA-KK-A6E8	1770
+TCGA-KK-A6E8-11A	0	TCGA-KK-A6E8	1770
+TCGA-G9-6494-01A	0	TCGA-G9-6494	1771
+TCGA-G9-6494-11A	0	TCGA-G9-6494	1771
+TCGA-VP-A87J-01A	0	TCGA-VP-A87J	1774
+TCGA-KK-A7AU-11A	0	TCGA-KK-A7AU	1775
+TCGA-KK-A7AU-01A	0	TCGA-KK-A7AU	1775
+TCGA-EJ-5527-01A	0	TCGA-EJ-5527	1778
+TCGA-G9-6379-01A	0	TCGA-G9-6379	1778
+TCGA-V1-A8MJ-01A	0	TCGA-V1-A8MJ	1791
+TCGA-KC-A4BN-01A	0	TCGA-KC-A4BN	1815
+TCGA-EJ-5532-01A	0	TCGA-EJ-5532	1828
+TCGA-EJ-5514-01A	0	TCGA-EJ-5514	1829
+TCGA-EJ-5515-01A	0	TCGA-EJ-5515	1832
+TCGA-EJ-5530-01A	0	TCGA-EJ-5530	1832
+TCGA-YL-A8S9-01A	0	TCGA-YL-A8S9	1842
+TCGA-VP-A87D-01A	0	TCGA-VP-A87D	1853
+TCGA-YL-A9WJ-01A	1	TCGA-YL-A9WJ	1855
+TCGA-V1-A8MU-01A	0	TCGA-V1-A8MU	1876
+TCGA-EJ-5524-01A	0	TCGA-EJ-5524	1882
+TCGA-EJ-5510-01A	0	TCGA-EJ-5510	1887
+TCGA-EJ-5516-01A	0	TCGA-EJ-5516	1889
+TCGA-EJ-5517-01A	0	TCGA-EJ-5517	1889
+TCGA-YL-A8S8-01A	0	TCGA-YL-A8S8	1890
+TCGA-EJ-5526-01A	0	TCGA-EJ-5526	1909
+TCGA-V1-A9OL-01A	0	TCGA-V1-A9OL	1913
+TCGA-KK-A8IM-01A	0	TCGA-KK-A8IM	1915
+TCGA-KK-A8IM-11A	0	TCGA-KK-A8IM	1915
+TCGA-KK-A8IA-11A	0	TCGA-KK-A8IA	1931
+TCGA-KK-A8IA-01A	0	TCGA-KK-A8IA	1931
+TCGA-V1-A9O5-06A	0	TCGA-V1-A9O5	1932
+TCGA-V1-A9O5-01A	0	TCGA-V1-A9O5	1932
+TCGA-G9-6366-01A	0	TCGA-G9-6366	1947
+TCGA-V1-A8WL-01A	0	TCGA-V1-A8WL	1948
+TCGA-G9-6498-01A	0	TCGA-G9-6498	1952
+TCGA-EJ-5519-01A	0	TCGA-EJ-5519	1962
+TCGA-EJ-5508-01A	0	TCGA-EJ-5508	1965
+TCGA-KK-A59Y-11A	0	TCGA-KK-A59Y	1968
+TCGA-KK-A59Y-01A	0	TCGA-KK-A59Y	1968
+TCGA-HC-7078-01A	0	TCGA-HC-7078	1985
+TCGA-KK-A8I7-01A	0	TCGA-KK-A8I7	2002
+TCGA-KK-A8I7-11A	0	TCGA-KK-A8I7	2002
+TCGA-KK-A8IH-11A	0	TCGA-KK-A8IH	2013
+TCGA-KK-A8IH-01A	0	TCGA-KK-A8IH	2013
+TCGA-G9-6338-01A	0	TCGA-G9-6338	2028
+TCGA-VP-A87E-01A	0	TCGA-VP-A87E	2037
+TCGA-G9-6351-11A	0	TCGA-G9-6351	2048
+TCGA-G9-6351-01A	0	TCGA-G9-6351	2048
+TCGA-KK-A8IC-11A	0	TCGA-KK-A8IC	2051
+TCGA-KK-A8IC-01A	0	TCGA-KK-A8IC	2051
+TCGA-KK-A8IK-11A	0	TCGA-KK-A8IK	2052
+TCGA-KK-A8IK-01A	0	TCGA-KK-A8IK	2052
+TCGA-KK-A6E3-01A	0	TCGA-KK-A6E3	2056
+TCGA-KK-A6E3-11A	0	TCGA-KK-A6E3	2056
+TCGA-G9-6354-01A	0	TCGA-G9-6354	2066
+TCGA-G9-6336-01A	0	TCGA-G9-6336	2068
+TCGA-KK-A6E5-11A	0	TCGA-KK-A6E5	2073
+TCGA-KK-A6E5-01A	0	TCGA-KK-A6E5	2073
+TCGA-EJ-5522-01A	0	TCGA-EJ-5522	2079
+TCGA-YL-A8SQ-01B	0	TCGA-YL-A8SQ	2083
+TCGA-G9-6347-01A	0	TCGA-G9-6347	2089
+TCGA-KK-A8ID-01A	0	TCGA-KK-A8ID	2107
+TCGA-KK-A8ID-11A	0	TCGA-KK-A8ID	2107
+TCGA-HC-7077-01A	0	TCGA-HC-7077	2115
+TCGA-EJ-5518-01A	0	TCGA-EJ-5518	2118
+TCGA-YL-A9WK-01A	0	TCGA-YL-A9WK	2136
+TCGA-HC-8212-01B	0	TCGA-HC-8212	2179
+TCGA-KK-A6E1-01A	0	TCGA-KK-A6E1	2198
+TCGA-KK-A6E1-11A	0	TCGA-KK-A6E1	2198
+TCGA-KK-A8I4-01A	0	TCGA-KK-A8I4	2259
+TCGA-KK-A8I4-11A	0	TCGA-KK-A8I4	2259
+TCGA-EJ-5521-01A	0	TCGA-EJ-5521	2279
+TCGA-YL-A8HO-01A	0	TCGA-YL-A8HO	2304
+TCGA-VP-A875-01A	0	TCGA-VP-A875	2309
+TCGA-EJ-8469-01A	0	TCGA-EJ-8469	2324
+TCGA-EJ-8468-01A	0	TCGA-EJ-8468	2347
+TCGA-EJ-8468-11A	0	TCGA-EJ-8468	2347
+TCGA-YL-A8SP-01B	0	TCGA-YL-A8SP	2366
+TCGA-V1-A9OH-01A	0	TCGA-V1-A9OH	2403
+TCGA-G9-6343-01A	0	TCGA-G9-6343	2450
+TCGA-G9-6333-01A	0	TCGA-G9-6333	2465
+TCGA-G9-6333-11A	0	TCGA-G9-6333	2465
+TCGA-KK-A5A1-11A	1	TCGA-KK-A5A1	2469
+TCGA-KK-A5A1-01A	1	TCGA-KK-A5A1	2469
+TCGA-V1-A9O7-01A	0	TCGA-V1-A9O7	2499
+TCGA-KK-A8IG-01A	0	TCGA-KK-A8IG	2505
+TCGA-KK-A8IG-11A	0	TCGA-KK-A8IG	2505
+TCGA-HI-7170-01A	0	TCGA-HI-7170	2522
+TCGA-KK-A59X-11A	0	TCGA-KK-A59X	2535
+TCGA-KK-A59X-01A	0	TCGA-KK-A59X	2535
+TCGA-EJ-7218-01B	0	TCGA-EJ-7218	2542
+TCGA-G9-6339-01A	0	TCGA-G9-6339	2551
+TCGA-EJ-7123-01A	0	TCGA-EJ-7123	2572
+TCGA-EJ-7123-11A	0	TCGA-EJ-7123	2572
+TCGA-QU-A6IP-01A	0	TCGA-QU-A6IP	2620
+TCGA-KK-A59Z-11A	0	TCGA-KK-A59Z	2628
+TCGA-KK-A59Z-01A	0	TCGA-KK-A59Z	2628
+TCGA-G9-6332-01A	0	TCGA-G9-6332	2657
+TCGA-G9-6332-11A	0	TCGA-G9-6332	2657
+TCGA-HI-7169-01A	0	TCGA-HI-7169	2684
+TCGA-EJ-7115-11A	0	TCGA-EJ-7115	2687
+TCGA-EJ-7115-01A	0	TCGA-EJ-7115	2687
+TCGA-VP-A87B-01A	0	TCGA-VP-A87B	2722
+TCGA-HC-7741-01C	0	TCGA-HC-7741	2725
+TCGA-KK-A6E7-11A	0	TCGA-KK-A6E7	2760
+TCGA-KK-A6E7-01A	0	TCGA-KK-A6E7	2760
+TCGA-EJ-7125-11A	0	TCGA-EJ-7125	2850
+TCGA-EJ-7125-01A	0	TCGA-EJ-7125	2850
+TCGA-V1-A9O9-01A	0	TCGA-V1-A9O9	2870
+TCGA-KK-A8I5-01A	0	TCGA-KK-A8I5	3096
+TCGA-KK-A8I5-11A	0	TCGA-KK-A8I5	3096
+TCGA-VP-A878-01A	0	TCGA-VP-A878	3130
+TCGA-HI-7168-01A	0	TCGA-HI-7168	3323
+TCGA-VP-A876-01A	0	TCGA-VP-A876	3333
+TCGA-KK-A59V-01A	0	TCGA-KK-A59V	3440
+TCGA-KK-A59V-11A	0	TCGA-KK-A59V	3440
+TCGA-KK-A6E6-11A	0	TCGA-KK-A6E6	3447
+TCGA-KK-A6E6-01A	0	TCGA-KK-A6E6	3447
+TCGA-KK-A8II-11A	1	TCGA-KK-A8II	3467
+TCGA-KK-A8II-01A	1	TCGA-KK-A8II	3467
+TCGA-YL-A8SO-01B	0	TCGA-YL-A8SO	3479
+TCGA-KK-A6E4-11A	1	TCGA-KK-A6E4	3502
+TCGA-KK-A6E4-01A	1	TCGA-KK-A6E4	3502
+TCGA-VP-A872-01A	0	TCGA-VP-A872	3631
+TCGA-QU-A6IO-01A	0	TCGA-QU-A6IO	3716
+TCGA-QU-A6IN-01A	0	TCGA-QU-A6IN	4264
+TCGA-KK-A6DY-11A	0	TCGA-KK-A6DY	4295
+TCGA-KK-A6DY-01A	0	TCGA-KK-A6DY	4295
+TCGA-KK-A6E2-01A	0	TCGA-KK-A6E2	5024
+TCGA-KK-A6E2-11A	0	TCGA-KK-A6E2	5024
