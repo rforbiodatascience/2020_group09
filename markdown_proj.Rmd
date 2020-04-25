@@ -101,7 +101,7 @@ Patient id            patient_id
 Age                   age_at_initial_pathologic_diagnosis
 bone_metastasis       bone_scan_results --> retain only normal + abnormal == 0, prostate cancer == 1, while equivocal == NA. 
 monts of FU           OS.time --> those are days, we have to transform them in months
-AP correlates with gleason score --> find a way to transform one into the other  ????????
+SG correlates with gleason score --> find a way to transform one into the other  ????????
 
 ```{r}
 TCGA_prostate_def <- TCGA_prostate_tot %>% 
@@ -182,7 +182,8 @@ plot(data_to_plot, pch = 16, col = ifelse(prostate_data$Status == 0, "black", "r
 
 getwd()
 ```
-
+ outliers
+ stage tumor 
 
 
 
