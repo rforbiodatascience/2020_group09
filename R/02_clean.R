@@ -39,7 +39,8 @@ colnames(prostate) <- col_names
 
 #removing the rows which contain at least one NA
 prostate_data <- prostate %>%
-  drop_na()  
+  drop_na() %>%
+  filter(AP < 100)
 
 # split the estrogen (mg) col into two cols + deletion of the Estr col, 
 # since it contains only the word "estrogen"
@@ -150,3 +151,4 @@ prostate_tidy <- full_join(x = prostate_data, y = TCGA_prostate_final, by = c("P
 # ------------------------------------------------------------------------------
 write_tsv(x = prostate_data,
           path = "data/02_prostate_data_clean.tsv")
+
