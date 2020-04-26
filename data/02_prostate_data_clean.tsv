@@ -28,7 +28,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 28	4	0	39	3	71	103	normal activity	0	12	7	normal	14.3984375	11	11	12	0	1967-11-13	prostate
 29	4	1	33	1	66	126	normal activity	0	17	10	heart strain	14	32	13	24.1992188	0	1967-11-24	prostate
 30	4	0.2	8	3	76	90	normal activity	0	15	9	heart strain	12.7988281	40	13	2.29980469	0	1967-12-05	prostate
-31	4	0.2	13	3	74	77	in bed > 50% daytime	0	16	9	heart strain	10.5	17	13	316	1	1967-12-15	prostate
 32	4	5	33	6	71	150	normal activity	1	16	10	old MI	15	9	11	1.89990234	0	1968-01-03	prostate
 33	4	1	9	3	71	88	normal activity	1	16	9	heart strain	12.2988281	38	13	35.3984375	0	1968-01-11	prostate
 34	4	0	21	3	79	89	normal activity	0	16	9	heart strain	12.7988281	26	12	12.0996094	0	1968-01-19	prostate
@@ -62,7 +61,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 65	4	0.2	5	3	53	106	normal activity	0	14	8	heart strain	14.2988281	10	11	0.699951172	0	1968-03-01	prostate
 66	4	5	64	0	55	116	normal activity	0	13	9	heart strain	14.7988281	26	15	4.59960938	1	1968-05-01	prostate
 67	4	5	1	8	80	91	in bed < 50% daytime	1	14	8	old MI	11.6992188	15	13	1.29980469	0	1968-12-03	prostate
-68	4	1	21	3	59	71	normal activity	0	8	4	heart strain	8.69921875	27	11	175.09375	1	1969-01-11	prostate
 69	4	0	16	6	80	111	normal activity	0	16	9	normal	11.2988281	34	15	1.09985352	1	1969-02-27	prostate
 70	3	1	21	2	68	97	in bed < 50% daytime	1	14	8	old MI	12.0996094	18	8	0.599975586	0	1967-04-14	prostate
 71	3	1	12	4	77	103	normal activity	1	13	7	rhythmic disturb & electrolyte ch	14.3984375	5	9	0.699951172	0	1967-05-10	prostate
@@ -135,15 +133,12 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 142	3	5	8	5	83	115	normal activity	0	17	9	heart strain	16.6992188	25	9	0.599975586	0	1969-05-21	prostate
 143	4	0	0	6	71	98	in bed > 50% daytime	1	18	9	heart strain	12.2988281	34	13	42.8984375	1	1967-07-31	prostate
 144	4	5	21	4	73	103	normal activity	0	12	8	normal	12.7988281	21	11	2.79980469	0	1967-08-22	prostate
-145	4	0.2	27	3	71	102	normal activity	0	14	7	normal	10.5	30	13	367	1	1967-11-29	prostate
 146	4	1	22	9	75	124	normal activity	0	18	11	heart strain	15.5996094	22	11	7	0	1967-11-29	prostate
 147	4	1	12	3	71	77	normal activity	0	10	6	rhythmic disturb & electrolyte ch	7	17	13	3.59960938	1	1967-12-05	prostate
 148	4	1	68	0	56	69	normal activity	0	13	8	normal	10.6992188	11	13	1.39990234	1	1967-12-12	prostate
 149	4	1	21	6	83	88	normal activity	0	13	7	normal	13.2988281	15	13	21.6992188	0	1967-12-20	prostate
 150	4	0.2	68	0	71	116	normal activity	0	15	8	heart strain	15	46	10	3.19970703	0	1967-12-26	prostate
-151	4	5	0	6	73	98	in bed < 50% daytime	1	15	8	rhythmic disturb & electrolyte ch	10.1992188	23	13	127.796875	0	1968-01-29	prostate
 152	4	5	2	3	78	74	normal activity	0	12	9	heart strain	14	32	11	4.69921875	1	1968-04-09	prostate
-153	4	0	14	3	50	109	normal activity	0	12	8	normal	9.29882812	17	11	225.1875	1	1968-05-27	prostate
 154	4	0	18	4	73	101	normal activity	0	16	11	heart strain	14	9	11	2.69970703	0	1968-06-26	prostate
 155	4	5	5	3	67	111	normal activity	0	12	9	old MI	9.59960938	17	11	7	1	1968-08-15	prostate
 156	4	1	60	0	72	96	normal activity	0	15	9	normal	15.2988281	2	15	43.59375	1	1968-08-21	prostate
@@ -214,7 +209,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 224	4	5	68	0	70	92	normal activity	0	16	8	normal	13.5	22	14	2.69970703	0	1967-12-07	prostate
 225	4	0.2	17	3	73	76	normal activity	0	17	8	normal	13.3984375	50	13	8.8984375	0	1967-12-15	prostate
 226	4	0	66	0	75	98	normal activity	1	14	8	normal	14.6992188	16	13	2.79980469	0	1968-02-21	prostate
-227	4	1	65	0	76	83	normal activity	0	12	6	rhythmic disturb & electrolyte ch	11.3984375	13	11	596	1	1968-03-14	prostate
 228	4	0	19	3	71	77	in bed < 50% daytime	0	17	7	old MI	11.7988281	61	15	4.29980469	1	1968-03-19	prostate
 229	4	1	41	3	76	91	normal activity	0	17	8	normal	15.0996094	24	11	8.19921875	0	1968-03-22	prostate
 230	4	0	28	4	73	106	normal activity	1	16	9	normal	14.6992188	11	11	36.8984375	0	1968-04-05	prostate
@@ -241,7 +235,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 252	3	5	6	4	79	94	normal activity	1	11	8	old MI	12.1992188	4	6	0.399963379	0	1969-06-03	prostate
 253	4	0.2	30	4	72	90	in bed < 50% daytime	1	22	12	heart strain	12.2988281	15	14	0.5	1	1967-08-14	prostate
 254	4	0.2	58	3	52	106	normal activity	1	11	7	normal	15	13	14	5.29980469	0	1967-09-08	prostate
-255	4	1	68	0	76	97	normal activity	1	15	10	heart strain	14.5996094	19	11	353.5	0	1967-12-18	prostate
 256	4	0.2	24	3	74	85	normal activity	0	16	10	rhythmic disturb & electrolyte ch	10	19	13	13.8984375	1	1968-01-03	prostate
 257	4	0	33	8	71	86	normal activity	0	14	8	normal	10.1992188	8	11	0.399963379	1	1968-01-12	prostate
 258	4	5	65	0	72	96	normal activity	0	14	10	rhythmic disturb & electrolyte ch	12.2988281	17	12	20	0	1968-03-25	prostate
@@ -251,7 +244,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 263	4	5	15	3	71	98	normal activity	0	15	10	heart strain	14.6992188	12	11	43.09375	1	1969-03-18	prostate
 264	4	0.2	10	3	76	94	normal activity	1	16	9	normal	10.5	20	12	33.59375	0	1969-03-21	prostate
 265	4	5	12	3	49	90	in bed < 50% daytime	0	14	8	heart strain	14.0996094	21	15	5.59960938	1	1969-03-21	prostate
-266	4	5	53	0	74	91	in bed > 50% daytime	1	13	7	rhythmic disturb & electrolyte ch	13.3984375	17	11	278.25	1	1969-03-27	prostate
 267	4	1	51	0	59	97	normal activity	0	13	6	normal	14.0996094	17	13	2.19970703	0	1969-05-05	prostate
 268	4	1	1	4	79	116	normal activity	1	15	9	rhythmic disturb & electrolyte ch	12.5996094	23	11	3.79980469	0	1969-05-29	prostate
 272	3	0.2	2	5	72	82	normal activity	0	13	7	heart strain	9.3984375	33	11	0.599975586	0	1968-02-19	prostate
@@ -261,7 +253,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 276	3	5	54	3	78	107	normal activity	0	14	9	normal	12.7988281	42	11	29.6992188	0	1968-12-09	prostate
 277	3	5	37	4	60	94	normal activity	0	15	9	normal	13	10	9	0.399963379	0	1969-01-20	prostate
 278	3	0.2	10	1	72	83	normal activity	0	11	7	normal	13.7988281	15	9	0.399963379	0	1969-03-07	prostate
-279	4	5	29	3	59	99	confined to bed	0	13	8	normal	12.6992188	17	13	999.875	1	1967-04-27	prostate
 281	4	0	12	3	74	107	normal activity	1	15	8	normal	14.5996094	18	11	8.3984375	0	1967-09-27	prostate
 282	4	0.2	13	3	76	97	normal activity	0	14	8	normal	13.6992188	36	15	15.5	0	1967-10-19	prostate
 283	4	0	27	3	80	135	normal activity	1	11	7	old MI	12.8984375	17	11	3.79980469	0	1967-12-04	prostate
@@ -381,7 +372,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 399	4	0.2	20	3	72	79	normal activity	0	14	7	normal	12.1992188	24	11	7.19921875	1	1968-08-16	prostate
 400	4	5	24	3	74	108	normal activity	0	16	9	normal	12.5996094	12	13	1.09985352	0	1968-08-21	prostate
 401	4	5	27	3	70	85	normal activity	0	16	8	rhythmic disturb & electrolyte ch	16.3984375	9	13	1.79980469	0	1968-08-23	prostate
-402	4	1	31	3	61	91	normal activity	1	14	8	benign	10.6992188	25	13	152.1875	1	1968-09-30	prostate
 403	4	0	9	3	77	116	normal activity	1	14	8	rhythmic disturb & electrolyte ch	15.1992188	7	13	47	0	1968-10-01	prostate
 405	4	1	11	8	72	86	in bed < 50% daytime	0	12	7	rhythmic disturb & electrolyte ch	14	50	15	1.09985352	0	1968-11-12	prostate
 406	4	5	56	3	64	104	normal activity	0	17	7	normal	12	43	13	2.39990234	1	1968-11-27	prostate
@@ -457,7 +447,6 @@ Patient_ID	Stage	Estrogen_mg	Months_FU	Status	Age	Weight_index	Activity_level	CV
 483	4	0	9	4	72	83	normal activity	1	14	8	rhythmic disturb & electrolyte ch	12.8984375	18	13	1.39990234	1	1968-01-22	prostate
 486	4	1	59	0	73	71	normal activity	0	16	8	normal	13.3984375	3	11	0.699951172	1	1968-09-27	prostate
 487	4	5	7	4	72	110	normal activity	0	14	6	normal	13.6992188	4	11	2.09960938	0	1968-10-25	prostate
-489	4	5	12	3	80	105	in bed > 50% daytime	1	14	7	old MI	8.5	6	5	160	1	1969-05-28	prostate
 490	4	5	46	2	69	71	in bed < 50% daytime	1	11	8	old MI	13.6992188	5	13	1.39990234	1	1969-06-27	prostate
 491	4	1	50	0	75	116	normal activity	0	14	8	normal	16	1	11	4.5	0	1969-06-27	prostate
 492	4	5	0	5	71	99	in bed < 50% daytime	1	14	8	heart block or conduction def	14.0996094	1	11	1.69995117	0	1969-06-27	prostate
