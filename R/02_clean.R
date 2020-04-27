@@ -41,7 +41,7 @@ prostate_clean <- prostate_clean %>%
 # split the estrogen (mg) col into two cols + deletion of the estr col, 
 # since it contains only the word "estrogen"
 prostate_clean <- prostate_clean %>%
-  mutate(estrogen_mg = str_replace(string = estrogen_mg, pattern = "placebo", replacement = "0.0")) %>%  
+  mutate(estrogen_mg = str_replace(string = estrogen_mg, pattern = "placebo", replacement = "0.0 mg estrogen")) %>%  
   separate(data = ., col = estrogen_mg, into = c("estrogen_mg", "estr"), sep = "mg") %>%
   select(-estr)
 
@@ -75,7 +75,7 @@ tcga_prostate_survival_clean <- tcga_prostate_survival_raw %>%
 # Write data
 # ------------------------------------------------------------------------------
 write_tsv(x = prostate_clean,
-          path = "data/02_prostate_clean.tsv")
+          path = "data/02_prostate_clean.tsv") 
 write_tsv(x = tcga_prostate_clean,
           path = "data/02_tcga_prostate_clean.tsv")
 write_tsv(x = tcga_prostate_survival_clean,
