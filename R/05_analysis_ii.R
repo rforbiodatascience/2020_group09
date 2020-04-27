@@ -24,6 +24,7 @@ prostate_one_hot_corr <- prostate_one_hot %>%
 
 # Model data
 # ------------------------------------------------------------------------------
+#PCA 
 prostate_pca <- prostate_for_pca%>%
   select(-Date_on_study, - Patient_ID, -Dataset, -Status) %>%
   prcomp(center = TRUE, scale = TRUE)
