@@ -59,11 +59,15 @@ prostate_clean <- prostate_clean %>%
 
 ## Cleaning TCGA datasets
 
+# IMPORTANT
 # This dataset contain 127 variables, most of them with only na data,
 # We rename only the variables that we will use (and that need cleaning)
+# We won't eliminate the rows containg NA until we have the final selection of the 
+# columns we want to use
 tcga_prostate_clean <- tcga_prostate_raw %>% 
   rename("sample_id" = "submitter_id.samples",
-         "age" = "age_at_initial_pathologic_diagnosis")
+         "age" = "age_at_initial_pathologic_diagnosis",
+         "vital_status_demographic" = "vital_status.demographic")
 
 tcga_prostate_survival_clean <- tcga_prostate_survival_raw %>%
   rename("sample_id" = "sample", "os" = "OS", 
