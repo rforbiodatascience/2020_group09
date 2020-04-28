@@ -63,8 +63,7 @@ prostate_clean <- prostate_clean %>%
 # We rename only the variables that we will use (and that need cleaning)
 tcga_prostate_clean <- tcga_prostate_raw %>% 
   rename("sample_id" = "submitter_id.samples",
-         "age" = "age_at_initial_pathologic_diagnosis",
-         "bone_metastases" = "bone_scan_results")
+         "age" = "age_at_initial_pathologic_diagnosis")
 
 tcga_prostate_survival_clean <- tcga_prostate_survival_raw %>%
   rename("sample_id" = "sample", "os" = "OS", 
