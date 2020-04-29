@@ -25,6 +25,21 @@ tcga_prostate_survival_clean <- read_tsv(file = "data/02_tcga_survival_prostate_
 prostate_data <- prostate_clean %>% 
   mutate("dataset" = "prostate")
 
+#for some reason i can't get as.integer to work as Stella and Giorgia did. 
+prostate_data <- prostate_data %>%
+  mutate("status_num" = (case_when(
+    status == "alive" ~ 0,
+    status == "dead - prostatic ca" ~ 1, 
+    status == "dead - cerebrovascular" ~ 2, 
+    status == "dead - heart or vascular" ~ 2,
+    status == "dead - pulmonary embolus" ~ 2,
+    status == "dead - other ca" ~ 2,
+    status == "dead - other specific non-ca" ~ 2,
+    status == "dead - unspecified non-ca" ~ 2,
+    status == "dead - respiratory disease" ~ 2,
+    status == "dead - unknown cause" ~ 2)))
+
+
 # one hot encoding factors (which are actually characters!)
 prostate_one_hot <- prostate_data %>% 
   group_by(ekg) %>%
@@ -50,7 +65,7 @@ prostate_one_hot_factors <- prostate_one_hot %>%
 
 # one hot with three status classes: alive, dead - prostata ca, dead_other 
 prostate_one_hot_status3 <- prostate_one_hot_factors %>% 
-  mutate(`status_dead other` = `status_dead - cerebrovascular` | 
+  mutate(`status_dead_other` = `status_dead - cerebrovascular` | 
            `status_dead - heart or vascular` | 
            `status_dead - pulmonary embolus` | 
            `status_dead - other ca` |
@@ -58,7 +73,7 @@ prostate_one_hot_status3 <- prostate_one_hot_factors %>%
            `status_dead - unspecified non-ca` | 
            `status_dead - respiratory disease` | 
            `status_dead - unknown cause`) %>% 
-  mutate(`status_dead other`= as.numeric(`status_dead other`)) %>% 
+  mutate(`status_dead_other`= as.numeric(`status_dead_other`)) %>% 
   select(-`status_dead - cerebrovascular`, 
          - `status_dead - heart or vascular`, 
          - `status_dead - pulmonary embolus`, 
@@ -70,8 +85,7 @@ prostate_one_hot_status3 <- prostate_one_hot_factors %>%
 
 # Eliminate spaces in generated column names
 prostate_one_hot_status3 <- prostate_one_hot_status3 %>% 
-  rename("status_dead_prostatic_ca"  = "status_dead - prostatic ca",
-         "status_dead_other" = "status_dead other")
+  rename("status_dead_prostatic_ca"  = "status_dead - prostatic ca")
 
 
 ## Augment tcga datasets
@@ -103,6 +117,13 @@ tcga_prostate_data <- tcga_prostate_data %>%
                               vital_status_demographic == "Dead" & is.na(patient_death_reason) ~ "dead_other"
                               ))
 
+tcga_prostate_data <- tcga_prostate_data %>%
+  mutate("status_num" = (case_when(
+    status == "alive" ~ 0,
+    status == "dead_prostatic_ca" ~ 1, 
+    status == "dead_other" ~ 2)))
+
+
 tcga_prostate_data_one_hot <- tcga_prostate_data %>% 
   group_by(status) %>%
   mutate(count = 1) %>%
@@ -111,7 +132,7 @@ tcga_prostate_data_one_hot <- tcga_prostate_data %>%
 
 # Select the useful data
 tcga_prostate_data_subset <- tcga_prostate_data_one_hot %>%
-  select(sample_id, age, bone_metastases, sg, status_alive, status_dead_prostatic_ca, status_dead_other)%>%
+  select(sample_id, age, bone_metastases, sg, status_alive, status_dead_prostatic_ca, status_dead_other, status_num)%>%
   drop_na()
 
 tcga_prostate_survival_data_subset <- tcga_prostate_survival_data %>%
@@ -119,7 +140,7 @@ tcga_prostate_survival_data_subset <- tcga_prostate_survival_data %>%
 # Check the sample_id are the same in both tibbles
 # anti_join(x = tcga_prostate_raw, y = tcga_prostate_raw, by = "sample_id")
 
-# Inner-join: join the phenotipe with the survival rates using the Sample ID
+# Inner-join: join the phenotype with the survival rates using the Sample ID
 # as key column. Only takes what is in both datasets
 # Add Dataset column to identify the origin of the data
 tcga_prostate_subset_tot <- inner_join(x = tcga_prostate_data_subset,
@@ -146,7 +167,7 @@ tcga_prostate_subset_tot <- inner_join(x = tcga_prostate_data_subset,
 # sg correlates with gleason score, primary_pattern and secondary_pattern                   
 
 prostate_data_subset <- prostate_one_hot_status3 %>% 
-  select(patient_id, age, bone_metastases, sg, status_alive, status_dead_prostatic_ca, status_dead_other)%>%
+  select(patient_id, age, bone_metastases, sg, status_alive, status_dead_prostatic_ca, status_dead_other, status_num, months_fu, dataset)%>%
   mutate(patient_id = as.character(patient_id))
 
 # Select the interesting columns, change names if necessary (patient_id),
