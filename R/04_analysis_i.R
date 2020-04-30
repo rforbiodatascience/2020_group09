@@ -18,10 +18,7 @@ source(file = "R/99_project_functions.R")
 prostate_data <- read_tsv(file = "data/02_prostate_data_clean.tsv")
 
 # Wrangle data
-# ------------------------------------------------------------------------------
-#this is not working for unknown reasons - just returns NA
-prostate_data_status_in_numbers <- prostate_data %>%
-  mutate(Status = as.integer(Status))
+# ----------------------------
  
 
 # Model data
@@ -31,8 +28,8 @@ prostate_data_status_in_numbers <- prostate_data %>%
 # Visualise data
 # ------------------------------------------------------------------------------
 
-data_to_plot <- prostate_data_status_in_numbers %>% 
-  dplyr::select(c(Patient_ID, Status, Months_FU, Age, Weight_index, SBP, DBP, Serum_HG, Tumour_size, AP))
+data_to_plot <- prostate_data %>% 
+  dplyr::select(c(patient_id, status, months_fu, age, weight_index, sbp, dpb, serum_hg, tumour_size, ap))
 
 plot_list <- vector("list", length = length(colnames(data_to_plot)))
 for (i in 1:length(plot_list)) {
@@ -62,15 +59,15 @@ for (i in data_to_plot) {
 #plotting the survival over every other variable. We coloured the points dividing between
 #the patients dead for prostate cancer and all the others
 data_to_plot_long <- data_to_plot %>%
-  pivot_longer(cols = -c("Patient_ID", "Status"),
+  pivot_longer(cols = -c("patient_id", "status"),
                names_to = "vars",
                values_to = "value") %>% 
-  mutate(Patient_ID = factor(Patient_ID),
-         Status = Status)
+  mutate(patient_id = factor(patient_id),
+         cat_status = cat_status)
 data_to_plot_long
 
 data_to_plot_long %>%
-  ggplot(aes(x = Patient_ID, y = value, colour = ifelse(Status == 3, "Dead for prostate cancer", "Survived or dead for other causes"))) +
+  ggplot(aes(x = value, y = months_fu, colour = ifelse(cat_status == 1, "Death from prostate cancer",ifelse(cat_status == 0, "Alive", "Death from other causes") ))) +
   geom_point() +
   facet_wrap(~vars, nrow = 5, scales = "free_y") +
   labs(x = "", colour = "Status") +

@@ -54,13 +54,20 @@ output:
 - Binarize bone_scan_results to compare to bone_metastases in PCD
 - Obtain sg value from gleason score
 - Select columns in common between the TCGA Dataset and the Prostate Cancer Dataset
-## Joining the datasets
-- Inner_join between the TCGA datasets
-## Visualizing the Data
 
+## Joining the datasets
+- anti_join to check if we are missing any information in the joining
+- Inner_join between the TCGA datasets to have a TCGA Dataset
+- Full_join to merge the TCGA Dataset and the Prostate Cancer Dataset
+## Visualizing the Data
+-comment plots
 ## What to look for
+- REGRESSION : we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
+- CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
 ## PCA and Clustering
+- 
 ## Regression
+-
 ## Classification
 
 
