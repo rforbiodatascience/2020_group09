@@ -87,7 +87,7 @@ prostate_one_hot_status3 <- prostate_one_hot_factors %>%
 prostate_one_hot_status3 <- prostate_one_hot_status3 %>% 
   rename("status_dead_prostatic_ca"  = "status_dead - prostatic ca")
 
-
+prostate_one_hot_status3
 ## Augment tcga datasets
 
 # Convert the content of the OS.time column from days to months., 
@@ -131,31 +131,32 @@ tcga_prostate_data_one_hot <- tcga_prostate_data %>%
               names_prefix = "status_", values_fill = list(count = 0))
 
 # Select the useful data
-tcga_prostate_data_subset <- tcga_prostate_data_one_hot %>%
-  select(sample_id, age, bone_metastases, sg, status_alive, status_dead_prostatic_ca, status_dead_other, status_num)%>%
-  drop_na()
+# tcga_prostate_data_subset <- tcga_prostate_data_one_hot %>%
+#  select(sample_id, age, bone_metastases, sg, status_alive, status_dead_prostatic_ca, status_dead_other, status_num)%>%
+#  drop_na()
 
-tcga_prostate_survival_data_subset <- tcga_prostate_survival_data %>%
-  select(sample_id, months_fu)
-# Check the sample_id are the same in both tibbles
-# anti_join(x = tcga_prostate_raw, y = tcga_prostate_raw, by = "sample_id")
+# tcga_prostate_survival_data_subset <- tcga_prostate_survival_data %>%
+#  select(sample_id, months_fu)
+
+
+# Check the sample_id are the same in both tibbles, and check how much data is lost
+anti_join(x = tcga_prostate_raw, y = tcga_prostate_raw, by = "sample_id")
 
 # Inner-join: join the phenotype with the survival rates using the Sample ID
 # as key column. Only takes what is in both datasets
 # Add Dataset column to identify the origin of the data
-tcga_prostate_subset_tot <- inner_join(x = tcga_prostate_data_subset,
-                                y = tcga_prostate_survival_data_subset, 
+tcga_final <- inner_join(x = tcga_prostate_data,
+                                y = tcga_prostate_survival_data, 
                                 by = "sample_id") %>% 
-  mutate("dataset" = "tcga") %>% 
-  rename("patient_id" = "sample_id")
-
-# Check !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  mutate("dataset" = "tcga") 
+  
+tcga_final <- tcga_final %>%
+  select(patient_id, age, bone_metastases, months_fu, sg, status, dataset)
+  
 # Remove duplicated rows ()
-# tcga_prostate_tot <- tcga_prostate_tot %>%
-# duplicated() #unique()
-# unique(tcga_prostate_tot) --> There are no duplicates
+tcga_final <- tcga_final %>%
+  unique()
 
- 
 # Common columns in both datasets:
 
 # prostate data          TCGA
@@ -172,8 +173,8 @@ prostate_data_subset <- prostate_one_hot_status3 %>%
 
 # Select the interesting columns, change names if necessary (patient_id),
 # and add data that can be extracted from the existing columns (sg)
-prostate_join <- bind_rows(x = prostate_data_subset,
-                           y = tcga_prostate_subset_tot)
+prostate_join <- full_join(x = prostate_data_subset,
+                           y = tcga_prostate_subset_tot, by = patient_id)
 # ------------------------------------------------------------------------------
 # write_tsv(x = prostate_data_status_in_numbers,
 #           path = "data/03_prostate_status_in_numbers.tsv")
