@@ -1,0 +1,68 @@
+---
+title: "presentation R Project"
+author:
+date: May 14, 2020
+output:
+  ioslides_presentation:
+    widescreen: true
+---
+## R Project
+
+**Prostate Cancer Data Analysis**
+
+- The Datasets
+- Cleaning
+- Tidying
+- Visualizing the Data
+- What to look for
+- PCA and Clustering
+- Regression
+- Classification
+
+## The Datasets
+
+**Prostate Cancer Data**
+
+  What variables what do they mean?
+  
+## The Datasets
+
+**TCGA Datasets**
+
+- Two datasets 
+  What variables what do they mean?
+  
+## Cleaning and Tidying Prostate Cancer Data
+- Changing names(no spaces, reasonable for the content, no cap letters)
+- Removing rows with missing values
+- Modifying estrogen_mg column removing the str "mg estrogen" (the column has been split in to two columns one of interest and the other one that was deleted, the two columns have been split using the separator str "mg")
+- The column has then been transformed into a double with the command as.numeric because it was a string
+- The variable date has been converted to a more readable date format (conversion from R coding of the dates to numbers that represent the distance from a certain initial date)
+-
+## Cleaning and Tidying TCGA Dataset
+- Changing names(no spaces, reasonable for the content, no cap letters)
+- (what about deleting the rows with missing values)
+- 
+## Augment Prostate Cancer Data
+- Added column to identify the dataset
+- One Hot Encoding for each variable defining classes
+- Redefining classes for survival (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death)
+## Augment TCGA Dataset
+- Added column to identify the dataset
+- One Hot Encoding for each variable defining classes
+- Convert the content of the os_time from days to months to compare to months_fu in PCD
+- Binarize bone_scan_results to compare to bone_metastases in PCD
+- Obtain sg value from gleason score
+- Select columns in common between the TCGA Dataset and the Prostate Cancer Dataset
+## Joining the datasets
+- Inner_join between the TCGA datasets
+## Visualizing the Data
+
+## What to look for
+## PCA and Clustering
+## Regression
+## Classification
+
+
+
+
