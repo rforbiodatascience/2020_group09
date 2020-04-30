@@ -1,6 +1,8 @@
 # Define project functions
 # ------------------------------------------------------------------------------
 
+# function to change factor columns into new columns for each level denoted 
+# by 0,1, 0 for abscent 1 for present - one hot encoding.  
 one_hot_encoder <- function(col_name, prefix){
   group_by(col_name) %>%
   mutate(count = 1) %>%
