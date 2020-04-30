@@ -73,6 +73,8 @@ tcga_prostate_survival_clean <- tcga_prostate_survival_raw %>%
   rename("sample_id" = "sample", "os" = "OS", 
          "x_patient" = "X_PATIENT", "os_time" = "OS.time")
 
+tcga_prostate_clean <- tcga_prostate_clean %>% 
+  drop_na(bone_scan_results)
 
 
 # Write data
