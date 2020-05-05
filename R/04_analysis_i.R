@@ -38,7 +38,7 @@ for (i in 1:length(plot_list)) {
 
 j <- 3
 
-for (i in data_to_plot) {
+for (i in data_to_plot%>%select(-patient_id)) {
   
   barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = i)) +
     geom_histogram(aes(y=..density..)) +
@@ -60,18 +60,18 @@ for (i in data_to_plot) {
 #plotting the survival over every other variable. We coloured the points dividing between
 #the patients dead for prostate cancer and all the others
 data_to_plot_long <- data_to_plot %>%
-  pivot_longer(cols = -c("patient_id", "status"),
+  pivot_longer(cols = -c("patient_id", "cat_status","months_fu"),
                names_to = "vars",
                values_to = "value") %>% 
   mutate(patient_id = factor(patient_id),
-         cat_status = cat_status)
-data_to_plot_long
-
+         cat_status = cat_status,
+         months_fu = months_fu
+         )
 data_to_plot_long %>%
   ggplot(aes(x = value, y = months_fu, colour = ifelse(cat_status == 1, "Death from prostate cancer",ifelse(cat_status == 0, "Alive", "Death from other causes") ))) +
   geom_point() +
-  facet_wrap(~vars, nrow = 5, scales = "free_y") +
-  labs(x = "", colour = "Status") +
+  facet_wrap(~vars, nrow = 5, scales = "free") +
+  labs(x = "", colour = "Status", title = 'Months of follow-up plotted over the other variables') +
   theme(axis.text.x = element_blank())
 
 
