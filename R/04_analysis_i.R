@@ -6,6 +6,7 @@ rm(list = ls())
 # ------------------------------------------------------------------------------
 library("tidyverse")
 library("ggplot2")
+library("dplyr")
 require("gridExtra")
 
 # Define functions
@@ -15,11 +16,14 @@ source(file = "R/99_project_functions.R")
 # Load data
 # ------------------------------------------------------------------------------
 # data for initial visualization and data exploration (status still as factor)
-prostate_data <- read_tsv(file = "data/02_prostate_data_clean.tsv")
+prostate_data <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 # Wrangle data
 # ----------------------------
- 
+data_to_plot <- prostate_data %>% 
+  filter(dataset == 0) %>% 
+  select(patient_id, cat_status, months_fu, age, weight_index,
+         sbp, dbp, serum_hg, tumour_size, ap)
 
 # Model data
 # ------------------------------------------------------------------------------
@@ -27,15 +31,11 @@ prostate_data <- read_tsv(file = "data/02_prostate_data_clean.tsv")
 
 # Visualise data
 # ------------------------------------------------------------------------------
-
-data_to_plot <- prostate_data %>% 
-  dplyr::select(c(patient_id, status, months_fu, age, weight_index, sbp, dpb, serum_hg, tumour_size, ap))
-
 plot_list <- vector("list", length = length(colnames(data_to_plot)))
 for (i in 1:length(plot_list)) {
   plot_list[[i]] <- list("boxplot" = NULL, "barplot" = NULL)
 }
-view(data_to_plot)
+
 j <- 3
 
 for (i in data_to_plot) {
@@ -52,6 +52,7 @@ for (i in data_to_plot) {
   grid.arrange(barplot_i, boxplot_i, ncol=2) 
   
   j <- j + 1
+  i
 }
 
 #not working since the status is NA and using base R
