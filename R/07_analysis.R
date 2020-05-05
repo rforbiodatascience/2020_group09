@@ -92,7 +92,7 @@ h1_activate = 'relu'
 # h4_activate = 'relu'
 # drop_out_4 = 0.1
 n_output   = 1
-o_ativate  = 'softmax'
+o_ativate  = 'relu'
 n_epochs = 15
 batch_size = 50
 loss_func = 'mean_squared_error'
@@ -114,7 +114,7 @@ model = keras_model_sequential() %>%
 # Compile model
 model %>%
   compile(loss = loss_func,
-          optimizer = optimizer_rmsprop(lr = learn_rate),
+          optimizer = optimizer_adam(lr = learn_rate),
           metrics = c('accuracy')
   )
 
@@ -128,8 +128,8 @@ history = model %>%
       y = train_y,
       epochs = n_epochs,
       batch_size = batch_size,
-      validation_split = 0
-  )
+      validation_split = 0.8)
+      #validation_data = (test_x, test_y))
 
 # Evaluate model
 # ------------------------------------------------------------------------------
