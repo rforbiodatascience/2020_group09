@@ -52,7 +52,6 @@ for (i in data_to_plot%>%select(-patient_id)) {
   grid.arrange(barplot_i, boxplot_i, ncol=2) 
   
   j <- j + 1
-  i
 }
 
 #not working since the status is NA and using base R
