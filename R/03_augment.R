@@ -116,6 +116,8 @@ tcga <- tcga %>%
          gleason_score, primary_pattern, vital_status_demographic, 
          patient_death_reason, dataset) 
 
+unique(tcga$bone_scan_results)
+
 # Remove duplicated rows ()
 tcga_unique <- tcga %>%
   unique()
@@ -131,6 +133,9 @@ tcga_final <- tcga_final %>%
     bone_scan_results == "Abnormal (not related to prostate cancer)" ~ 0, 
     bone_scan_results == "Prostate Cancer Metastases Present [cM1b]" ~ 1)), 
     bone_scan_results = NULL)
+
+tcga_final <- tcga_final %>% 
+  drop_na(bone_metastases)
 
 # Obtain SG value from gleason score and primary and secondary pattern
 tcga_final <- tcga_final %>% 
