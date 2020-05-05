@@ -22,3 +22,10 @@ one_hot_encoder <- function(col_name, prefix){
               names_prefix = prefix, 
               values_fill = list(count = 0)) 
 }
+
+# ----------------------------------------------------------------------------
+# function to create a linear model
+
+get_mdls <- function(dataset) {
+  return(lm(months_fu ~ tumour_size, data = dataset))
+}
