@@ -24,7 +24,7 @@ source(file = 'R/99_project_functions.R')
 
 # Load data
 # ------------------------------------------------------------------------------
-joined_data = read_tsv(file = "data/03_prostate_and_tcga_joined")
+joined_data = read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 regr_data <- joined_data %>% 
   select(months_fu, status_alive,  age, sg, bone_metastases,
