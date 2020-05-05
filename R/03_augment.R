@@ -187,4 +187,4 @@ prostate_final <- prostate_final %>%
 # ------------------------------------------------------------------------------
 
 write_tsv(x = prostate_final,
-          path = "data/03_prostate_and_tcga_joined")
+          path = "data/03_prostate_and_tcga_joined.tsv")
