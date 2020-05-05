@@ -5,7 +5,6 @@ rm(list = ls())
 # Load libraries
 # ------------------------------------------------------------------------------
 library(tidyverse)
-library(sjlabelled)
 
 # Define functions
 # ------------------------------------------------------------------------------
@@ -92,14 +91,16 @@ prostate_one_hot_status3 <- prostate_one_hot_status3 %>%
   rename("status_dead_prostatic_ca"  = "status_dead - prostatic ca")
 
 prostate_one_hot_status3 <- prostate_one_hot_status3 %>% 
-  mutate("patient_id" = as_character(patient_id))
+  mutate("patient_id" = as.character(patient_id))
 
 ## Augment tcga datasets
 
 # We need to join the two TCGA datasets. To be sure that all the IDs in the sample_id column of the two TCGA datasets are the same, 
 # and that we are not loosing data, we use the anti_join funtion, with sample_id as the key column. 
 # We expect a tibble with 0 rows as output if all the IDs match. 
-dim(anti_join(x = tcga_prostate_clean, y = tcga_prostate_survival_clean, by = "sample_id"))
+dim(anti_join(x = tcga_prostate_clean, 
+              y = tcga_prostate_survival_clean,
+              by = "sample_id"))
 
 # Inner-join: join the phenotype with the survival rates using the Sample ID
 # as key column. 
@@ -111,7 +112,9 @@ tcga <- inner_join(x = tcga_prostate_clean,
 
 
 tcga <- tcga %>%
-  select(patient_id, bone_scan_results, age, os_time, gleason_score, primary_pattern, vital_status_demographic, patient_death_reason, dataset) 
+  select(patient_id, bone_scan_results, age, os_time,
+         gleason_score, primary_pattern, vital_status_demographic, 
+         patient_death_reason, dataset) 
 
 # Remove duplicated rows ()
 tcga_unique <- tcga %>%
@@ -138,6 +141,9 @@ tcga_final <- tcga_final %>%
                           gleason_score >= 9 ~ gleason_score + 5))
 
 # One hot encoding status: alive, dead - prostata ca, dead_other
+# The patient death reason can be Prostate Cancer or NA. 
+# If its dead but not by Prostate Cancer we can asume is for
+# another reason
 tcga_final <- tcga_final %>%
   mutate(status = case_when(vital_status_demographic == "Alive" ~ "alive",
                               vital_status_demographic == "Dead" & patient_death_reason == "Prostate Cancer" ~ "dead_prostatic_ca",
