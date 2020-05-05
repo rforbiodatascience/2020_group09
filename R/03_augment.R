@@ -161,6 +161,8 @@ tcga_final <- tcga_final %>%
     status == "dead_prostatic_ca" ~ 1, 
     status == "dead_other" ~ 2)))
 
+tcga_final <- tcga_final %>% 
+  drop_na(cat_status)
 
 tcga_final <- tcga_final %>% 
   group_by(status) %>%
