@@ -53,9 +53,6 @@ prostate_clean <- prostate_clean %>%
 prostate_clean <- prostate_clean %>% 
   mutate(date_on_study = as_date(x = date_on_study, origin = "1960-01-01"))
 
-# Transform data format to allow join
-prostate_clean <- prostate_clean %>%
-  mutate(patient_id = as.character(patient_id))
 
 ## Cleaning TCGA datasets
 
