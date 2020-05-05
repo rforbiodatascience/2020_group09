@@ -88,6 +88,24 @@ months_fu_vs_size_double_plot <- months_fu_vs_size_lm +
   months_fu_vs_size +
   facet_grid(rows = vars(desc(stage))) 
 
+
+
+
+mdl_continuous_variables <- prostate_for_lr %>% 
+  filter(dataset == 0) %>% 
+  lm(formula = months_fu  ~  age + 
+                             weight_index +
+                             sbp + 
+                             dbp +
+                             serum_hg +
+                             tumour_size +
+                             ap, 
+     data = .)
+
+plot(mdl_continuous_variables)
+
+
+
 # Write data
 # ------------------------------------------------------------------------------
 
