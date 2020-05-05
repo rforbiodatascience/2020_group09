@@ -43,19 +43,21 @@ test <- regr_data %>%
   filter(!(row_number() %in% train_ind))
 
 train_y = train %>% 
-  pull(months_fu)
+  pull(months_fu)%>% 
+  as.integer()
 
 train_x <- train  %>% 
-  pull(age) 
-do.call(rbind, X_enc)
+  select(-c(months_fu))%>% 
+  as.matrix() 
 
 test_y <- test  %>% 
-  pull(months_fu)
+  pull(months_fu)%>% 
+  as.integer()
 
 test_x <- test %>% 
   select(-c(months_fu))%>% 
   as.matrix()  
-head(test_x)
+#head(test_x)
 
 #""""""""
 
@@ -77,9 +79,9 @@ train_x <- train %>%
 # ------------------------------------------------------------------------------
 
 # Set hyperparameters
-n_hidden_1 = 128
+n_hidden_1 = 32
 h1_activate = 'relu'
-drop_out_1 = 0.4
+#drop_out_1 = 0.4
 # n_hidden_2 = 90
 # h2_activate = 'relu'
 # drop_out_2 = 0.3
@@ -93,14 +95,14 @@ n_output   = 1
 o_ativate  = 'softmax'
 n_epochs = 15
 batch_size = 50
-loss_func = 'sparse_categorical_crossentropy'
+loss_func = 'mean_squared_error'
 learn_rate = 0.001
 
 # Set architecture
 model = keras_model_sequential() %>% 
   layer_dense(units = n_hidden_1, 
               activation = h1_activate, input_shape = 7) %>% 
-  layer_dropout(rate = drop_out_1) %>% 
+  # layer_dropout(rate = drop_out_1) %>% 
   # layer_dense(units = n_hidden_2, activation = h2_activate) %>%
   # layer_dropout(rate = drop_out_2) %>%
   # layer_dense(units = n_hidden_3, activation = h3_activate) %>%
