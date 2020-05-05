@@ -11,48 +11,68 @@ library("modelr")
 
 # Install keras
 # ------------------------------------------------------------------------------
-#install_github("rstudio/keras")
+# install.packages("devtools")
+# library("devtools")
+# install_github("rstudio/keras")
 # Would you like to install miniconda? Y
-#library(keras)
-#install_keras(tensorflow = "1.13.1")
+# library(keras)
+# install_keras(tensorflow = "1.13.1")
 
 # Define functions
 # ------------------------------------------------------------------------------
-source(file = 'R/99_proj_func.R')
+source(file = 'R/99_project_functions.R')
 
 # Load data
 # ------------------------------------------------------------------------------
 joined_data = read_tsv(file = "data/03_prostate_and_tcga_joined")
 
-joined_data <- joined_data %>% 
-  select(-status_num)
+regr_data <- joined_data %>% 
+  select(months_fu, age, sg, bone_metastases, status_alive,
+         status_dead_prostatic_ca, status_dead_other, dataset)
+
 # Prepare data
 # ------------------------------------------------------------------------------
 ## select 80% of the sample size for training
-smp_size <- floor(0.8 * nrow(joined_data))
+smp_size <- floor(0.8 * nrow(regr_data))
 set.seed(42)
-train_ind <- sample(seq_len(nrow(joined_data)), size = smp_size)
+train_ind <- sample(seq_len(nrow(regr_data)), size = smp_size)
 
-train <- joined_data %>%
+train <- regr_data %>%
   filter(row_number() %in% train_ind)
-test <- joined_data %>% 
+test <- regr_data %>% 
   filter(!(row_number() %in% train_ind))
 
-train_y <- train %>% 
-  select(months_fu) %>% 
-  as.matrix()
+train_y = train %>% 
+  pull(months_fu)
 
-train_x <- train %>% 
-  select(-c(months_fu,dataset,patient_id))%>% 
-  as.matrix()
+train_x <- train  %>% 
+  pull(age) 
+do.call(rbind, X_enc)
 
-test_y <- test %>% 
-  select(months_fu)%>% 
-  as.matrix()
+test_y <- test  %>% 
+  pull(months_fu)
+
 test_x <- test %>% 
-  select(-c(months_fu,dataset,patient_id))%>% 
-  as.matrix()
+  select(-c(months_fu))%>% 
+  as.matrix()  
+head(test_x)
 
+#""""""""
+
+train_y = regr_data %>%
+  filter(row_number() %in% train_ind)%>% 
+  pull(months_fu)
+train_x = regr_data %>%
+  filter(row_number() %in% train_ind)%>% 
+  data.frame()
+
+test_x <- test %>% 
+  select(-c(months_fu))%>%
+  data.frame()
+train_x <- train %>% 
+  select(-c(months_fu))%>%
+  data.frame()
+  #pull(months_fu)
 # Define ANN model
 # ------------------------------------------------------------------------------
 
@@ -78,7 +98,8 @@ learn_rate = 0.001
 
 # Set architecture
 model = keras_model_sequential() %>% 
-  layer_dense(units = n_hidden_1, activation = h1_activate, input_shape = 6) %>% 
+  layer_dense(units = n_hidden_1, 
+              activation = h1_activate, input_shape = 7) %>% 
   layer_dropout(rate = drop_out_1) %>% 
   # layer_dense(units = n_hidden_2, activation = h2_activate) %>%
   # layer_dropout(rate = drop_out_2) %>%
