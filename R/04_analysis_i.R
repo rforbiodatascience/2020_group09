@@ -39,6 +39,12 @@ for (i in 1:length(plot_list)) {
 j <- 3
 
 for (i in data_to_plot%>%select(-patient_id)) {
+  set.seed(42)
+  x <- rnorm(100)
+  hist(x,breaks="FD")
+  
+  breaks <- pretty(range(x), n = nclass.FD(x), min.n = 1)
+  bwidth <- breaks[2]-breaks[1]
   
   barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = i)) +
     geom_histogram(aes(y=..density..)) +
