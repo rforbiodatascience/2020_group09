@@ -51,15 +51,11 @@ months_fu_vs_size <- prostate_for_lr %>%
 
 months_fu_vs_age + months_fu_vs_size
 
-mdls_fun <- function(dataset) {
-  return(lm(months_fu ~ tumour_size, data = dataset))
-}
-
 prostate_data_mdl <- prostate_for_lr %>%
   filter(dataset == 0) %>% 
   group_by(stage) %>% 
   nest() %>% 
-  mutate(mdls = map(data, mdls_fun))
+  mutate(mdls = map(data, get_mdls)) # get_mdls is a function that creates linear model
 
 prostate_data_mdl_tidy <- prostate_data_mdl %>% 
   mutate(tidy_col = map(mdls, tidy, conf.int = T)) %>% 

@@ -4,32 +4,34 @@ rm(list = ls())
 
 # Load libraries
 # ------------------------------------------------------------------------------
-library("tidyverse")
-library("ggcorrplot")
+library(tidyverse)
+library(ggcorrplot)
 library(broom)
 library(patchwork)
+
 # Define functions
 # ------------------------------------------------------------------------------
 source(file = "R/99_project_functions.R")
 
 # Load data
 # ------------------------------------------------------------------------------
-prostate_one_hot <- read_tsv(file = "data/03_prostate_one_hot_status3.tsv")
-prostate_for_pca <- prostate_one_hot %>% select(-contains("status_"))
+prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 # Wrangle data
 # ------------------------------------------------------------------------------
+prostate_for_pca <- prostate_one_hot %>% 
+  select(-contains("status_"))
+
 prostate_one_hot_corr <- prostate_one_hot %>% 
-  select(-Date_on_study, - Patient_ID) %>% 
-  cor(.)
+  select(-c(date_on_study, patient_id, vital_status_demographic, patient_death_reason, dataset) ) %>% 
+  cor(.) # LOOOOOKKKKKKK
 
 # Model data
 # ------------------------------------------------------------------------------
 #PCA 
-prostate_pca <- prostate_for_pca%>%
-  select(-date_on_study, - patient_id, -dataset, -cat_status) %>%
+prostate_pca <- prostate_for_pca %>%
+  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
   prcomp(center = TRUE, scale = TRUE)
-prostate_pca
 
 prostate_pca %>%
   tidy("pcs") %>% 
@@ -37,48 +39,55 @@ prostate_pca %>%
   geom_col() +
   theme_bw()
 
-prostate_pca %>% tidy("samples")
+prostate_pca %>% tidy("samples")# ?????????????????
 
 prostate_pca_aug <- prostate_pca %>% augment(prostate_for_pca)
-prostate_pca_aug
 
 prostate_pca_aug %>% 
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = ifelse(cat_status==1,"Death from prostate cancer",ifelse(cat_status ==0 ,"Alive", "Death from other causes")))) +
-  geom_point()+
+  ggplot(aes(x = .fittedPC1, 
+             y = .fittedPC2, 
+             colour = ifelse(cat_status == 1,"Death from prostate cancer",
+                             ifelse(cat_status == 0 ,"Alive", "Death from other causes")))) +
+  geom_point() +
   labs(colour = "Status")
+
 #first clustering with kmeans based on our variables
 prostate_k_org <- prostate_pca_aug %>%
-  select(-date_on_study, - patient_id, -dataset, -cat_status)%>%
+  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
   kmeans(centers = 3)
-prostate_k_org
 
 prostate_pca_aug_k_org <- prostate_k_org %>%
   augment(prostate_pca_aug) %>% 
   rename(cluster_org = .cluster)
-prostate_pca_aug_k_org
+
 #second clustering with kmeans based on .fittedpca
 prostate_k_pca <- prostate_pca_aug_k_org %>%
   select(.fittedPC1, .fittedPC2) %>%
   kmeans(centers = 3)
-prostate_k_pca
 
 prostate_pca_aug_k_org_pca <- prostate_k_pca %>%
   augment(prostate_pca_aug_k_org) %>% 
   rename(cluster_pca = .cluster)
-prostate_pca_aug_k_org_pca
 
 #plotting with the real division
 pl1 <- prostate_pca_aug_k_org_pca %>%
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = ifelse(cat_status==1,"Death from prostate cancer",ifelse(cat_status==0 ,"Alive", "Death from other causes")))) +
+  ggplot(aes(x = .fittedPC1, 
+             y = .fittedPC2, 
+             colour = ifelse(cat_status == 1,"Death from prostate cancer",
+                             ifelse(cat_status == 0 ,"Alive", "Death from other causes")))) +
   geom_point() +
   theme(legend.position = "bottom")+
   labs(colour = "Status")
+
 #plotting first clustering with kmeans based on our variables
 pl2 <- prostate_pca_aug_k_org_pca %>%
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = cluster_org)) +
+  ggplot(aes(x = .fittedPC1, 
+             y = .fittedPC2, 
+             colour = cluster_org)) +
   geom_point() +
   theme(legend.position = "bottom")+
   labs(colour = "Status")
+
 #plotting second clustering with kmeans based on .fittedpca
 pl3 <- prostate_pca_aug_k_org_pca %>%
   ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = cluster_pca)) +
@@ -86,7 +95,7 @@ pl3 <- prostate_pca_aug_k_org_pca %>%
   theme(legend.position = "bottom")+
   labs(colour = "Status")
 
-(pl1 + pl2 + pl3)
+pl1 + pl2 + pl3
 
 #which clustering gives the best division of data?
 prostate_pca_aug_k_org_pca <- prostate_pca_aug_k_org_pca %>%
@@ -109,10 +118,16 @@ prostate_pca_aug_k_org_pca %>%
                                          cat_status != cluster_pca ~ 0)) %>% 
   summarise(score_org = mean(cluster_org_correct),
             score_pca = mean(cluster_pca_correct))
+
 # Visualise data
 # ------------------------------------------------------------------------------
-corr_matrix <- ggcorrplot(prostate_one_hot_corr, hc.order = TRUE, type = "lower", title = "Correlation matrix", tl.cex = 4, 
-                          lab = TRUE, lab_size = 1)
+corr_matrix <- ggcorrplot(prostate_one_hot_corr, 
+                          hc.order = TRUE, 
+                          type = "lower", 
+                          title = "Correlation matrix", 
+                          tl.cex = 4, 
+                          lab = TRUE, 
+                          lab_size = 1)
 
 
 # Write data
