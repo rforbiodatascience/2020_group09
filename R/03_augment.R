@@ -24,9 +24,9 @@ tcga_prostate_survival_clean <- read_tsv(file = "data/02_tcga_survival_prostate_
 # Add column dataset
 prostate_data <- prostate_clean %>% 
   mutate("dataset" = 0)
-
+# creating categorical column cat_status describing the causes of death
 prostate_data <- prostate_data %>%
-  mutate("cat_status" = (case_when(
+  mutate("status" = (case_when(
     status == "alive" ~ 0,
     status == "dead - prostatic ca" ~ 1, 
     status == "dead - cerebrovascular" ~ 2, 
@@ -39,16 +39,33 @@ prostate_data <- prostate_data %>%
     status == "dead - unknown cause" ~ 2)))
 
 
-# in the following lines we transform the dataset into a more useful format to perform the machine learning analysis. 
-# in particular .....
+# in the following lines we transform the dataset into a more useful format 
+# to take in to account of the categorigal variables in the analysis
 
 #prostate_one_hot <- one_hot_encoder("ekg", prefix = "ekg_", dataset = prostate_data)
 
 prostate_one_hot <- prostate_data %>% 
+  mutate(ekg = str_replace_all(string = ekg, pattern = "&", replacement = ""))%>%
+  mutate(ekg = str_replace_all(string = ekg, pattern = " ", replacement = "_"))%>%
+  mutate(ekg = str_to_lower(string = ekg, locale = "en"))
+  
+prostate_one_hot <- prostate_one_hot%>%  
   group_by(ekg) %>%
   mutate(count = 1) %>%
   pivot_wider(names_from = ekg, values_from = count, 
               names_prefix = "ekg_", values_fill = list(count = 0))
+
+prostate_one_hot <- prostate_one_hot %>% 
+  mutate(activity_level = str_replace_all(string = activity_level , 
+                                          pattern = ">", replacement = "more_than"))%>%
+  mutate(activity_level = str_replace_all(string = activity_level , 
+                                          pattern = "<", replacement = "less_than"))%>%
+  mutate(activity_level = str_replace_all(string = activity_level , 
+                                          pattern = "% daytime", replacement = "percent"))%>%
+  mutate(activity_level = str_replace_all(string = activity_level , 
+                                          pattern = " ", replacement = "_"))
+
+
 
 prostate_one_hot <- prostate_one_hot %>% 
   group_by(activity_level) %>%
@@ -58,37 +75,19 @@ prostate_one_hot <- prostate_one_hot %>%
               names_prefix = "activity_", 
               values_fill = list(count = 0))
 
-prostate_one_hot_factors <- prostate_one_hot %>% 
+# one hot with three status classes: alive, dead - prostata ca, dead_other 
+
+prostate_one_hot <- prostate_data %>% 
+  mutate(cat_status = status)%>%
   group_by(status) %>%
   mutate(count = 1) %>%
-  pivot_wider(names_from = status, 
-              values_from = count, 
-              names_prefix = "status_", 
-              values_fill = list(count = 0))
+  pivot_wider(names_from = status, values_from = count, 
+              names_prefix = "status_", values_fill = list(count = 0))
 
-# one hot with three status classes: alive, dead - prostata ca, dead_other 
-prostate_one_hot_status3 <- prostate_one_hot_factors %>% 
-  mutate(`status_dead_other` = `status_dead - cerebrovascular` | 
-           `status_dead - heart or vascular` | 
-           `status_dead - pulmonary embolus` | 
-           `status_dead - other ca` |
-           `status_dead - other specific non-ca` | 
-           `status_dead - unspecified non-ca` | 
-           `status_dead - respiratory disease` | 
-           `status_dead - unknown cause`) %>% 
-  mutate(`status_dead_other`= as.numeric(`status_dead_other`)) %>% 
-  select(-`status_dead - cerebrovascular`, 
-         - `status_dead - heart or vascular`, 
-         - `status_dead - pulmonary embolus`, 
-         - `status_dead - other ca`,
-         - `status_dead - other specific non-ca`,  
-         - `status_dead - unspecified non-ca`,
-         - `status_dead - respiratory disease`, 
-         - `status_dead - unknown cause`)
-
-# Eliminate spaces in generated column names
-prostate_one_hot_status3 <- prostate_one_hot_status3 %>% 
-  rename("status_dead_prostatic_ca"  = "status_dead - prostatic ca")
+prostate_one_hot_status3 <- prostate_one_hot %>% 
+  rename("status_dead_other" = "status_2",
+         "status_dead_prostatic_c" = "status_1",
+         "status_alive" = "status_0" )
 
 prostate_one_hot_status3 <- prostate_one_hot_status3 %>% 
   mutate("patient_id" = as.character(patient_id))

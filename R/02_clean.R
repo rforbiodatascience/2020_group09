@@ -43,8 +43,7 @@ prostate_clean <- prostate_clean %>%
   drop_na() %>%
   filter(ap != 999)
 
-# split the estrogen (mg) col into two cols + deletion of the estr col,
-# since it contains only the word "estrogen"
+# delete string " mg estrogen" from column estrogen_mg
 prostate_clean <- prostate_clean %>%
   mutate(estrogen_mg = str_replace(
     string = estrogen_mg, pattern = "placebo",

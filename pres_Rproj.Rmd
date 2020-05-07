@@ -38,26 +38,22 @@ divided in two datasets:
 
 ## Cleaning and Tidying Prostate Cancer Data
 - Changing names(no spaces, reasonable for the content, no cap letters)
+- Removing rows with missing values
+- Modifying estrogen_mg column removing the str " mg estrogen"
+- The column has then been transformed into a double with the command as.numeric because it was a string
+- The variable date has been converted to a more readable date format (conversion from R coding of the dates to numbers that represent the distance from a certain initial date)
 ```{r,  eval=FALSE}
 ## Prostate_raw cleaning
 
-# changing column names
-prostate_clean <- prostate_raw %>% 
-  rename("patient_id" = "patno", "estrogen_mg" = "rx", "months_fu" = "dtime",
-          "weight_index" = "wt", "activity_level" = "pf", "cv_history" = "hx",
-          "serum_hg" = "hg", "tumour_size" = "sz", "bone_metastases" = "bm",
-          "date_on_study" = "sdate")
+# Transfom the data variable in a more readable version
+prostate_clean <- prostate_clean %>%
+  mutate(date_on_study = as_date(x = date_on_study, origin = "1960-01-01"))
 ```
-
-- Removing rows with missing values
-- Modifying estrogen_mg column removing the str "mg estrogen" (the column has been split in to two columns one of interest and the other one that was deleted, the two columns have been split using the separator str "mg")
-- The column has then been transformed into a double with the command as.numeric because it was a string
-- The variable date has been converted to a more readable date format (conversion from R coding of the dates to numbers that represent the distance from a certain initial date)
--
 ## Cleaning and Tidying TCGA Dataset
 - Changing names(no spaces, reasonable for the content, no cap letters)
-- (what about deleting the rows with missing values)
-- 
+- Removing rows with missing values
+- Selecting variables of interest
+
 ## Augment Prostate Cancer Data
 - Added column to identify the dataset
 - One Hot Encoding for each variable defining classes
