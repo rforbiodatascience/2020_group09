@@ -111,10 +111,10 @@ tcga <- inner_join(x = tcga_prostate_clean,
   mutate("dataset" = 1)
 
 
-tcga <- tcga %>%
-  select(patient_id, bone_scan_results, age, os_time,
-         gleason_score, primary_pattern, vital_status_demographic, 
-         patient_death_reason, dataset) 
+# tcga <- tcga %>%
+#   select(patient_id, bone_scan_results, age, os_time,
+#          gleason_score, primary_pattern, vital_status_demographic, 
+#          patient_death_reason, dataset) 
 
 unique(tcga$bone_scan_results)
 

@@ -21,17 +21,21 @@ output:
 
 ## The Datasets
 
-**Prostate Cancer Data**
+**Prostate Cancer Data**: 1976
 
-  What variables what do they mean?
-  
-## The Datasets
+-18 variables
 
-**TCGA Datasets**
+-502 observations
 
-- Two datasets 
-  What variables what do they mean?
-  
+**TCGA Datasets: The Cancer Genome Atlas**: 2019
+- 127 variables
+
+-623 observations
+
+divided in two datasets:
+
+"TCGA Phenotype" and "TCGA Survival"
+
 ## Cleaning and Tidying Prostate Cancer Data
 - Changing names(no spaces, reasonable for the content, no cap letters)
 ```{r,  eval=FALSE}
