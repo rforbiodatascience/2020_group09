@@ -21,16 +21,16 @@ output:
 
 ## The Datasets
 
-**Prostate Cancer Data**: 1976
+**Prostate Cancer Dataset**: 1976
 
 -18 variables
 
 -502 observations
 
-**TCGA Datasets: The Cancer Genome Atlas**: 2019
+**The Cancer Genome Atlas (TCGA) Datasets**: 2019
 - 127 variables
 
--623 observations
+- 623 observations
 
 divided in two datasets:
 
@@ -54,22 +54,29 @@ prostate_clean <- prostate_clean %>%
 - Removing rows with missing values
 - Selecting variables of interest
 
-## Augment Prostate Cancer Data
-- Added column to identify the dataset
-- One Hot Encoding for each variable defining classes
-- Redefining classes for survival (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death)
-## Augment TCGA Dataset
-- Added column to identify the dataset
-- One Hot Encoding for each variable defining classes
-- Convert the content of the os_time from days to months to compare to months_fu in PCD
-- Binarize bone_scan_results to compare to bone_metastases in PCD
-- Obtain sg value from gleason score
-- Select columns in common between the TCGA Dataset and the Prostate Cancer Dataset
+## Augment Prostate Cancer Dataset
+- Added column "dataset" to identify the dataset
+- One Hot Encoding for each categorical variable 
+- Creating categorical column "cat_status" describing the cause of death: 
+    - Dead for prostate cancer
+    - Dead for other causes
+    - Alive
 
-## Joining the datasets
-- anti_join to check if we are missing any information in the joining
-- Inner_join between the TCGA datasets to have a TCGA Dataset
-- Full_join to merge the TCGA Dataset and the Prostate Cancer Dataset
+<!-- (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death) -->
+
+## Augment TCGA Dataset
+- Added column "dataset" to identify the dataset
+- One Hot Encoding for each categorical variable 
+- Making the common variables in the two datasets comparable
+    - os_time from days to months
+    - Binarize bone_scan_results
+    - Obtain sg value from gleason score
+
+## Joining the TCGA datasets
+- anti_join to check that we are not missing any information 
+- inner_join between the two TCGA datasets 
+- full_join to merge the TCGA Dataset and the Prostate Cancer Dataset
+
 ## Visualizing the Data
 -comment plots
 ## What to look for
