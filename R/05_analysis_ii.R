@@ -22,18 +22,34 @@ prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 prostate_for_pca <- prostate_one_hot %>% 
   select(-contains("status_"))
 
-prostate_one_hot_corr <- prostate_one_hot %>% 
-  select(-c(date_on_study, patient_id, vital_status_demographic, patient_death_reason, dataset) ) %>% 
-  cor(.) # LOOOOOKKKKKKK
+#prostate_one_hot_corr <- prostate_one_hot %>% 
+#  select(-c(date_on_study, patient_id, vital_status_demographic, patient_death_reason, dataset) ) %>% 
+#  cor(.) # LOOOOOKKKKKKK
 
 # Model data
 # ------------------------------------------------------------------------------
 #PCA 
-prostate_pca <- prostate_for_pca %>%
-  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
+#prostate_pca <- prostate_for_pca %>%
+#  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
+#  prcomp(center = TRUE, scale = TRUE)  #not working 
+#
+prostate_pca <- prostate_for_pca %>% select(-c(sample_id, primary_pattern, 
+                               gleason_score, date_on_study, 
+                               patient_id, dataset, cat_status)) 
+
+
+prostate_pca %>% 
   prcomp(center = TRUE, scale = TRUE)
 
-prostate_pca %>%
+prostate_pca %>% select_if(function(x) any(is.na(x))) %>% view()
+
+
+apply(prostate_pca, 2, any(is.na(.)))
+  
+
+  
+  
+  prostate_pca %>%
   tidy("pcs") %>% 
   ggplot(aes(x = PC, y = percent)) +
   geom_col() +

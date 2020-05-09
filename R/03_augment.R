@@ -169,6 +169,10 @@ prostate_final <- prostate_final %>%
          status_alive, status_dead_prostatic_ca, status_dead_other, 
          dataset, everything())
 
+
+#!!!!!!!!!!!!!!!!!!! this prostate final dataset contains the gleason_score, primary pattern 
+#and sample_id cols. Do we need them later? I'm deleting them in the PCA file, but maybe we can cancel them now
+
 # ------------------------------------------------------------------------------
 
 write_tsv(x = prostate_final,
