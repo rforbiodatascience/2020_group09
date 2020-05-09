@@ -22,15 +22,6 @@ prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 prostate_for_pca <- prostate_one_hot %>% 
   select(-contains("status_"))
 
-summary(prostate_one_hot)
-
-# Get lower triangle of the correlation matrix
-get_lower_tri<-function(cormat){
-  cormat[lower.tri(cormat)] <- NA
-  return(cormat)
-}
-
-
 # correlation matrix on numeric values, on dataset 0, 
 # (otherwise to many NA's corrupting the table)
 prostate_one_hot_corr <- prostate_one_hot %>%
@@ -39,9 +30,7 @@ prostate_one_hot_corr <- prostate_one_hot %>%
             sample_id, gleason_score, primary_pattern) ) %>% 
   cor(.) %>% 
   get_lower_tri(.) %>% 
-  melt(data = ., value.name = "value")  
-
-prostate_one_hot_corr <- prostate_one_hot_corr %>% 
+  melt(data = ., value.name = "value") %>% 
   mutate(value =  format(round(value, 2), nsmall = 2)) %>% 
   mutate(value = as.numeric(value))
 
@@ -180,7 +169,7 @@ corr_matrix <- ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = value
           panel.grid.major = element_blank(),
           panel.border = element_blank(),
           panel.background = element_blank())
- 
+
 # Write data
 # ------------------------------------------------------------------------------
 # write_tsv(...)
