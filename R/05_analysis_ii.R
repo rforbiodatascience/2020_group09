@@ -5,7 +5,7 @@ rm(list = ls())
 # Load libraries
 # ------------------------------------------------------------------------------
 library(tidyverse)
-library(ggcorrplot)
+library(reshape2)
 library(broom)
 library(patchwork)
 
@@ -30,23 +30,21 @@ get_lower_tri<-function(cormat){
   return(cormat)
 }
 
-library(reshape2)
+
 # correlation matrix on numeric values, on dataset 0, 
 # (otherwise to many NA's corrupting the table)
 prostate_one_hot_corr <- prostate_one_hot %>%
   filter(., dataset == "0") %>% 
-  select(-c(date_on_study, patient_id, dataset, sample_id, gleason_score, primary_pattern) ) %>% 
+  select(-c(date_on_study, patient_id, dataset, 
+            sample_id, gleason_score, primary_pattern) ) %>% 
   cor(.) %>% 
   get_lower_tri(.) %>% 
-  melt(data = ., value.name = "corr")
-  
- 
-  
-#   dat %>% gather(variable, date, -teacher, -pd)
-# # This says "Gather all variables except teacher and pd, calling the new
-# # key column 'variable' and the new value column 'date'."
-#   
-#   pivot_longer(cols = everything(), names_to ="variables", values_to = "corr")
+  melt(data = ., value.name = "value")  
+
+prostate_one_hot_corr <- prostate_one_hot_corr %>% 
+  mutate(value =  format(round(value, 2), nsmall = 2)) %>% 
+  mutate(value = as.numeric(value))
+
 
 # Model data
 # ------------------------------------------------------------------------------
@@ -167,18 +165,25 @@ prostate_pca_aug_k_org_pca %>%
 #                           lab = TRUE, 
 #                           lab_size = 1)
 
-ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = corr)) +
-  geom_tile(color = "white") +
+corr_matrix <- ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = value)) +
+  geom_tile(color = "gray") +
+  geom_text(aes(Var2, Var1, label = value), color = "black", size = 2) +
   scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
-                       midpoint = 0, limit = c(-1,1), space = "Lab", 
-                       name="Correlation") +
-  # theme_minimal() + 
+                       midpoint = 0, limit = c(-1,1), space = "Lab"  , 
+                       name="Correlation", na.value = 'white') +
+  labs(title = "Correlation Matrix") +
+  theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, 
-                                   size = 12, hjust = 1)) + 
-  coord_fixed()
-
-
+                                   size = 12, hjust = 1), 
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.border = element_blank(),
+          panel.background = element_blank())
+ 
 # Write data
 # ------------------------------------------------------------------------------
 # write_tsv(...)
-ggsave("results/05_corr_matrix.png", corr_matrix)
+ggsave("results/05_corr_matrix.png", corr_matrix,
+       width = 14,
+       height = 7)
