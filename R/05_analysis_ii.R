@@ -22,9 +22,31 @@ prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 prostate_for_pca <- prostate_one_hot %>% 
   select(-contains("status_"))
 
-#prostate_one_hot_corr <- prostate_one_hot %>% 
-#  select(-c(date_on_study, patient_id, vital_status_demographic, patient_death_reason, dataset) ) %>% 
-#  cor(.) # LOOOOOKKKKKKK
+summary(prostate_one_hot)
+
+# Get lower triangle of the correlation matrix
+get_lower_tri<-function(cormat){
+  cormat[lower.tri(cormat)] <- NA
+  return(cormat)
+}
+
+library(reshape2)
+# correlation matrix on numeric values, on dataset 0, 
+# (otherwise to many NA's corrupting the table)
+prostate_one_hot_corr <- prostate_one_hot %>%
+  filter(., dataset == "0") %>% 
+  select(-c(date_on_study, patient_id, dataset, sample_id, gleason_score, primary_pattern) ) %>% 
+  cor(.) %>% 
+  get_lower_tri(.) %>% 
+  melt(data = ., value.name = "corr")
+  
+ 
+  
+#   dat %>% gather(variable, date, -teacher, -pd)
+# # This says "Gather all variables except teacher and pd, calling the new
+# # key column 'variable' and the new value column 'date'."
+#   
+#   pivot_longer(cols = everything(), names_to ="variables", values_to = "corr")
 
 # Model data
 # ------------------------------------------------------------------------------
@@ -55,7 +77,7 @@ apply(prostate_pca, 2, any(is.na(.)))
   geom_col() +
   theme_bw()
 
-prostate_pca %>% tidy("samples")# ?????????????????
+prostate_pca %>% tidy("samples") # ?????????????????
 
 prostate_pca_aug <- prostate_pca %>% augment(prostate_for_pca)
 
@@ -137,13 +159,23 @@ prostate_pca_aug_k_org_pca %>%
 
 # Visualise data
 # ------------------------------------------------------------------------------
-corr_matrix <- ggcorrplot(prostate_one_hot_corr, 
-                          hc.order = TRUE, 
-                          type = "lower", 
-                          title = "Correlation matrix", 
-                          tl.cex = 4, 
-                          lab = TRUE, 
-                          lab_size = 1)
+# corr_matrix <- ggcorrplot(prostate_one_hot_corr, 
+#                           hc.order = TRUE, 
+#                           type = "lower", 
+#                           title = "Correlation matrix", 
+#                           tl.cex = 4, 
+#                           lab = TRUE, 
+#                           lab_size = 1)
+
+ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = corr)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+                       midpoint = 0, limit = c(-1,1), space = "Lab", 
+                       name="Correlation") +
+  # theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                   size = 12, hjust = 1)) + 
+  coord_fixed()
 
 
 # Write data
