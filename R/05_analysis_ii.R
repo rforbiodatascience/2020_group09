@@ -20,7 +20,7 @@ prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 # Wrangle data
 # ------------------------------------------------------------------------------
 prostate_for_pca <- prostate_one_hot %>% 
-  select(-contains("status_"))
+  select(-contains("status_")) %>% filter(dataset == "0")
 
 # correlation matrix on numeric values, on dataset 0, 
 # (otherwise to many NA's corrupting the table)
@@ -44,21 +44,17 @@ prostate_one_hot_corr <- prostate_one_hot %>%
 #
 prostate_pca <- prostate_for_pca %>% select(-c(sample_id, primary_pattern, 
                                gleason_score, date_on_study, 
-                               patient_id, dataset, cat_status)) 
+                               patient_id, dataset, cat_status))
+prostate_for_pca <- prostate_for_pca %>% select(-c(sample_id, primary_pattern, 
+                               gleason_score, date_on_study, 
+                               patient_id, dataset, cat_status))
 
 
-prostate_pca %>% 
+prostate_pca <- prostate_pca %>% na.omit()%>%
   prcomp(center = TRUE, scale = TRUE)
-
-prostate_pca %>% select_if(function(x) any(is.na(x))) %>% view()
-
-
-apply(prostate_pca, 2, any(is.na(.)))
-  
-
   
   
-  prostate_pca %>%
+prostate_pca %>%
   tidy("pcs") %>% 
   ggplot(aes(x = PC, y = percent)) +
   geom_col() +
@@ -78,7 +74,6 @@ prostate_pca_aug %>%
 
 #first clustering with kmeans based on our variables
 prostate_k_org <- prostate_pca_aug %>%
-  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
   kmeans(centers = 3)
 
 prostate_pca_aug_k_org <- prostate_k_org %>%
