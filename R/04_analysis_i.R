@@ -38,6 +38,15 @@ data_to_plot_long <- prostate_ds_only %>%
                names_to = "vars",
                values_to = "value") 
 
+# correlation matrix on numeric values, on dataset 0, 
+data_to_corr <- prostate_ds_only %>%
+  select(-c(date_on_study, patient_id, dataset) ) %>% 
+  cor(.) %>% 
+  get_lower_tri(.) %>% 
+  melt(data = ., value.name = "value") %>% 
+  mutate(value =  format(round(value, 2), nsmall = 2)) %>% 
+  mutate(value = as.numeric(value))
+
 # Visualise data
 # ------------------------------------------------------------------------------
 
@@ -79,7 +88,22 @@ months_vs_all <- data_to_plot_long %>%
   labs(x = "", colour = "Status", title = 'Months of follow-up plotted over the other continous variables') +
   scale_color_colorblind()
  
-months_vs_all
+corr_matrix <- ggplot(data = data_to_corr, aes(Var2, Var1, fill = value)) +
+  geom_tile(color = "gray") +
+  geom_text(aes(Var2, Var1, label = value), color = "black", size = 2) +
+  scale_fill_gradient2(low = "#0072B2", high = "#D55E00", mid = "white", 
+                       midpoint = 0, limit = c(-1,1), space = "Lab"  , 
+                       name="Correlation", na.value = 'white') +
+  labs(title = "Correlation Matrix") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                   size = 8, hjust = 1), 
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+
 
 # Write data
 # ------------------------------------------------------------------------------
@@ -98,3 +122,8 @@ for (i in 1:length(plot_list)) {
          height = 7)
   
 }
+
+ggsave("results/04_corr_matrix.png", corr_matrix,
+       width = 14,
+       height = 7)
+
