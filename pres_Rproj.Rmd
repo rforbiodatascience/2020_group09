@@ -117,11 +117,28 @@ include_graphics("results/04_corr_matrix.png")
 - REGRESSION: we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
 - CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
 
-## PCA and Clustering
+## PCA
 
 For this part of the analysis we choose to only consider the 1976 dataset
 
+```{r echo=FALSE, out.width = "95%"}
+include_graphics("results/05_pca_components.png")
+```
+<!-- we can see that PC1 and PC2 capture the most variation in the data, although the cumulative variation explained by the two is only the 22%.  -->
 
+## PCA
+
+Plotting of PC1 and PC2. The colors reflect the status of the patients.  
+```{r echo=FALSE, out.width = "100%"}
+include_graphics("results/05_pca_status.png")
+```
+<!-- There might be three clusters.  -->
+
+## k means clustering
+
+```{r echo=FALSE, out.width = "100%"}
+include_graphics("results/05_pca_clustering.png")
+```
 
 
 ## Regression

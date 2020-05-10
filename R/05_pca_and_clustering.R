@@ -27,26 +27,24 @@ prostate_for_pca <- prostate_data %>%
   select(-contains("status_")) %>%
   filter(dataset == "0")
 
-prostate_for_pca <- prostate_for_pca %>% select(-c(
-  date_on_study,
-  patient_id, dataset
-))
+prostate_for_pca <- prostate_for_pca %>% 
+  select(-c(date_on_study, patient_id, dataset))
 
 # Obtain components
 prostate_pca <- prostate_for_pca %>%
   na.omit() %>%
   prcomp(center = TRUE, scale = TRUE)
 
-# Calculte the variance explained by each component
-variance_explained <- prostate_pca %>%
-  tidy("pcs") %>%
-  ggplot(aes(x = PC, y = percent)) +
-  geom_col() +
-  theme_bw() +
-  labs(title = "Variance Explained")
+# Calculate the variance explained by each component
+variance_explained <- prostate_pca %>% 
+  tidy("pcs")
 
+variance_explained_2PC <- variance_explained %>% 
+  filter(PC == 2) %>% 
+  select(cumulative)
 
-prostate_pca_aug <- prostate_pca %>% augment(prostate_for_pca)
+prostate_pca_aug <- prostate_pca %>% 
+  augment(prostate_for_pca)
 
 # Add the nominal values of cat status
 prostate_pca_aug <- prostate_pca_aug %>%
@@ -56,20 +54,9 @@ prostate_pca_aug <- prostate_pca_aug %>%
     cat_status == 1 ~ "Death prostate cancer"
   ))
 
-
-prostate_pca_aug %>%
-  ggplot(aes(
-    x = .fittedPC1,
-    y = .fittedPC2,
-    colour = cat_status_nominal
-  )) +
-  geom_point() +
-  labs(colour = "Status") +
-  scale_color_colorblind()
-
 # first clustering with kmeans based on our variables
 prostate_k_org <- prostate_pca_aug %>%
-  select(-cat_status_nominal) %>%
+  select(-c(cat_status_nominal, cat_status)) %>%
   kmeans(centers = 3)
 
 prostate_pca_aug_k_org <- prostate_k_org %>%
@@ -89,6 +76,25 @@ prostate_pca_aug_k_org_pca <- prostate_k_pca %>%
 # Visualise data
 # ------------------------------------------------------------------------------
 
+#visualisation of the scree plot
+variance_explained_plot <- prostate_pca %>%
+  tidy("pcs") %>%
+  ggplot(aes(x = PC, y = percent)) +
+  geom_col() +
+  theme_bw() +
+  labs(title = "Variance Explained")
+
+# plotting of the first two principal components
+prostate_pca_plot <- prostate_pca_aug %>%
+  ggplot(aes(
+    x = .fittedPC1,
+    y = .fittedPC2,
+    colour = cat_status_nominal
+  )) +
+  geom_point() +
+  labs(colour = "Status", title = "PC1 vs PC2") +
+  scale_color_colorblind() 
+
 # plotting with the real division
 pl1 <- prostate_pca_aug_k_org_pca %>%
   ggplot(aes(
@@ -97,10 +103,11 @@ pl1 <- prostate_pca_aug_k_org_pca %>%
     colour = cat_status_nominal
   )) +
   geom_point() +
-  theme(
-    legend.position = "bottom",
-    legend.direction = "vertical"
-  ) +
+  theme(legend.position = "bottom",
+        legend.direction = "vertical", 
+        plot.subtitle = element_text(size = 16), 
+        legend.text = element_text(size = 14), 
+        legend.title = element_text(size = 16)) +
   labs(
     x = "PC1",
     y = "PC2",
@@ -117,11 +124,16 @@ pl2 <- prostate_pca_aug_k_org_pca %>%
     colour = cluster_org
   )) +
   geom_point() +
-  theme(legend.position = "bottom", legend.direction = "vertical")  +
+  theme(legend.position = "bottom", 
+        legend.direction = "vertical",
+        plot.title = element_text(size = 22),
+        plot.subtitle = element_text(size = 16), 
+        legend.text = element_text(size = 14), 
+        legend.title = element_text(size = 16))  +
   labs(x = "PC1",
        y = "PC2",
        colour = "Cluster number",
-       subtitle = "Clustering with Kmeans based on original variables",
+       subtitle = "Clustering with Kmeans\nbased on original variables",
        title = "Clustering") +
   scale_color_colorblind()
 
@@ -129,12 +141,17 @@ pl2 <- prostate_pca_aug_k_org_pca %>%
 pl3 <- prostate_pca_aug_k_org_pca %>%
   ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = cluster_pca)) +
   geom_point() +
-  theme(legend.position = "bottom", legend.direction = "vertical") +
+  theme(legend.position = "bottom", 
+        legend.direction = "vertical",
+        plot.title = element_text(size = 22),
+        plot.subtitle = element_text(size = 16), 
+        legend.text = element_text(size = 14), 
+        legend.title = element_text(size = 16)) +
   labs(
     x = "PC1",
     y = "PC2",
     colour = "Cluster number",
-    subtitle = "Clustering with Kmeans based on principal components"
+    subtitle = "Clustering with Kmeans\nbased on principal components"
   ) +
   scale_color_colorblind()
 
@@ -160,15 +177,17 @@ sim_pca <- jaccard(prostate_pca_aug_k_org_pca$cat_status,
 
 # Write data
 # ------------------------------------------------------------------------------
-# write_tsv(...)
 
-ggsave("results/05_pca_components.png", variance_explained,
+ggsave("results/05_pca_components.png", variance_explained_plot,
        width = 14,
        height = 7
 )
+
 ggsave("results/05_pca_clustering.png", clustering,
        width = 14,
        height = 7
 )
 
-
+ggsave("results/05_pca_status.png", prostate_pca_plot,
+       width = 8,
+       height = 4)
