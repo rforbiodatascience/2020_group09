@@ -21,13 +21,13 @@ prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 # ------------------------------------------------------------------------------
 prostate_for_pca <- prostate_one_hot %>% 
   select(-contains("status_")) %>% filter(dataset == "0")
+cat_status <- prostate_for_pca %>% select(cat_status)
 
 # correlation matrix on numeric values, on dataset 0, 
 # (otherwise to many NA's corrupting the table)
 prostate_one_hot_corr <- prostate_one_hot %>%
   filter(., dataset == "0") %>% 
-  select(-c(date_on_study, patient_id, dataset, 
-            sample_id, gleason_score, primary_pattern) ) %>% 
+  select(-c(date_on_study, patient_id, dataset) ) %>% 
   cor(.) %>% 
   get_lower_tri(.) %>% 
   melt(data = ., value.name = "value") %>% 
@@ -42,25 +42,25 @@ prostate_one_hot_corr <- prostate_one_hot %>%
 #  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
 #  prcomp(center = TRUE, scale = TRUE)  #not working 
 #
-prostate_pca <- prostate_for_pca %>% select(-c(sample_id, primary_pattern, 
-                               gleason_score, date_on_study, 
-                               patient_id, dataset, cat_status))
-prostate_for_pca <- prostate_for_pca %>% select(-c(sample_id, primary_pattern, 
-                               gleason_score, date_on_study, 
-                               patient_id, dataset, cat_status))
+prostate_pca <- prostate_for_pca %>% select(-c(date_on_study, 
+                               patient_id, dataset))
+prostate_for_pca <- prostate_for_pca %>% select(-c(date_on_study, 
+                               patient_id, dataset))
 
 
 prostate_pca <- prostate_pca %>% na.omit()%>%
   prcomp(center = TRUE, scale = TRUE)
   
   
-prostate_pca %>%
+variance_explained <- prostate_pca %>%
   tidy("pcs") %>% 
   ggplot(aes(x = PC, y = percent)) +
   geom_col() +
-  theme_bw()
+  theme_bw() +
+  labs(title = "Variance Explained")
 
 prostate_pca %>% tidy("samples") # ?????????????????
+
 
 prostate_pca_aug <- prostate_pca %>% augment(prostate_for_pca)
 
@@ -105,17 +105,15 @@ pl2 <- prostate_pca_aug_k_org_pca %>%
              y = .fittedPC2, 
              colour = cluster_org)) +
   geom_point() +
-  theme(legend.position = "bottom")+
-  labs(colour = "Status")
+  theme(legend.position = "None")
 
 #plotting second clustering with kmeans based on .fittedpca
 pl3 <- prostate_pca_aug_k_org_pca %>%
   ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = cluster_pca)) +
   geom_point() +
-  theme(legend.position = "bottom")+
-  labs(colour = "Status")
+  theme(legend.position = "None")
 
-pl1 + pl2 + pl3
+clustering <- pl1 + pl2 + pl3
 
 #which clustering gives the best division of data?
 prostate_pca_aug_k_org_pca <- prostate_pca_aug_k_org_pca %>%
@@ -169,5 +167,11 @@ corr_matrix <- ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = value
 # ------------------------------------------------------------------------------
 # write_tsv(...)
 ggsave("results/05_corr_matrix.png", corr_matrix,
+       width = 14,
+       height = 7)
+ggsave("results/05_pca_components.png", variance_explained,
+       width = 14,
+       height = 7)
+ggsave("results/05_pca_clustering.png", clustering,
        width = 14,
        height = 7)
