@@ -7,7 +7,7 @@ rm(list = ls())
 library(tidyverse)
 library(devtools)
 library(keras)
-library(modelr)
+library(modelr) 
 library(clusteval)
 #install.packages("remotes")
 #remotes::install_github("ramhiser/clusteval")
@@ -273,4 +273,4 @@ ggsave("results/08_loss_acc.png", plot_loss_acc,
 ggsave("results/08_evaluation_classification.png", evaluation_classification,
        width = 14,
        height = 7
-)
+)  
