@@ -192,7 +192,7 @@ my_counts <- results %>% count(y_pred, y_true, data_type)
 # ------------------------------------------------------------------------------
 save_model_hdf5(
   object = model,
-  filepath = "models/08_classification_model.h5"
+  filepath = "models/08_classification.h5"
 )
 
 # ------------------------------------------------------------------------------
@@ -262,7 +262,7 @@ evaluation_classification <- results %>%
   scale_color_manual(labels = c('No', 'Yes'),
                      values = c('tomato','cornflowerblue')) +
   facet_wrap(~data_type, nrow = 1)
-
+evaluation_classification
 # 3d plot
 # Save graph
 # ------------------------------------------------------------------------------
@@ -274,4 +274,3 @@ ggsave("results/08_evaluation_classification.png", evaluation_classification,
        width = 14,
        height = 7
 )
-
