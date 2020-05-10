@@ -1,13 +1,18 @@
 ---
-title: "presentation R Project"
+  title: "Presentation R Project"
 author:
-date: May 14, 2020
+  date: May 14, 2020
 output:
   ioslides_presentation:
-    widescreen: true
+  widescreen: true
 ---
+<<<<<<< HEAD
 
 ```{r include=FALSE}
+=======
+  
+  ```{r include=FALSE}
+>>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 library(knitr)
 library(png)
 ```
@@ -16,8 +21,8 @@ library(png)
 ## R Project
 
 **Prostate Cancer Data Analysis**
-
-- The Datasets
+  
+  - The Datasets
 - Cleaning
 - Tidying
 - Visualizing the Data
@@ -35,16 +40,17 @@ library(png)
 - 502 observations
 
 **The Cancer Genome Atlas (TCGA) Datasets**: 2019
+
 - 127 variables
 
 - 623 observations
 
 divided in two datasets:
-
-"TCGA Phenotype" and "TCGA Survival"
+  
+  "TCGA Phenotype" and "TCGA Survival"
 
 ## Cleaning and Tidying Prostate Cancer Data
-- Changing names(no spaces, reasonable for the content, no cap letters)
+- Changing names (no spaces, reasonable for the content, no cap letters)
 - Removing rows with missing values
 - Modifying estrogen_mg column removing the str " mg estrogen"
 - The column has then been transformed into a double with the command as.numeric because it was a string
@@ -57,7 +63,7 @@ prostate_clean <- prostate_clean %>%
   mutate(date_on_study = as_date(x = date_on_study, origin = "1960-01-01"))
 ```
 ## Cleaning and Tidying TCGA Dataset
-- Changing names(no spaces, reasonable for the content, no cap letters)
+- Changing names (no spaces, reasonable for the content, no cap letters)
 - Removing rows with missing values
 - Selecting variables of interest
 
@@ -65,9 +71,9 @@ prostate_clean <- prostate_clean %>%
 - Added column "dataset" to identify the dataset
 - One Hot Encoding for each categorical variable 
 - Creating categorical column "cat_status" describing the cause of death: 
-    - Dead for prostate cancer
-    - Dead for other causes
-    - Alive
+  - Dead for prostate cancer
+- Dead for other causes
+- Alive
 
 <!-- (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death) -->
 
@@ -110,13 +116,24 @@ include_graphics("results/04_months_fu_vs_others.png")
 include_graphics("results/04_corr_matrix.png")
 ```
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 ## What to look for
-- REGRESSION : we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
+
+- CLUSTERING: we use k-means and PCA to cluster based on the patient status: alive, dead of prostate cancer or dead of other causes. 
+- REGRESSION: we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
 - CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
+
 ## PCA and Clustering
-- 
+
+For this part of the analysis we choose to only consider the 1976 dataset
+
+
+
+
 ## Regression
 -
 ## Classification
