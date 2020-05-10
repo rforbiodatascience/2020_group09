@@ -10,7 +10,7 @@ library(dplyr)
 library(ggthemes)
 library(reshape2)
 library(cowplot)
-require(gridExtra)
+require(gridExtra) 
 
 # Define functions
 # ------------------------------------------------------------------------------
