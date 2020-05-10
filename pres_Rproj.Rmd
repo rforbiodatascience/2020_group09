@@ -1,13 +1,13 @@
 ---
-  title: "Presentation R Project"
+title: "Presentation R Project"
 author:
-  date: May 14, 2020
+date: May 14, 2020
 output:
   ioslides_presentation:
   widescreen: true
 ---
   
-  ```{r include=FALSE}
+```{r include=FALSE}
 library(knitr)
 library(png)
 ```
