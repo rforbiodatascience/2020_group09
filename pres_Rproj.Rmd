@@ -6,6 +6,13 @@ output:
   ioslides_presentation:
     widescreen: true
 ---
+
+```{r include=FALSE}
+library(knitr)
+library(png)
+```
+
+
 ## R Project
 
 **Prostate Cancer Data Analysis**
@@ -23,9 +30,9 @@ output:
 
 **Prostate Cancer Dataset**: 1976
 
--18 variables
+- 18 variables
 
--502 observations
+- 502 observations
 
 **The Cancer Genome Atlas (TCGA) Datasets**: 2019
 - 127 variables
@@ -78,7 +85,33 @@ prostate_clean <- prostate_clean %>%
 - full_join to merge the TCGA Dataset and the Prostate Cancer Dataset
 
 ## Visualizing the Data
--comment plots
+For this part of the analysis we choose to only consider the 1976 dataset
+
+- Histograms and barplots of all the continuous variables
+
+```{r echo=FALSE, out.width = "80%"}
+
+include_graphics("results/04_histogram_and_boxplot_of_tumour_size.png")
+```
+
+## Visualizing the Data
+
+- Survival versus each other variable 
+
+```{r echo=FALSE, out.width = "95%"}
+include_graphics("results/04_months_fu_vs_others.png")
+```
+
+## Visualizing the Data
+
+- Correlation matrix
+
+```{r echo=FALSE, out.width = "95%"}
+include_graphics("results/04_corr_matrix.png")
+```
+
+
+
 ## What to look for
 - REGRESSION : we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
 - CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
