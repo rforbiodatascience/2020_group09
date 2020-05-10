@@ -5,9 +5,10 @@ rm(list = ls())
 # Load libraries
 # ------------------------------------------------------------------------------
 library(tidyverse)
-library(reshape2)
 library(broom)
 library(patchwork)
+library(ggthemes)
+library(styler)
 
 # Define functions
 # ------------------------------------------------------------------------------
@@ -15,163 +16,179 @@ source(file = "R/99_project_functions.R")
 
 # Load data
 # ------------------------------------------------------------------------------
-prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
+prostate_data <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 # Wrangle data
 # ------------------------------------------------------------------------------
-prostate_for_pca <- prostate_one_hot %>% 
-  select(-contains("status_")) %>% filter(dataset == "0")
-cat_status <- prostate_for_pca %>% select(cat_status)
+prostate_for_pca <- prostate_data %>%
+  select(-contains("status_")) %>%
+  filter(dataset == "0")
 
-# correlation matrix on numeric values, on dataset 0, 
-# (otherwise to many NA's corrupting the table)
-prostate_one_hot_corr <- prostate_one_hot %>%
-  filter(., dataset == "0") %>% 
-  select(-c(date_on_study, patient_id, dataset) ) %>% 
-  cor(.) %>% 
-  get_lower_tri(.) %>% 
-  melt(data = ., value.name = "value") %>% 
-  mutate(value =  format(round(value, 2), nsmall = 2)) %>% 
-  mutate(value = as.numeric(value))
+prostate_for_pca <- prostate_for_pca %>% select(-c(
+  date_on_study,
+  patient_id, dataset
+))
 
-
-# Model data
-# ------------------------------------------------------------------------------
-#PCA 
-#prostate_pca <- prostate_for_pca %>%
-#  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
-#  prcomp(center = TRUE, scale = TRUE)  #not working 
-#
-prostate_pca <- prostate_for_pca %>% select(-c(date_on_study, 
-                               patient_id, dataset))
-prostate_for_pca <- prostate_for_pca %>% select(-c(date_on_study, 
-                               patient_id, dataset))
-
-
-prostate_pca <- prostate_pca %>% na.omit()%>%
+# Obtain components
+prostate_pca <- prostate_for_pca %>%
+  na.omit() %>%
   prcomp(center = TRUE, scale = TRUE)
-  
-  
+
+# Calculte the variance explained by each component
 variance_explained <- prostate_pca %>%
-  tidy("pcs") %>% 
+  tidy("pcs") %>%
   ggplot(aes(x = PC, y = percent)) +
   geom_col() +
   theme_bw() +
   labs(title = "Variance Explained")
 
-prostate_pca %>% tidy("samples") # ?????????????????
-
 
 prostate_pca_aug <- prostate_pca %>% augment(prostate_for_pca)
 
-prostate_pca_aug %>% 
-  ggplot(aes(x = .fittedPC1, 
-             y = .fittedPC2, 
-             colour = ifelse(cat_status == 1,"Death from prostate cancer",
-                             ifelse(cat_status == 0 ,"Alive", "Death from other causes")))) +
-  geom_point() +
-  labs(colour = "Status")
+# Add the nominal values of cat status
+prostate_pca_aug <- prostate_pca_aug %>%
+  mutate(cat_status_nominal = case_when(
+    cat_status == 0 ~ "Alive",
+    cat_status == 2 ~ "Death other",
+    cat_status == 1 ~ "Death prostate cancer"
+  ))
 
-#first clustering with kmeans based on our variables
+
+prostate_pca_aug %>%
+  ggplot(aes(
+    x = .fittedPC1,
+    y = .fittedPC2,
+    colour = cat_status_nominal
+  )) +
+  geom_point() +
+  labs(colour = "Status") +
+  scale_color_colorblind()
+
+# first clustering with kmeans based on our variables
 prostate_k_org <- prostate_pca_aug %>%
+  select(-cat_status_nominal) %>%
   kmeans(centers = 3)
 
 prostate_pca_aug_k_org <- prostate_k_org %>%
-  augment(prostate_pca_aug) %>% 
+  augment(prostate_pca_aug) %>%
   rename(cluster_org = .cluster)
 
-#second clustering with kmeans based on .fittedpca
+# second clustering with kmeans based on .fittedpca
 prostate_k_pca <- prostate_pca_aug_k_org %>%
   select(.fittedPC1, .fittedPC2) %>%
   kmeans(centers = 3)
 
 prostate_pca_aug_k_org_pca <- prostate_k_pca %>%
-  augment(prostate_pca_aug_k_org) %>% 
+  augment(prostate_pca_aug_k_org) %>%
   rename(cluster_pca = .cluster)
 
-#plotting with the real division
+
+# Visualise data
+# ------------------------------------------------------------------------------
+
+# plotting with the real division
 pl1 <- prostate_pca_aug_k_org_pca %>%
-  ggplot(aes(x = .fittedPC1, 
-             y = .fittedPC2, 
-             colour = ifelse(cat_status == 1,"Death from prostate cancer",
-                             ifelse(cat_status == 0 ,"Alive", "Death from other causes")))) +
+  ggplot(aes(
+    x = .fittedPC1,
+    y = .fittedPC2,
+    colour = cat_status_nominal
+  )) +
   geom_point() +
-  theme(legend.position = "bottom")+
-  labs(colour = "Status")
+  theme(
+    legend.position = "bottom",
+    legend.direction = "vertical"
+  ) +
+  labs(
+    x = "PC1",
+    y = "PC2",
+    colour = "Status",
+    subtitle = "Real division"
+  ) +
+  scale_color_colorblind()
 
-#plotting first clustering with kmeans based on our variables
+# plotting first clustering with kmeans based on our variables
 pl2 <- prostate_pca_aug_k_org_pca %>%
-  ggplot(aes(x = .fittedPC1, 
-             y = .fittedPC2, 
-             colour = cluster_org)) +
+  ggplot(aes(
+    x = .fittedPC1,
+    y = .fittedPC2,
+    colour = cluster_org
+  )) +
   geom_point() +
-  theme(legend.position = "None")
+  theme(legend.position = "bottom", legend.direction = "vertical") +
+  labs(
+    x = "PC1",
+    y = "PC2",
+    colour = "Cluster number",
+    subtitle = "Clustering with Kmeans based on original variables",
+    title = "Clustering"
+  ) +
+  scale_color_colorblind()
 
-#plotting second clustering with kmeans based on .fittedpca
+# plotting second clustering with kmeans based on .fittedpca
 pl3 <- prostate_pca_aug_k_org_pca %>%
   ggplot(aes(x = .fittedPC1, y = .fittedPC2, colour = cluster_pca)) +
   geom_point() +
-  theme(legend.position = "None")
+  theme(legend.position = "bottom", legend.direction = "vertical") +
+  labs(
+    x = "PC1",
+    y = "PC2",
+    colour = "Cluster number",
+    subtitle = "Clustering with Kmeans based on principal components"
+  ) +
+  scale_color_colorblind()
 
 clustering <- pl1 + pl2 + pl3
 
-#which clustering gives the best division of data?
+# which clustering gives the best division of data?
 prostate_pca_aug_k_org_pca <- prostate_pca_aug_k_org_pca %>%
-  mutate(cat_status = case_when(cat_status == 0 ~ "Alive",
-                                  cat_status == 2 ~ "Death from other causes",
-                                  cat_status == 1 ~ "Death from prostate cancer"
+  mutate(cat_status = case_when(
+    cat_status == 0 ~ "Alive",
+    cat_status == 2 ~ "Death from other causes",
+    cat_status == 1 ~ "Death from prostate cancer"
   ))
 
 prostate_pca_aug_k_org_pca %>%
   select(cat_status, cluster_org, cluster_pca) %>%
-  mutate(cluster_org = case_when(cluster_org == 1 ~ "Alive",
-                                 cluster_org == 2 ~ "Death from other causes",
-                                 cluster_org == 3 ~ "Death from prostate cancer"),
-         cluster_pca = case_when(cluster_pca == 1 ~ "Death from prostate cancer",
-                                 cluster_pca == 2 ~ "Death from other causes",
-                                 cluster_pca == 3 ~ "Alive"),
-         cluster_org_correct = case_when(cat_status == cluster_org ~ 1,
-                                         cat_status != cluster_org ~ 0),
-         cluster_pca_correct = case_when(cat_status == cluster_pca ~ 1,
-                                         cat_status != cluster_pca ~ 0)) %>% 
-  summarise(score_org = mean(cluster_org_correct),
-            score_pca = mean(cluster_pca_correct))
+  mutate(
+    cluster_org = case_when(
+      cluster_org == 1 ~ "Alive",
+      cluster_org == 2 ~ "Death from other causes",
+      cluster_org == 3 ~ "Death from prostate cancer"
+    ),
+    cluster_pca = case_when(
+      cluster_pca == 2 ~ "Death from prostate cancer",
+      cluster_pca == 3 ~ "Death from other causes",
+      cluster_pca == 1 ~ "Alive"
+    ),
+    cluster_org_correct = case_when(
+      cat_status == cluster_org ~ 1,
+      cat_status != cluster_org ~ 0
+    ),
+    cluster_pca_correct = case_when(
+      cat_status == cluster_pca ~ 1,
+      cat_status != cluster_pca ~ 0
+    )
+  ) %>%
+  summarise(
+    score_org = mean(cluster_org_correct),
+    score_pca = mean(cluster_pca_correct)
+  )
 
-# Visualise data
-# ------------------------------------------------------------------------------
-# corr_matrix <- ggcorrplot(prostate_one_hot_corr, 
-#                           hc.order = TRUE, 
-#                           type = "lower", 
-#                           title = "Correlation matrix", 
-#                           tl.cex = 4, 
-#                           lab = TRUE, 
-#                           lab_size = 1)
 
-corr_matrix <- ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = value)) +
-  geom_tile(color = "gray") +
-  geom_text(aes(Var2, Var1, label = value), color = "black", size = 2) +
-  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
-                       midpoint = 0, limit = c(-1,1), space = "Lab"  , 
-                       name="Correlation", na.value = 'white') +
-  labs(title = "Correlation Matrix") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
-                                   size = 12, hjust = 1), 
-          axis.title.x = element_blank(),
-          axis.title.y = element_blank(),
-          panel.grid.major = element_blank(),
-          panel.border = element_blank(),
-          panel.background = element_blank())
+# 3d plot
+# library(plotly)
+# plot_ly(x=prostate_pca_aug_k_org_pca$.fittedPC1, y=prostate_pca_aug_k_org_pca$.fittedPC2,
+#         z=prostate_pca_aug_k_org_pca$.fittedPC3, type="scatter3d", mode="markers", color=prostate_pca_aug_k_org_pca$cat_status)
 
 # Write data
 # ------------------------------------------------------------------------------
 # write_tsv(...)
-ggsave("results/05_corr_matrix.png", corr_matrix,
-       width = 14,
-       height = 7)
+
 ggsave("results/05_pca_components.png", variance_explained,
-       width = 14,
-       height = 7)
+  width = 14,
+  height = 7
+)
 ggsave("results/05_pca_clustering.png", clustering,
-       width = 14,
-       height = 7)
+  width = 14,
+  height = 7
+)
