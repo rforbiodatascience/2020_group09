@@ -4,15 +4,6 @@ rm(list = ls())
 
 # Load libraries
 # ------------------------------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
-library("tidyverse")
-library("ggplot2")
-library("dplyr")
-require("gridExtra")
-=======
-=======
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -20,10 +11,6 @@ library(ggthemes)
 library(reshape2)
 library(cowplot)
 require(gridExtra)
-<<<<<<< HEAD
->>>>>>> 06ac6e58473b57697c9130d64885571b94eca29a
-=======
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 
 # Define functions
 # ------------------------------------------------------------------------------
@@ -72,23 +59,9 @@ for (i in 1:length(data_to_plot)
   col <- data_to_plot[[i]]
   x_lab <- colnames(data_to_plot)[i]
   
-<<<<<<< HEAD
-<<<<<<< HEAD
-  x_lab <- colnames(data_to_plot)[j]
-  png_title <- sprintf("Histogram and boxplot of %s", x_lab)
-  
-  barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = i)) +
-    geom_histogram(aes(y=..density..)) +
-=======
   barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = col)) +
     geom_histogram(aes(y = ..density..), 
                    binwidth = function(x)2*IQR(x)/length(x)^(1/3)) +
->>>>>>> 06ac6e58473b57697c9130d64885571b94eca29a
-=======
-  barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = col)) +
-    geom_histogram(aes(y = ..density..), 
-                   binwidth = function(x)2*IQR(x)/length(x)^(1/3)) +
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
     geom_density(color = "red") +
     labs(x = x_lab) +
     theme(axis.title = element_text(size = 16))
@@ -97,27 +70,10 @@ for (i in 1:length(data_to_plot)
     geom_boxplot() +
     labs(x = x_lab) +
     theme(axis.title = element_text(size = 16))
-<<<<<<< HEAD
   
   png_title <- ggdraw() + 
     draw_label(paste("Histogram and boxplot of ", x_lab, sep = ""), 
                size = 22) 
-  
-<<<<<<< HEAD
-  histogram_and_box_plot <- grid.arrange(barplot_i, boxplot_i, ncol=2, top = png_title) 
-=======
-  plot_row <- plot_grid(barplot_i, boxplot_i, ncol = 2)
-  histogram_and_box_plot <- plot_grid(png_title, 
-                                      plot_row, 
-                                      ncol = 1, rel_heights = c(0.1, 1))
-    
->>>>>>> 06ac6e58473b57697c9130d64885571b94eca29a
-=======
-  
-  png_title <- ggdraw() + 
-    draw_label(paste("Histogram and boxplot of ", x_lab, sep = ""), 
-               size = 22) 
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
   
   plot_row <- plot_grid(barplot_i, boxplot_i, ncol = 2)
   histogram_and_box_plot <- plot_grid(png_title, 
@@ -137,14 +93,6 @@ months_vs_all <- data_to_plot_long %>%
                              ifelse(cat_status == 0, "Alive", "Death from other causes") ))) +
   geom_point() +
   facet_wrap(~vars, nrow = 5, scales = "free") +
-<<<<<<< HEAD
-<<<<<<< HEAD
-  labs(x = "", colour = "Status", title = 'Months of follow-up plotted over the other continous variables') 
-  # theme(axis.text.x = element_blank())
-months_vs_all
-=======
-=======
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
   theme(strip.text.x = element_text(size = 14)) +
   labs(x = "", 
        colour = "Status", 
@@ -152,15 +100,9 @@ months_vs_all
   theme(plot.title = element_text(size = 22), 
         legend.title = element_text(size = 18),
         legend.text = element_text(size = 14), 
-<<<<<<< HEAD
-        ) +
-  scale_color_colorblind()
- 
-=======
   ) +
   scale_color_colorblind()
 
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 corr_matrix <- ggplot(data = data_to_corr, aes(Var2, Var1, fill = value)) +
   geom_tile(color = "gray") +
   geom_text(aes(Var2, Var1, label = value), color = "black", size = 4) +
@@ -178,10 +120,6 @@ corr_matrix <- ggplot(data = data_to_corr, aes(Var2, Var1, fill = value)) +
         panel.background = element_blank(),
         plot.title = element_text(size = 22))
 
-<<<<<<< HEAD
->>>>>>> 06ac6e58473b57697c9130d64885571b94eca29a
-=======
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 
 # Write data
 # ------------------------------------------------------------------------------

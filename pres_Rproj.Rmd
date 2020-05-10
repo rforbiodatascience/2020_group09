@@ -6,13 +6,8 @@ output:
   ioslides_presentation:
   widescreen: true
 ---
-<<<<<<< HEAD
-
-```{r include=FALSE}
-=======
   
   ```{r include=FALSE}
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 library(knitr)
 library(png)
 ```
@@ -116,11 +111,6 @@ include_graphics("results/04_months_fu_vs_others.png")
 include_graphics("results/04_corr_matrix.png")
 ```
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> f6971dc19b3aa3b26a002df4ae18a765581809ab
 ## What to look for
 
 - CLUSTERING: we use k-means and PCA to cluster based on the patient status: alive, dead of prostate cancer or dead of other causes. 
@@ -137,7 +127,5 @@ For this part of the analysis we choose to only consider the 1976 dataset
 ## Regression
 -
 ## Classification
-
-
 
 
