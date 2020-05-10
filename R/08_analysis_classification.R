@@ -8,6 +8,7 @@ library("tidyverse")
 library("devtools")
 library(keras)
 library("modelr")
+library(styler)
 
 # Install keras
 # # ------------------------------------------------------------------------------
