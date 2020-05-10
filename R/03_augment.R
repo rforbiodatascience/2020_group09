@@ -167,11 +167,8 @@ prostate_final <- full_join(x = prostate_one_hot,
 prostate_final <- prostate_final %>% 
   select(patient_id, months_fu, age, sg, bone_metastases, cat_status, 
          status_alive, status_dead_prostatic_ca, status_dead_other, 
-         dataset, everything())
+         dataset, everything(), -c(primary_pattern,gleason_score,sample_id))
 
-
-#!!!!!!!!!!!!!!!!!!! this prostate final dataset contains the gleason_score, primary pattern 
-#and sample_id cols. Do we need them later? I'm deleting them in the PCA file, but maybe we can cancel them now
 
 # ------------------------------------------------------------------------------
 
