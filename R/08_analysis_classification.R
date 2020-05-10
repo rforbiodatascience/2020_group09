@@ -8,6 +8,9 @@ library(tidyverse)
 library(devtools)
 library(keras)
 library(modelr)
+library(clusteval)
+#install.packages("remotes")
+#remotes::install_github("ramhiser/clusteval")
 
 
 # Install keras
@@ -154,8 +157,6 @@ y_train_pred <- model %>%
 perf_test <- model %>% evaluate(test_x, test_y)
 perf_test
 
-perf_train <- model %>% evaluate(train_x, train_x)
-
 results <- bind_rows(
   tibble(
     y_true = test_y %>%
@@ -186,51 +187,91 @@ results <- bind_rows(
 )
 my_counts <- results %>% count(y_pred, y_true, data_type)
 
-# Visualise model performance
-# ------------------------------------------------------------------------------
-title <- paste0(
-  "Performance of Deep Feed Forward Neural Network (",
-  "Total number of model parameters = ", count_params(model), ")."
-)
-sub_title <- paste0(
-  "Test Accuracy = ", acc_test, "%, n = ", nrow(X_test), ". ",
-  "Training Accuracy = ", acc_train, "%, n = ", nrow(X_train), "."
-)
-xlab <- "Predicted (Class assigned by Keras/TensorFlow deep FFN)"
-ylab <- "Measured (Real class, as predicted by netMHCpan-4.0)"
-results %>%
-  ggplot(aes(x = y_pred, y = y_true, fill = Correct)) +
-  geom_jitter(pch = 21, size = 4, alpha = 0.4, colour = "black") +
-  geom_text(
-    data = my_counts, aes(x = y_pred, y = y_true, label = n),
-    size = 20, inherit.aes = FALSE
-  ) +
-  xlab(xlab) +
-  ylab(ylab) +
-  ggtitle(label = title, subtitle = sub_title) +
-  theme_bw() +
-  theme(legend.position = "bottom") +
-  scale_color_manual(
-    labels = c("No", "Yes"),
-    values = c("tomato", "cornflowerblue")
-  ) +
-  facet_wrap(~data_type, nrow = 1)
 
 # Save model
 # ------------------------------------------------------------------------------
 save_model_hdf5(
   object = model,
-  filepath = "Models/05_peptide_model.h5"
+  filepath = "models/08_classification_model.h5"
 )
 
 # ------------------------------------------------------------------------------
 # Predictions
-predictions <- model %>% predict(X_eval)
+predictions <- model %>% predict(train_x)
 predictions
 
+perf = model %>% evaluate(test_x, test_y)
+perf
+
+
+plot_dat = class_data %>%
+  filter(partition == 'test') %>%
+  mutate(cat_status = factor(cat_status),
+         y_test_pred = factor(predict_classes(model, test_x)),
+         correct = factor(ifelse(cat_status == y_test_pred, "Yes", "No")))
+plot_dat %>% head(3)
+
+
+
+# Evaluate model
+# ------------------------------------------------------------------------------
+perf_test = model %>% evaluate(test_x, test_y)
+acc_test = perf_test %>% pluck('acc') %>% round(3) * 100
+perf_train = model %>% evaluate(test_x, test_y)
+acc_train = perf_train %>% pluck('acc') %>% round(3) * 100
+results = bind_rows(
+  tibble(y_true = test_y %>%
+           apply(1, function(x){ return( which(x==1) - 1) }) %>%
+           factor,
+         y_pred = model %>%
+           predict_classes(test_x) %>%
+           factor,
+         Correct = ifelse(y_true == y_pred ,"yes", "no") %>%
+           factor,
+         data_type = 'test')
+  ,
+  tibble(y_true = train_y %>%
+           apply(1, function(x){ return( which(x==1) - 1) }) %>%
+           factor,
+         y_pred = model %>%
+           predict_classes(train_x) %>%
+           factor,
+         Correct = ifelse(y_true == y_pred ,"yes", "no") %>%
+           factor,
+         data_type = 'train'))
+my_counts = results %>% count(y_pred, y_true, data_type)
+
+# Visualise model performance
+# ------------------------------------------------------------------------------
+title = paste0('Performance of Neural Network (',
+               'Total number of model parameters = ', count_params(model), ').')
+sub_title = paste0("Test Accuracy = ", acc_test, "%, n = ", nrow(test_x), ". ",
+                   "Training Accuracy = ", acc_train, "%, n = ", nrow(train_x), ".")
+xlab  = 'Predicted (Class assigned by Keras/TensorFlow deep FFN)'
+ylab  = 'Measured (Real class, as predicted by netMHCpan-4.0)'
+evaluation_classification <- results %>%
+  ggplot(aes(x = y_pred, y = y_true, fill = Correct)) +
+  geom_jitter(pch = 21, size = 4, alpha = 0.4, colour = 'black') +
+  geom_text(data = my_counts, aes(x = y_pred, y = y_true, label = n),
+            size = 20, inherit.aes = FALSE) +
+  xlab(xlab) +
+  ylab(ylab) +
+  ggtitle(label = title, subtitle = sub_title) +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(labels = c('No', 'Yes'),
+                     values = c('tomato','cornflowerblue')) +
+  facet_wrap(~data_type, nrow = 1)
+
+# 3d plot
 # Save graph
 # ------------------------------------------------------------------------------
 ggsave("results/08_loss_acc.png", plot_loss_acc,
-  width = 14,
-  height = 7
+       width = 14,
+       height = 7
 )
+ggsave("results/08_evaluation_classification.png", evaluation_classification,
+       width = 14,
+       height = 7
+)
+
