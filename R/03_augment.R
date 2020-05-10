@@ -44,8 +44,10 @@ prostate_data <- prostate_data %>%
 # to take in to account of the categorigal variables in the analysis
 
 prostate_one_hot <- prostate_data %>% 
-  mutate(ekg = str_replace_all(string = ekg, pattern = "&", replacement = ""))%>%
-  mutate(ekg = str_replace_all(string = ekg, pattern = " ", replacement = "_"))%>%
+  mutate(ekg = str_replace_all(string = ekg, pattern = "&", 
+                               replacement = ""))%>%
+  mutate(ekg = str_replace_all(string = ekg, pattern = " ",
+                               replacement = "_"))%>%
   mutate(ekg = str_to_lower(string = ekg, locale = "en"))
   
 prostate_one_hot <- one_hot_encoder(prefix = "ekg_", 
@@ -54,13 +56,17 @@ prostate_one_hot <- one_hot_encoder(prefix = "ekg_",
 
 prostate_one_hot <- prostate_one_hot %>% 
   mutate(activity_level = str_replace_all(string = activity_level , 
-                                          pattern = ">", replacement = "more_than"))%>%
+                                          pattern = ">",
+                                          replacement = "more_than"))%>%
   mutate(activity_level = str_replace_all(string = activity_level , 
-                                          pattern = "<", replacement = "less_than"))%>%
+                                          pattern = "<",
+                                          replacement = "less_than"))%>%
   mutate(activity_level = str_replace_all(string = activity_level , 
-                                          pattern = "% daytime", replacement = "percent"))%>%
+                                          pattern = "% daytime", 
+                                          replacement = "percent"))%>%
   mutate(activity_level = str_replace_all(string = activity_level , 
-                                          pattern = " ", replacement = "_"))
+                                          pattern = " ", 
+                                          replacement = "_"))
 
 prostate_one_hot <- one_hot_encoder(prefix = "activity_", 
                                     dataset = prostate_one_hot, 
@@ -91,15 +97,16 @@ prostate_one_hot <- prostate_one_hot %>%
 # We expect a tibble with 0 rows as output if all the IDs match. 
 dim(anti_join(x = tcga_prostate_clean, 
               y = tcga_prostate_survival_clean,
-              by = c("sample_id")))
+              by = "sample_id"))
 
 # Inner-join: join the phenotype with the survival rates using the Sample ID
 # as key column. 
 # Add Dataset column to identify the origin of the data
 tcga <- inner_join(x = tcga_prostate_clean,
                    y = tcga_prostate_survival_clean, 
-                   by = c("sample_id")) %>% 
-  mutate("dataset" = 1)
+                   by = "sample_id") %>% 
+  mutate("dataset" = 1, 
+         sample_id = NULL) 
 
 # Remove duplicated rows ()
 tcga_unique <- tcga %>%
@@ -107,7 +114,8 @@ tcga_unique <- tcga %>%
 
 # Convert the content of the os.time column from days to months. 
 tcga_final <- tcga_unique %>% 
-  mutate("months_fu" = round(os_time/30, digits = 0), os_time = NULL) 
+  mutate("months_fu" = round(os_time/30, digits = 0),
+         os_time = NULL) 
 
 # Binarize bone metastases results
 tcga_final <- tcga_final %>% 
@@ -126,7 +134,9 @@ tcga_final <- tcga_final %>%
                           gleason_score == 7 & primary_pattern == 3 ~  gleason_score + 2,
                           gleason_score == 7 & primary_pattern == 4 ~  gleason_score + 3,
                           gleason_score == 8 ~ gleason_score + 4,
-                          gleason_score >= 9 ~ gleason_score + 5))
+                          gleason_score >= 9 ~ gleason_score + 5),
+         gleason_score = NULL, 
+         primary_pattern = NULL)
 
 # One hot encoding status: alive, dead - prostata ca, dead_other
 # The patient death reason can be Prostate Cancer or NA. 
@@ -167,8 +177,7 @@ prostate_final <- full_join(x = prostate_one_hot,
 prostate_final <- prostate_final %>% 
   select(patient_id, months_fu, age, sg, bone_metastases, cat_status, 
          status_alive, status_dead_prostatic_ca, status_dead_other, 
-         dataset, everything(), -c(primary_pattern,gleason_score,sample_id))
-
+         dataset, everything())
 
 # ------------------------------------------------------------------------------
 
