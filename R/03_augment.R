@@ -109,14 +109,6 @@ tcga <- inner_join(x = tcga_prostate_clean,
                    by = "sample_id") %>% 
   mutate("dataset" = 1)
 
-
-# tcga <- tcga %>%
-#   select(patient_id, bone_scan_results, age, os_time,
-#          gleason_score, primary_pattern, vital_status_demographic, 
-#          patient_death_reason, dataset) 
-
-unique(tcga$bone_scan_results)
-
 # Remove duplicated rows ()
 tcga_unique <- tcga %>%
   unique()
