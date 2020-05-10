@@ -13,9 +13,18 @@ one_hot_encoder <- function(dataset, prefix, colname){
   return(dataset_one_hot_encoded)
 }
 
+
 # ----------------------------------------------------------------------------
 # function to create a linear model
 
 get_mdls <- function(dataset) {
   return(lm(months_fu ~ tumour_size, data = dataset))
+}
+
+# ---------------------------------------------------------------------------
+# Get lower triangle of the correlation matrix
+
+get_lower_tri<-function(cormat){
+  cormat[lower.tri(cormat)] <- NA
+  return(cormat)
 }

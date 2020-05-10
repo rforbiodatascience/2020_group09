@@ -74,18 +74,23 @@ tcga_prostate_survival_clean <- tcga_prostate_survival_raw %>%
     "patient_id" = "_PATIENT", "os_time" = "OS.time"
   )
 
-# selecting variables of interest
+# selecting variables of interest and removing NAs from all the columns except for
+# the patient_death_reason, because altough this column is almost empty, we still need 
+# it in the augment. 
+
 tcga_prostate_clean <- tcga_prostate_clean %>%
-  select(
-    patient_id, bone_scan_results, age,
+  select(sample_id, patient_id, bone_scan_results, age,
     gleason_score, primary_pattern, vital_status_demographic,
     patient_death_reason
-  ) %>%
-  drop_na()
+  ) %>% 
+  drop_na(sample_id, patient_id, bone_scan_results, age,
+          gleason_score, primary_pattern, vital_status_demographic)
+
 
 tcga_prostate_survival_clean <- tcga_prostate_survival_clean %>%
-  select(-os) %>%
+  select(-c("os", "patient_id")) %>%
   drop_na()
+
 # Write data
 # ------------------------------------------------------------------------------
 write_tsv(

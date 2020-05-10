@@ -1,4 +1,308 @@
-patient_id	bone_scan_results	age	gleason_score	primary_pattern	vital_status_demographic	patient_death_reason
-A8TA	Prostate Cancer Metastases Present [cM1b]	59	10	5	Dead	Prostate Cancer
-A9WJ	Normal (no evidence of prostate cancer) [cM0]	47	8	4	Dead	Prostate Cancer
-A9S0	Normal (no evidence of prostate cancer) [cM0]	53	8	4	Dead	Prostate Cancer
+sample_id	patient_id	bone_scan_results	age	gleason_score	primary_pattern	vital_status_demographic	patient_death_reason
+TCGA-EJ-A46H-01A	A46H	Normal (no evidence of prostate cancer) [cM0]	60	7	3	Alive	NA
+TCGA-HC-7078-01A	7078	Normal (no evidence of prostate cancer) [cM0]	69	7	3	Alive	NA
+TCGA-VN-A88K-01A	A88K	Equivocal	58	8	4	Alive	NA
+TCGA-2A-A8VL-01A	A8VL	Normal (no evidence of prostate cancer) [cM0]	51	6	3	Alive	NA
+TCGA-ZG-A9LN-01A	A9LN	Normal (no evidence of prostate cancer) [cM0]	57	9	5	Alive	NA
+TCGA-M7-A721-01A	A721	Normal (no evidence of prostate cancer) [cM0]	70	7	3	Alive	NA
+TCGA-HC-A8D0-01A	A8D0	Normal (no evidence of prostate cancer) [cM0]	61	7	3	Alive	NA
+TCGA-CH-5768-01A	5768	Normal (no evidence of prostate cancer) [cM0]	72	6	2	Alive	NA
+TCGA-CH-5768-11A	5768	Normal (no evidence of prostate cancer) [cM0]	72	6	2	Alive	NA
+TCGA-2A-A8VX-01A	A8VX	Normal (no evidence of prostate cancer) [cM0]	70	8	4	Alive	NA
+TCGA-HC-A8D1-01A	A8D1	Normal (no evidence of prostate cancer) [cM0]	68	7	3	Alive	NA
+TCGA-KK-A8IJ-01A	A8IJ	Normal (no evidence of prostate cancer) [cM0]	59	7	4	Alive	NA
+TCGA-KK-A8IJ-11A	A8IJ	Normal (no evidence of prostate cancer) [cM0]	59	7	4	Alive	NA
+TCGA-YL-A8SF-01A	A8SF	Normal (no evidence of prostate cancer) [cM0]	62	8	4	Alive	NA
+TCGA-KK-A8I4-01A	A8I4	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-KK-A8I4-11A	A8I4	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-YL-A9WX-01A	A9WX	Abnormal (not related to prostate cancer)	68	9	4	Alive	NA
+TCGA-VP-A87C-01A	A87C	Normal (no evidence of prostate cancer) [cM0]	67	7	4	Alive	NA
+TCGA-J4-AATZ-01A	AATZ	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-EJ-5505-01A	5505	Normal (no evidence of prostate cancer) [cM0]	57	7	4	Alive	NA
+TCGA-HC-A6AQ-01A	A6AQ	Normal (no evidence of prostate cancer) [cM0]	60	7	3	Alive	NA
+TCGA-KC-A7FA-01A	A7FA	Abnormal (not related to prostate cancer)	63	7	3	Alive	NA
+TCGA-J9-A52E-01A	A52E	Normal (no evidence of prostate cancer) [cM0]	65	9	4	Alive	NA
+TCGA-ZG-A9NI-01A	A9NI	Normal (no evidence of prostate cancer) [cM0]	73	9	5	Alive	NA
+TCGA-G9-6385-01A	6385	Normal (no evidence of prostate cancer) [cM0]	66	7	3	Alive	NA
+TCGA-G9-6385-11A	6385	Normal (no evidence of prostate cancer) [cM0]	66	7	3	Alive	NA
+TCGA-EJ-7321-01A	7321	Normal (no evidence of prostate cancer) [cM0]	57	6	3	Alive	NA
+TCGA-EJ-7321-11A	7321	Normal (no evidence of prostate cancer) [cM0]	57	6	3	Alive	NA
+TCGA-YL-A8HL-01A	A8HL	Normal (no evidence of prostate cancer) [cM0]	58	9	4	Alive	NA
+TCGA-G9-6362-01A	6362	Normal (no evidence of prostate cancer) [cM0]	57	7	4	Alive	NA
+TCGA-G9-6362-11A	6362	Normal (no evidence of prostate cancer) [cM0]	57	7	4	Alive	NA
+TCGA-KK-A59Z-01A	A59Z	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-KK-A59Z-11A	A59Z	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-KK-A8ID-01A	A8ID	Normal (no evidence of prostate cancer) [cM0]	70	9	5	Alive	NA
+TCGA-KK-A8ID-11A	A8ID	Normal (no evidence of prostate cancer) [cM0]	70	9	5	Alive	NA
+TCGA-G9-6378-01A	6378	Normal (no evidence of prostate cancer) [cM0]	54	7	3	Alive	NA
+TCGA-CH-5754-01A	5754	Normal (no evidence of prostate cancer) [cM0]	65	9	4	Alive	NA
+TCGA-EJ-5516-01A	5516	Normal (no evidence of prostate cancer) [cM0]	49	7	3	Alive	NA
+TCGA-J9-A52B-01A	A52B	Normal (no evidence of prostate cancer) [cM0]	62	9	5	Alive	NA
+TCGA-KC-A4BO-01A	A4BO	Abnormal (not related to prostate cancer)	55	7	3	Alive	NA
+TCGA-XK-AAK1-01A	AAK1	Normal (no evidence of prostate cancer) [cM0]	62	7	4	Alive	NA
+TCGA-G9-6336-01A	6336	Normal (no evidence of prostate cancer) [cM0]	57	7	3	Alive	NA
+TCGA-ZG-A9LS-01A	A9LS	Normal (no evidence of prostate cancer) [cM0]	64	9	5	Alive	NA
+TCGA-KK-A59X-01A	A59X	Normal (no evidence of prostate cancer) [cM0]	55	9	5	Alive	NA
+TCGA-KK-A59X-11A	A59X	Normal (no evidence of prostate cancer) [cM0]	55	9	5	Alive	NA
+TCGA-KC-A7FE-01A	A7FE	Abnormal (not related to prostate cancer)	62	7	3	Alive	NA
+TCGA-XQ-A8TB-01A	A8TB	Abnormal (not related to prostate cancer)	67	9	4	Alive	NA
+TCGA-KK-A6E1-01A	A6E1	Normal (no evidence of prostate cancer) [cM0]	57	9	4	Alive	NA
+TCGA-KK-A6E1-11A	A6E1	Normal (no evidence of prostate cancer) [cM0]	57	9	4	Alive	NA
+TCGA-VP-A878-01A	A878	Normal (no evidence of prostate cancer) [cM0]	58	9	4	Alive	NA
+TCGA-VP-A872-01A	A872	Normal (no evidence of prostate cancer) [cM0]	60	8	5	Alive	NA
+TCGA-G9-6356-01A	6356	Normal (no evidence of prostate cancer) [cM0]	60	9	4	Alive	NA
+TCGA-G9-6356-11A	6356	Normal (no evidence of prostate cancer) [cM0]	60	9	4	Alive	NA
+TCGA-YL-A9WH-01A	A9WH	Normal (no evidence of prostate cancer) [cM0]	67	9	4	Alive	NA
+TCGA-KK-A59Y-01A	A59Y	Normal (no evidence of prostate cancer) [cM0]	56	9	4	Alive	NA
+TCGA-KK-A59Y-11A	A59Y	Normal (no evidence of prostate cancer) [cM0]	56	9	4	Alive	NA
+TCGA-2A-A8VV-01A	A8VV	Equivocal	52	6	3	Alive	NA
+TCGA-KC-A7F6-01A	A7F6	Abnormal (not related to prostate cancer)	63	7	3	Alive	NA
+TCGA-EJ-7125-01A	7125	Normal (no evidence of prostate cancer) [cM0]	44	7	3	Alive	NA
+TCGA-EJ-7125-11A	7125	Normal (no evidence of prostate cancer) [cM0]	44	7	3	Alive	NA
+TCGA-VN-A88P-01A	A88P	Abnormal (not related to prostate cancer)	60	7	3	Alive	NA
+TCGA-ZG-A9KY-01A	A9KY	Normal (no evidence of prostate cancer) [cM0]	73	9	5	Alive	NA
+TCGA-KK-A8IC-01A	A8IC	Normal (no evidence of prostate cancer) [cM0]	54	9	4	Alive	NA
+TCGA-KK-A8IC-11A	A8IC	Normal (no evidence of prostate cancer) [cM0]	54	9	4	Alive	NA
+TCGA-M7-A725-01A	A725	Normal (no evidence of prostate cancer) [cM0]	56	7	4	Alive	NA
+TCGA-HC-A76W-01A	A76W	Normal (no evidence of prostate cancer) [cM0]	73	7	3	Alive	NA
+TCGA-XQ-A8TA-01A	A8TA	Prostate Cancer Metastases Present [cM1b]	59	10	5	Dead	Prostate Cancer
+TCGA-G9-6351-01A	6351	Normal (no evidence of prostate cancer) [cM0]	51	7	3	Alive	NA
+TCGA-G9-6351-11A	6351	Normal (no evidence of prostate cancer) [cM0]	51	7	3	Alive	NA
+TCGA-HI-7169-01A	7169	Normal (no evidence of prostate cancer) [cM0]	55	7	3	Alive	NA
+TCGA-ZG-A9M4-01A	A9M4	Normal (no evidence of prostate cancer) [cM0]	65	9	5	Alive	NA
+TCGA-CH-5764-01A	5764	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-CH-5764-11A	5764	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-G9-7510-01A	7510	Normal (no evidence of prostate cancer) [cM0]	66	8	4	Alive	NA
+TCGA-G9-6498-01A	6498	Normal (no evidence of prostate cancer) [cM0]	53	7	3	Alive	NA
+TCGA-ZG-A9LZ-01A	A9LZ	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-EJ-5502-01A	5502	Normal (no evidence of prostate cancer) [cM0]	50	7	4	Alive	NA
+TCGA-HC-A6AS-01A	A6AS	Normal (no evidence of prostate cancer) [cM0]	70	7	3	Alive	NA
+TCGA-EJ-A46B-01A	A46B	Normal (no evidence of prostate cancer) [cM0]	66	8	4	Alive	NA
+TCGA-EJ-5542-01A	5542	Normal (no evidence of prostate cancer) [cM0]	60	7	3	Alive	NA
+TCGA-KC-A4BV-01A	A4BV	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-M7-A723-01A	A723	Normal (no evidence of prostate cancer) [cM0]	54	7	4	Alive	NA
+TCGA-HC-7817-01B	7817	Normal (no evidence of prostate cancer) [cM0]	52	7	4	Alive	NA
+TCGA-EJ-5501-01A	5501	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-HC-7741-01C	7741	Normal (no evidence of prostate cancer) [cM0]	67	7	3	Alive	NA
+TCGA-VP-A87D-01A	A87D	Normal (no evidence of prostate cancer) [cM0]	54	9	4	Alive	NA
+TCGA-J9-A52D-01A	A52D	Normal (no evidence of prostate cancer) [cM0]	71	9	4	Alive	NA
+TCGA-HC-A76X-01A	A76X	Normal (no evidence of prostate cancer) [cM0]	62	7	3	Alive	NA
+TCGA-2A-A8W3-01A	A8W3	Normal (no evidence of prostate cancer) [cM0]	69	9	4	Alive	NA
+TCGA-FC-A6HD-01A	A6HD	Normal (no evidence of prostate cancer) [cM0]	77	7	4	Alive	NA
+TCGA-ZG-A9L2-01A	A9L2	Normal (no evidence of prostate cancer) [cM0]	70	9	4	Alive	NA
+TCGA-FC-A5OB-01A	A5OB	Abnormal (not related to prostate cancer)	53	9	4	Alive	NA
+TCGA-YL-A8HK-01A	A8HK	Normal (no evidence of prostate cancer) [cM0]	59	9	4	Alive	NA
+TCGA-G9-6348-01A	6348	Abnormal (not related to prostate cancer)	68	7	3	Alive	NA
+TCGA-G9-6348-11A	6348	Abnormal (not related to prostate cancer)	68	7	3	Alive	NA
+TCGA-YL-A8SL-01B	A8SL	Normal (no evidence of prostate cancer) [cM0]	74	8	4	Alive	NA
+TCGA-EJ-5519-01A	5519	Normal (no evidence of prostate cancer) [cM0]	64	8	4	Alive	NA
+TCGA-ZG-A8QW-01A	A8QW	Normal (no evidence of prostate cancer) [cM0]	72	9	4	Alive	NA
+TCGA-ZG-A9L6-01A	A9L6	Normal (no evidence of prostate cancer) [cM0]	64	9	5	Alive	NA
+TCGA-VN-A88I-01A	A88I	Abnormal (not related to prostate cancer)	59	8	4	Alive	NA
+TCGA-VP-A87J-01A	A87J	Normal (no evidence of prostate cancer) [cM0]	56	7	3	Alive	NA
+TCGA-EJ-8474-01A	8474	Normal (no evidence of prostate cancer) [cM0]	69	8	4	Alive	NA
+TCGA-EJ-8474-11A	8474	Normal (no evidence of prostate cancer) [cM0]	69	8	4	Alive	NA
+TCGA-VP-A876-01A	A876	Normal (no evidence of prostate cancer) [cM0]	46	8	3	Alive	NA
+TCGA-EJ-8468-01A	8468	Normal (no evidence of prostate cancer) [cM0]	63	8	4	Alive	NA
+TCGA-EJ-8468-11A	8468	Normal (no evidence of prostate cancer) [cM0]	63	8	4	Alive	NA
+TCGA-EJ-5498-01A	5498	Normal (no evidence of prostate cancer) [cM0]	56	7	4	Alive	NA
+TCGA-2A-A8W1-01A	A8W1	Normal (no evidence of prostate cancer) [cM0]	54	7	4	Alive	NA
+TCGA-XK-AAJ3-01A	AAJ3	Normal (no evidence of prostate cancer) [cM0]	56	8	4	Alive	NA
+TCGA-G9-6332-01A	6332	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-G9-6332-11A	6332	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-HC-8216-01A	8216	Normal (no evidence of prostate cancer) [cM0]	58	7	4	Alive	NA
+TCGA-HC-A9TE-01A	A9TE	Normal (no evidence of prostate cancer) [cM0]	64	9	5	Alive	NA
+TCGA-XK-AAJT-01A	AAJT	Normal (no evidence of prostate cancer) [cM0]	75	7	4	Alive	NA
+TCGA-CH-5740-01A	5740	Normal (no evidence of prostate cancer) [cM0]	57	7	3	Alive	NA
+TCGA-XK-AAIW-01A	AAIW	Normal (no evidence of prostate cancer) [cM0]	78	9	5	Alive	NA
+TCGA-YL-A8SQ-01B	A8SQ	Normal (no evidence of prostate cancer) [cM0]	61	9	4	Alive	NA
+TCGA-KK-A8IA-01A	A8IA	Normal (no evidence of prostate cancer) [cM0]	69	9	4	Alive	NA
+TCGA-KK-A8IA-11A	A8IA	Normal (no evidence of prostate cancer) [cM0]	69	9	4	Alive	NA
+TCGA-VP-A875-01A	A875	Abnormal (not related to prostate cancer)	67	7	3	Alive	NA
+TCGA-EJ-A46D-01A	A46D	Normal (no evidence of prostate cancer) [cM0]	53	8	3	Alive	NA
+TCGA-KC-A4BL-01A	A4BL	Abnormal (not related to prostate cancer)	65	7	3	Alive	NA
+TCGA-KK-A6E5-01A	A6E5	Normal (no evidence of prostate cancer) [cM0]	63	7	4	Alive	NA
+TCGA-KK-A6E5-11A	A6E5	Normal (no evidence of prostate cancer) [cM0]	63	7	4	Alive	NA
+TCGA-YL-A8HJ-01A	A8HJ	Normal (no evidence of prostate cancer) [cM0]	58	9	4	Alive	NA
+TCGA-CH-5763-01A	5763	Normal (no evidence of prostate cancer) [cM0]	66	7	3	Alive	NA
+TCGA-CH-5763-11A	5763	Normal (no evidence of prostate cancer) [cM0]	66	7	3	Alive	NA
+TCGA-G9-6496-01A	6496	Normal (no evidence of prostate cancer) [cM0]	61	7	4	Alive	NA
+TCGA-G9-6496-11A	6496	Normal (no evidence of prostate cancer) [cM0]	61	7	4	Alive	NA
+TCGA-CH-5741-01A	5741	Normal (no evidence of prostate cancer) [cM0]	56	9	4	Alive	NA
+TCGA-G9-6363-01A	6363	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-G9-6363-11A	6363	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-EJ-7115-01A	7115	Normal (no evidence of prostate cancer) [cM0]	65	7	4	Alive	NA
+TCGA-EJ-7115-11A	7115	Normal (no evidence of prostate cancer) [cM0]	65	7	4	Alive	NA
+TCGA-G9-6494-01A	6494	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-G9-6494-11A	6494	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-XK-AAIV-01A	AAIV	Normal (no evidence of prostate cancer) [cM0]	63	10	5	Alive	NA
+TCGA-YL-A8S9-01A	A8S9	Normal (no evidence of prostate cancer) [cM0]	63	9	4	Alive	NA
+TCGA-EJ-5504-01A	5504	Normal (no evidence of prostate cancer) [cM0]	65	7	4	Alive	NA
+TCGA-G9-6369-01A	6369	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-QU-A6IN-01A	A6IN	Normal (no evidence of prostate cancer) [cM0]	61	7	3	Alive	NA
+TCGA-CH-5753-01A	5753	Normal (no evidence of prostate cancer) [cM0]	70	9	4	Alive	NA
+TCGA-G9-7519-01A	7519	Abnormal (not related to prostate cancer)	58	7	3	Alive	NA
+TCGA-G9-6338-01A	6338	Normal (no evidence of prostate cancer) [cM0]	61	7	4	Alive	NA
+TCGA-CH-5765-01A	5765	Normal (no evidence of prostate cancer) [cM0]	55	7	3	Alive	NA
+TCGA-CH-5765-11A	5765	Normal (no evidence of prostate cancer) [cM0]	55	7	3	Alive	NA
+TCGA-G9-6361-01A	6361	Normal (no evidence of prostate cancer) [cM0]	61	7	3	Alive	NA
+TCGA-CH-5744-01A	5744	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-CH-5750-01A	5750	Normal (no evidence of prostate cancer) [cM0]	72	7	3	Alive	NA
+TCGA-KK-A8I6-01A	A8I6	Normal (no evidence of prostate cancer) [cM0]	58	7	4	Alive	NA
+TCGA-KK-A8I6-11A	A8I6	Normal (no evidence of prostate cancer) [cM0]	58	7	4	Alive	NA
+TCGA-J9-A52C-01A	A52C	Normal (no evidence of prostate cancer) [cM0]	57	9	4	Alive	NA
+TCGA-YL-A8HM-01A	A8HM	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-M7-A724-01A	A724	Abnormal (not related to prostate cancer)	64	8	4	Alive	NA
+TCGA-VP-A87B-01A	A87B	Normal (no evidence of prostate cancer) [cM0]	63	8	4	Alive	NA
+TCGA-KK-A7B2-01A	A7B2	Normal (no evidence of prostate cancer) [cM0]	68	9	4	Alive	NA
+TCGA-KK-A7B2-11A	A7B2	Normal (no evidence of prostate cancer) [cM0]	68	9	4	Alive	NA
+TCGA-KK-A8IK-01A	A8IK	Abnormal (not related to prostate cancer)	56	9	4	Alive	NA
+TCGA-KK-A8IK-11A	A8IK	Abnormal (not related to prostate cancer)	56	9	4	Alive	NA
+TCGA-EJ-5495-01A	5495	Normal (no evidence of prostate cancer) [cM0]	68	8	5	Alive	NA
+TCGA-G9-6339-01A	6339	Normal (no evidence of prostate cancer) [cM0]	58	7	3	Alive	NA
+TCGA-EJ-5511-01A	5511	Normal (no evidence of prostate cancer) [cM0]	55	7	3	Alive	NA
+TCGA-VP-A879-01A	A879	Normal (no evidence of prostate cancer) [cM0]	70	9	4	Dead	NA
+TCGA-VP-A87E-01A	A87E	Normal (no evidence of prostate cancer) [cM0]	59	6	3	Alive	NA
+TCGA-YL-A8SB-01A	A8SB	Normal (no evidence of prostate cancer) [cM0]	62	9	4	Alive	NA
+TCGA-G9-6373-01A	6373	Normal (no evidence of prostate cancer) [cM0]	68	7	4	Alive	NA
+TCGA-G9-6373-11A	6373	Normal (no evidence of prostate cancer) [cM0]	68	7	4	Alive	NA
+TCGA-CH-5743-01A	5743	Normal (no evidence of prostate cancer) [cM0]	66	7	3	Alive	NA
+TCGA-EJ-5518-01A	5518	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-HI-7171-01A	7171	Normal (no evidence of prostate cancer) [cM0]	56	9	5	Dead	NA
+TCGA-ZG-A9L9-01A	A9L9	Normal (no evidence of prostate cancer) [cM0]	60	9	4	Alive	NA
+TCGA-HC-A48F-01A	A48F	Normal (no evidence of prostate cancer) [cM0]	47	8	4	Alive	NA
+TCGA-YL-A8HO-01A	A8HO	Abnormal (not related to prostate cancer)	67	7	4	Alive	NA
+TCGA-HC-A631-01A	A631	Normal (no evidence of prostate cancer) [cM0]	67	9	4	Alive	NA
+TCGA-EJ-5515-01A	5515	Normal (no evidence of prostate cancer) [cM0]	60	7	3	Alive	NA
+TCGA-EJ-A46F-01A	A46F	Normal (no evidence of prostate cancer) [cM0]	57	8	4	Alive	NA
+TCGA-KK-A7B4-01A	A7B4	Equivocal	64	9	4	Alive	NA
+TCGA-KK-A7B4-11A	A7B4	Equivocal	64	9	4	Alive	NA
+TCGA-YL-A8SC-01A	A8SC	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-YL-A8SK-01B	A8SK	Normal (no evidence of prostate cancer) [cM0]	67	9	4	Alive	NA
+TCGA-EJ-7794-01A	7794	Normal (no evidence of prostate cancer) [cM0]	67	7	3	Alive	NA
+TCGA-EJ-7794-11A	7794	Normal (no evidence of prostate cancer) [cM0]	67	7	3	Alive	NA
+TCGA-G9-6499-01A	6499	Equivocal	66	9	4	Alive	NA
+TCGA-G9-6499-11A	6499	Equivocal	66	9	4	Alive	NA
+TCGA-CH-5751-01A	5751	Equivocal	68	10	5	Alive	NA
+TCGA-EJ-5514-01A	5514	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-CH-5772-01A	5772	Normal (no evidence of prostate cancer) [cM0]	63	9	4	Alive	NA
+TCGA-CH-5772-11A	5772	Normal (no evidence of prostate cancer) [cM0]	63	9	4	Alive	NA
+TCGA-G9-A9S4-01A	A9S4	Normal (no evidence of prostate cancer) [cM0]	62	8	4	Alive	NA
+TCGA-VN-A88N-01A	A88N	Equivocal	62	7	4	Alive	NA
+TCGA-G9-6342-01A	6342	Normal (no evidence of prostate cancer) [cM0]	61	6	3	Alive	NA
+TCGA-G9-6342-11A	6342	Normal (no evidence of prostate cancer) [cM0]	61	6	3	Alive	NA
+TCGA-EJ-5525-01A	5525	Normal (no evidence of prostate cancer) [cM0]	67	9	4	Alive	NA
+TCGA-EJ-5503-01A	5503	Normal (no evidence of prostate cancer) [cM0]	50	8	5	Alive	NA
+TCGA-KC-A7F3-01A	A7F3	Normal (no evidence of prostate cancer) [cM0]	67	7	3	Alive	NA
+TCGA-CH-5752-01A	5752	Normal (no evidence of prostate cancer) [cM0]	66	8	4	Alive	NA
+TCGA-YL-A9WI-01A	A9WI	Normal (no evidence of prostate cancer) [cM0]	63	9	4	Alive	NA
+TCGA-YL-A9WJ-01A	A9WJ	Normal (no evidence of prostate cancer) [cM0]	47	8	4	Dead	Prostate Cancer
+TCGA-WW-A8ZI-01A	A8ZI	Normal (no evidence of prostate cancer) [cM0]	70	8	4	Alive	NA
+TCGA-HC-A9TH-01A	A9TH	Normal (no evidence of prostate cancer) [cM0]	58	9	5	Alive	NA
+TCGA-TP-A8TT-01A	A8TT	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-ZG-A9LB-01A	A9LB	Normal (no evidence of prostate cancer) [cM0]	72	9	5	Alive	NA
+TCGA-XK-AAJR-01A	AAJR	Normal (no evidence of prostate cancer) [cM0]	61	7	4	Alive	NA
+TCGA-HC-7737-01A	7737	Normal (no evidence of prostate cancer) [cM0]	55	7	3	Alive	NA
+TCGA-HC-7737-11A	7737	Normal (no evidence of prostate cancer) [cM0]	55	7	3	Alive	NA
+TCGA-EJ-5510-01A	5510	Normal (no evidence of prostate cancer) [cM0]	48	7	4	Alive	NA
+TCGA-G9-A9S0-01A	A9S0	Normal (no evidence of prostate cancer) [cM0]	53	8	4	Dead	Prostate Cancer
+TCGA-CH-5769-01A	5769	Normal (no evidence of prostate cancer) [cM0]	48	9	5	Alive	NA
+TCGA-CH-5769-11A	5769	Normal (no evidence of prostate cancer) [cM0]	48	9	5	Alive	NA
+TCGA-2A-A8VO-01A	A8VO	Normal (no evidence of prostate cancer) [cM0]	57	6	3	Alive	NA
+TCGA-G9-6329-01A	6329	Normal (no evidence of prostate cancer) [cM0]	67	7	3	Alive	NA
+TCGA-KK-A6E7-01A	A6E7	Normal (no evidence of prostate cancer) [cM0]	46	9	5	Alive	NA
+TCGA-KK-A6E7-11A	A6E7	Normal (no evidence of prostate cancer) [cM0]	46	9	5	Alive	NA
+TCGA-HC-7744-01A	7744	Normal (no evidence of prostate cancer) [cM0]	46	7	4	Alive	NA
+TCGA-KK-A6E3-01A	A6E3	Normal (no evidence of prostate cancer) [cM0]	56	7	3	Alive	NA
+TCGA-KK-A6E3-11A	A6E3	Normal (no evidence of prostate cancer) [cM0]	56	7	3	Alive	NA
+TCGA-ZG-A9N3-01A	A9N3	Normal (no evidence of prostate cancer) [cM0]	73	9	5	Alive	NA
+TCGA-HC-A8CY-01A	A8CY	Abnormal (not related to prostate cancer)	63	9	5	Alive	NA
+TCGA-G9-7525-01A	7525	Normal (no evidence of prostate cancer) [cM0]	64	7	4	Alive	NA
+TCGA-EJ-7782-01A	7782	Normal (no evidence of prostate cancer) [cM0]	71	8	4	Alive	NA
+TCGA-EJ-7782-11A	7782	Normal (no evidence of prostate cancer) [cM0]	71	8	4	Alive	NA
+TCGA-KK-A8II-01A	A8II	Normal (no evidence of prostate cancer) [cM0]	61	9	4	Dead	NA
+TCGA-KK-A8II-11A	A8II	Normal (no evidence of prostate cancer) [cM0]	61	9	4	Dead	NA
+TCGA-G9-7523-01A	7523	Abnormal (not related to prostate cancer)	44	10	5	Alive	NA
+TCGA-CH-5771-01A	5771	Normal (no evidence of prostate cancer) [cM0]	63	7	4	Alive	NA
+TCGA-CH-5771-11A	5771	Normal (no evidence of prostate cancer) [cM0]	63	7	4	Alive	NA
+TCGA-VN-A88Q-01A	A88Q	Abnormal (not related to prostate cancer)	60	8	4	Alive	NA
+TCGA-YL-A9WY-01A	A9WY	Normal (no evidence of prostate cancer) [cM0]	57	9	5	Alive	NA
+TCGA-KC-A4BR-01A	A4BR	Abnormal (not related to prostate cancer)	75	9	4	Alive	NA
+TCGA-XK-AAJU-01A	AAJU	Normal (no evidence of prostate cancer) [cM0]	65	7	4	Alive	NA
+TCGA-KK-A6E8-01A	A6E8	Normal (no evidence of prostate cancer) [cM0]	68	9	4	Alive	NA
+TCGA-KK-A6E8-11A	A6E8	Normal (no evidence of prostate cancer) [cM0]	68	9	4	Alive	NA
+TCGA-G9-6333-01A	6333	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-G9-6333-11A	6333	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-KK-A7AP-01A	A7AP	Normal (no evidence of prostate cancer) [cM0]	55	9	4	Alive	NA
+TCGA-KK-A7AP-11A	A7AP	Normal (no evidence of prostate cancer) [cM0]	55	9	4	Alive	NA
+TCGA-ZG-A9LY-01A	A9LY	Normal (no evidence of prostate cancer) [cM0]	60	9	4	Alive	NA
+TCGA-CH-5766-01A	5766	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-CH-5766-11A	5766	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-HC-7077-01A	7077	Normal (no evidence of prostate cancer) [cM0]	64	6	3	Alive	NA
+TCGA-KK-A8IG-01A	A8IG	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-KK-A8IG-11A	A8IG	Normal (no evidence of prostate cancer) [cM0]	55	7	4	Alive	NA
+TCGA-CH-5788-01A	5788	Normal (no evidence of prostate cancer) [cM0]	69	7	4	Alive	NA
+TCGA-CH-5745-01A	5745	Normal (no evidence of prostate cancer) [cM0]	68	7	3	Alive	NA
+TCGA-CH-5761-01A	5761	Normal (no evidence of prostate cancer) [cM0]	61	9	5	Alive	NA
+TCGA-CH-5761-11A	5761	Normal (no evidence of prostate cancer) [cM0]	61	9	5	Alive	NA
+TCGA-J9-A8CL-01A	A8CL	Equivocal	66	9	4	Alive	NA
+TCGA-CH-5746-01A	5746	Normal (no evidence of prostate cancer) [cM0]	57	7	3	Alive	NA
+TCGA-KK-A8I9-01A	A8I9	Normal (no evidence of prostate cancer) [cM0]	61	8	4	Alive	NA
+TCGA-KK-A8I9-11A	A8I9	Normal (no evidence of prostate cancer) [cM0]	61	8	4	Alive	NA
+TCGA-EJ-A46G-01A	A46G	Normal (no evidence of prostate cancer) [cM0]	71	8	4	Alive	NA
+TCGA-YL-A9WK-01A	A9WK	Normal (no evidence of prostate cancer) [cM0]	63	9	4	Alive	NA
+TCGA-ZG-A9ND-01A	A9ND	Normal (no evidence of prostate cancer) [cM0]	55	9	5	Alive	NA
+TCGA-G9-6367-01A	6367	Normal (no evidence of prostate cancer) [cM0]	60	9	4	Alive	NA
+TCGA-G9-6367-11A	6367	Normal (no evidence of prostate cancer) [cM0]	60	9	4	Alive	NA
+TCGA-YL-A8SR-01B	A8SR	Normal (no evidence of prostate cancer) [cM0]	64	9	4	Alive	NA
+TCGA-ZG-A9L0-01A	A9L0	Normal (no evidence of prostate cancer) [cM0]	71	9	5	Alive	NA
+TCGA-CH-5792-01A	5792	Normal (no evidence of prostate cancer) [cM0]	57	9	4	Alive	NA
+TCGA-4L-AA1F-01A	AA1F	Abnormal (not related to prostate cancer)	64	8	4	Alive	NA
+TCGA-J4-8200-01A	8200	Normal (no evidence of prostate cancer) [cM0]	47	7	3	Alive	NA
+TCGA-EJ-A46E-01A	A46E	Normal (no evidence of prostate cancer) [cM0]	57	8	4	Alive	NA
+TCGA-CH-5791-01A	5791	Normal (no evidence of prostate cancer) [cM0]	72	7	3	Alive	NA
+TCGA-ZG-A8QZ-01A	A8QZ	Normal (no evidence of prostate cancer) [cM0]	65	9	4	Alive	NA
+TCGA-ZG-A9MC-01A	A9MC	Normal (no evidence of prostate cancer) [cM0]	69	9	5	Alive	NA
+TCGA-FC-A66V-01A	A66V	Normal (no evidence of prostate cancer) [cM0]	74	7	4	Alive	NA
+TCGA-FC-A4JI-01A	A4JI	Normal (no evidence of prostate cancer) [cM0]	70	8	5	Alive	NA
+TCGA-KK-A6E0-01A	A6E0	Normal (no evidence of prostate cancer) [cM0]	59	9	4	Alive	NA
+TCGA-KK-A6E0-11A	A6E0	Normal (no evidence of prostate cancer) [cM0]	59	9	4	Alive	NA
+TCGA-VN-A88R-01A	A88R	Abnormal (not related to prostate cancer)	53	8	4	Alive	NA
+TCGA-HI-7170-01A	7170	Normal (no evidence of prostate cancer) [cM0]	58	6	3	Alive	NA
+TCGA-SU-A7E7-01A	A7E7	Normal (no evidence of prostate cancer) [cM0]	60	8	5	Alive	NA
+TCGA-CH-5762-01A	5762	Normal (no evidence of prostate cancer) [cM0]	60	7	4	Alive	NA
+TCGA-CH-5762-11A	5762	Normal (no evidence of prostate cancer) [cM0]	60	7	4	Alive	NA
+TCGA-XJ-A9DI-01A	A9DI	Normal (no evidence of prostate cancer) [cM0]	62	9	5	Alive	NA
+TCGA-CH-5737-01A	5737	Normal (no evidence of prostate cancer) [cM0]	73	7	4	Alive	NA
+TCGA-G9-A9S7-01A	A9S7	Abnormal (not related to prostate cancer)	55	8	4	Alive	NA
+TCGA-HC-7747-01A	7747	Normal (no evidence of prostate cancer) [cM0]	52	7	3	Alive	NA
+TCGA-HC-7747-11A	7747	Normal (no evidence of prostate cancer) [cM0]	52	7	3	Alive	NA
+TCGA-EJ-5496-01A	5496	Normal (no evidence of prostate cancer) [cM0]	59	7	3	Not Reported	NA
+TCGA-ZG-A9LU-01A	A9LU	Normal (no evidence of prostate cancer) [cM0]	67	9	5	Alive	NA
+TCGA-YL-A8S8-01A	A8S8	Normal (no evidence of prostate cancer) [cM0]	68	9	4	Alive	NA
+TCGA-YL-A9WL-01A	A9WL	Normal (no evidence of prostate cancer) [cM0]	59	9	4	Alive	NA
+TCGA-HC-7080-01A	7080	Normal (no evidence of prostate cancer) [cM0]	66	7	3	Alive	NA
+TCGA-XK-AAJP-01A	AAJP	Normal (no evidence of prostate cancer) [cM0]	66	7	4	Alive	NA
+TCGA-VP-A87K-01A	A87K	Normal (no evidence of prostate cancer) [cM0]	63	8	4	Alive	NA
+TCGA-J9-A8CK-01A	A8CK	Normal (no evidence of prostate cancer) [cM0]	66	9	4	Alive	NA
+TCGA-J4-A6G3-01A	A6G3	Normal (no evidence of prostate cancer) [cM0]	57	8	4	Alive	NA
+TCGA-KK-A5A1-01A	A5A1	Normal (no evidence of prostate cancer) [cM0]	72	9	4	Dead	NA
+TCGA-KK-A5A1-11A	A5A1	Normal (no evidence of prostate cancer) [cM0]	72	9	4	Dead	NA
+TCGA-ZG-A8QY-01A	A8QY	Normal (no evidence of prostate cancer) [cM0]	67	9	5	Alive	NA
+TCGA-EJ-7784-01A	7784	Normal (no evidence of prostate cancer) [cM0]	63	7	4	Alive	NA
+TCGA-EJ-7784-11A	7784	Normal (no evidence of prostate cancer) [cM0]	63	7	4	Alive	NA
+TCGA-YL-A8SI-01A	A8SI	Normal (no evidence of prostate cancer) [cM0]	69	9	4	Alive	NA
+TCGA-G9-6377-01A	6377	Abnormal (not related to prostate cancer)	61	7	3	Alive	NA
+TCGA-XK-AAJA-01A	AAJA	Normal (no evidence of prostate cancer) [cM0]	62	7	4	Alive	NA
+TCGA-M7-A722-01A	A722	Normal (no evidence of prostate cancer) [cM0]	65	8	4	Alive	NA
+TCGA-CH-5794-01A	5794	Normal (no evidence of prostate cancer) [cM0]	65	7	3	Alive	NA
+TCGA-J9-A8CM-01A	A8CM	Normal (no evidence of prostate cancer) [cM0]	66	9	5	Alive	NA
+TCGA-HC-7211-01A	7211	Normal (no evidence of prostate cancer) [cM0]	62	7	3	Alive	NA
+TCGA-HC-7211-11A	7211	Normal (no evidence of prostate cancer) [cM0]	62	7	3	Alive	NA
+TCGA-VP-AA1N-01A	AA1N	Normal (no evidence of prostate cancer) [cM0]	70	9	5	Alive	NA
+TCGA-KC-A7F5-01A	A7F5	Normal (no evidence of prostate cancer) [cM0]	54	7	4	Alive	NA
+TCGA-G9-7521-01A	7521	Normal (no evidence of prostate cancer) [cM0]	52	8	4	Alive	NA
+TCGA-HI-7168-01A	7168	Normal (no evidence of prostate cancer) [cM0]	62	9	4	Alive	NA
+TCGA-EJ-5526-01A	5526	Normal (no evidence of prostate cancer) [cM0]	56	8	4	Alive	NA
+TCGA-QU-A6IM-01A	A6IM	Equivocal	59	7	3	Alive	NA
+TCGA-2A-A8VT-01A	A8VT	Normal (no evidence of prostate cancer) [cM0]	47	9	4	Alive	NA

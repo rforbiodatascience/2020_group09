@@ -46,21 +46,30 @@ for (i in data_to_plot%>%select(-patient_id)) {
   breaks <- pretty(range(x), n = nclass.FD(x), min.n = 1)
   bwidth <- breaks[2]-breaks[1]
   
+  x_lab <- colnames(data_to_plot)[j]
+  png_title <- sprintf("Histogram and boxplot of %s", x_lab)
+  
   barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = i)) +
     geom_histogram(aes(y=..density..)) +
     geom_density(color = "red") +
-    labs(x = colnames(data_to_plot)[j])
+    labs(x = x_lab)
   
   boxplot_i <- ggplot(data = data_to_plot, mapping = aes(y = i)) +
     geom_boxplot() +
-    labs(x = colnames(data_to_plot)[j])
+    labs(x = x_lab)
   
-  grid.arrange(barplot_i, boxplot_i, ncol=2) 
+  
+  histogram_and_box_plot <- grid.arrange(barplot_i, boxplot_i, ncol=2, top = png_title) 
+  
+  path <- sprintf("results/04_box_histo_%s.png", x_lab)
+  
+  ggsave(path, histogram_and_box_plot,
+         width = 14,
+         height = 7)
   
   j <- j + 1
 }
 
-#not working since the status is NA and using base R
 
 #plotting the survival over every other variable. We coloured the points dividing between
 #the patients dead for prostate cancer and all the others
@@ -72,15 +81,17 @@ data_to_plot_long <- data_to_plot %>%
          cat_status = cat_status,
          months_fu = months_fu
          )
-data_to_plot_long %>%
+months_vs_all <- data_to_plot_long %>%
   ggplot(aes(x = value, y = months_fu, colour = ifelse(cat_status == 1, "Death from prostate cancer",ifelse(cat_status == 0, "Alive", "Death from other causes") ))) +
   geom_point() +
   facet_wrap(~vars, nrow = 5, scales = "free") +
-  labs(x = "", colour = "Status", title = 'Months of follow-up plotted over the other variables') +
-  theme(axis.text.x = element_blank())
-
+  labs(x = "", colour = "Status", title = 'Months of follow-up plotted over the other continous variables') 
+  # theme(axis.text.x = element_blank())
+months_vs_all
 
 # Write data
 # ------------------------------------------------------------------------------
-# write_tsv(...)
+ggsave('results/04_months_fu_vs_others.png', months_vs_all, 
+       width = 14,
+       height = 7)
 

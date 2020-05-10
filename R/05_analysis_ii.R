@@ -5,7 +5,7 @@ rm(list = ls())
 # Load libraries
 # ------------------------------------------------------------------------------
 library(tidyverse)
-library(ggcorrplot)
+library(reshape2)
 library(broom)
 library(patchwork)
 
@@ -22,24 +22,49 @@ prostate_one_hot <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 prostate_for_pca <- prostate_one_hot %>% 
   select(-contains("status_"))
 
-prostate_one_hot_corr <- prostate_one_hot %>% 
-  select(-c(date_on_study, patient_id, vital_status_demographic, patient_death_reason, dataset) ) %>% 
-  cor(.) # LOOOOOKKKKKKK
+# correlation matrix on numeric values, on dataset 0, 
+# (otherwise to many NA's corrupting the table)
+prostate_one_hot_corr <- prostate_one_hot %>%
+  filter(., dataset == "0") %>% 
+  select(-c(date_on_study, patient_id, dataset, 
+            sample_id, gleason_score, primary_pattern) ) %>% 
+  cor(.) %>% 
+  get_lower_tri(.) %>% 
+  melt(data = ., value.name = "value") %>% 
+  mutate(value =  format(round(value, 2), nsmall = 2)) %>% 
+  mutate(value = as.numeric(value))
+
 
 # Model data
 # ------------------------------------------------------------------------------
 #PCA 
-prostate_pca <- prostate_for_pca %>%
-  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
+#prostate_pca <- prostate_for_pca %>%
+#  select(-c(date_on_study, patient_id, dataset, cat_status)) %>%
+#  prcomp(center = TRUE, scale = TRUE)  #not working 
+#
+prostate_pca <- prostate_for_pca %>% select(-c(sample_id, primary_pattern, 
+                               gleason_score, date_on_study, 
+                               patient_id, dataset, cat_status)) 
+
+
+prostate_pca %>% 
   prcomp(center = TRUE, scale = TRUE)
 
-prostate_pca %>%
+prostate_pca %>% select_if(function(x) any(is.na(x))) %>% view()
+
+
+apply(prostate_pca, 2, any(is.na(.)))
+  
+
+  
+  
+  prostate_pca %>%
   tidy("pcs") %>% 
   ggplot(aes(x = PC, y = percent)) +
   geom_col() +
   theme_bw()
 
-prostate_pca %>% tidy("samples")# ?????????????????
+prostate_pca %>% tidy("samples") # ?????????????????
 
 prostate_pca_aug <- prostate_pca %>% augment(prostate_for_pca)
 
@@ -121,16 +146,33 @@ prostate_pca_aug_k_org_pca %>%
 
 # Visualise data
 # ------------------------------------------------------------------------------
-corr_matrix <- ggcorrplot(prostate_one_hot_corr, 
-                          hc.order = TRUE, 
-                          type = "lower", 
-                          title = "Correlation matrix", 
-                          tl.cex = 4, 
-                          lab = TRUE, 
-                          lab_size = 1)
+# corr_matrix <- ggcorrplot(prostate_one_hot_corr, 
+#                           hc.order = TRUE, 
+#                           type = "lower", 
+#                           title = "Correlation matrix", 
+#                           tl.cex = 4, 
+#                           lab = TRUE, 
+#                           lab_size = 1)
 
+corr_matrix <- ggplot(data = prostate_one_hot_corr, aes(Var2, Var1, fill = value)) +
+  geom_tile(color = "gray") +
+  geom_text(aes(Var2, Var1, label = value), color = "black", size = 2) +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+                       midpoint = 0, limit = c(-1,1), space = "Lab"  , 
+                       name="Correlation", na.value = 'white') +
+  labs(title = "Correlation Matrix") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                   size = 12, hjust = 1), 
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.border = element_blank(),
+          panel.background = element_blank())
 
 # Write data
 # ------------------------------------------------------------------------------
 # write_tsv(...)
-ggsave("results/05_corr_matrix.png", corr_matrix)
+ggsave("results/05_corr_matrix.png", corr_matrix,
+       width = 14,
+       height = 7)
