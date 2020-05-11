@@ -11,20 +11,16 @@ output:
 library(knitr)
 library(png)
 ```
+## Introduction
 
-
-## R Project
+## The Project
 
 **Prostate Cancer Data Analysis**
   
-  - The Datasets
+- The Datasets
 - Cleaning
-- Tidying
-- Visualizing the Data
+- Augmenting
 - What to look for
-- PCA and Clustering
-- Regression
-- Classification
 
 ## The Datasets
 
@@ -43,6 +39,31 @@ library(png)
 divided in two datasets:
   
   "TCGA Phenotype" and "TCGA Survival"
+
+## Cleaning the data
+
+Why cleaning? What was wrong with our datasets? 
+
+## Augment 
+- We needed a way to identify the two dataset once joined --> dataset col
+- One Hot Encoding for each categorical variable in each dataset
+- Prostate Data: Creating categorical column "cat_status" describing the cause of death: 
+  - Dead for prostate cancer
+  - Dead for other causes
+  - Alive
+- TCGA data: Making the common variables in the two datasets comparable
+    - os_time from days to months
+    - Binarize bone_scan_results
+    - Obtain sg value from gleason score
+    
+## What to look for
+
+- CLUSTERING: we use k-means and PCA to cluster based on the patient status: alive, dead of prostate cancer or dead of other causes. 
+- REGRESSION: we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
+- CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
+  
+  
+## Matherials and Methods    
 
 ## Cleaning and Tidying Prostate Cancer Data
 - Changing names (no spaces, reasonable for the content, no cap letters)
@@ -67,8 +88,8 @@ prostate_clean <- prostate_clean %>%
 - One Hot Encoding for each categorical variable 
 - Creating categorical column "cat_status" describing the cause of death: 
   - Dead for prostate cancer
-- Dead for other causes
-- Alive
+  - Dead for other causes
+  - Alive
 
 <!-- (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death) -->
 
@@ -80,13 +101,15 @@ prostate_clean <- prostate_clean %>%
     - Binarize bone_scan_results
     - Obtain sg value from gleason score
 
-## Joining the TCGA datasets
+## Augmenting 
+Join of the TCGA datasets:
 - anti_join to check that we are not missing any information 
 - inner_join between the two TCGA datasets 
 - full_join to merge the TCGA Dataset and the Prostate Cancer Dataset
 
-## Visualizing the Data
-For this part of the analysis we choose to only consider the 1976 dataset
+## Data Visualization using ggplot
+We looked at our data to search for hints for the next part of the analysis ?
+We choose to only consider the 1976 dataset ... 
 
 - Histograms and barplots of all the continuous variables
 
@@ -94,16 +117,14 @@ For this part of the analysis we choose to only consider the 1976 dataset
 
 include_graphics("results/04_histogram_and_boxplot_of_tumour_size.png")
 ```
-
-## Visualizing the Data
+## Data Visualization using ggplot
 
 - Survival versus each other variable 
 
 ```{r echo=FALSE, out.width = "95%"}
 include_graphics("results/04_months_fu_vs_others.png")
 ```
-
-## Visualizing the Data
+## Data Visualization using ggplot
 
 - Correlation matrix
 
@@ -111,11 +132,11 @@ include_graphics("results/04_months_fu_vs_others.png")
 include_graphics("results/04_corr_matrix.png")
 ```
 
-## What to look for
 
-- CLUSTERING: we use k-means and PCA to cluster based on the patient status: alive, dead of prostate cancer or dead of other causes. 
-- REGRESSION: we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
-- CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
+## Results 
+
+
+
 
 ## PCA
 
