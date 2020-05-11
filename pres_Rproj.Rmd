@@ -7,7 +7,7 @@ output:
   widescreen: true
 ---
   
-```{r include=FALSE}
+```{r include = FALSE}
 library(knitr)
 library(png)
 ```
@@ -79,7 +79,7 @@ prostate_clean <- prostate_clean %>%
   mutate(date_on_study = as_date(x = date_on_study, origin = "1960-01-01"))
 ```
 ## Cleaning and Tidying TCGA Dataset
-- Changing names (no spaces, reasonable for the content, no cap letters)
+- Changing names (no spaces, reasonable for the content, no capital letters)
 - Removing rows with missing values
 - Selecting variables of interest
 
@@ -101,14 +101,35 @@ prostate_clean <- prostate_clean %>%
     - Binarize bone_scan_results
     - Obtain sg value from gleason score
 
-## Augmenting 
-Join of the TCGA datasets:
+## Augment
+Joining of the TCGA datasets:
 - anti_join to check that we are not missing any information 
 - inner_join between the two TCGA datasets 
 - full_join to merge the TCGA Dataset and the Prostate Cancer Dataset
 
+
+## PCA 
+We choose to only consider the 1976 dataset ... 
+
+We calculated the principal components using prcomp and we used broom::tidy to verify that the PC1 and PC2 account for the most variation in the data (???? I don't know if this is useful and what are we suppose to write in the methods if not the code)
+
+## k clustering 
+
+...
+
+## Regression
+
+... 
+
+## Classification
+
+....
+
+
+## Results
+
 ## Data Visualization using ggplot
-We looked at our data to search for hints for the next part of the analysis ?
+
 We choose to only consider the 1976 dataset ... 
 
 - Histograms and barplots of all the continuous variables
@@ -131,11 +152,6 @@ include_graphics("results/04_months_fu_vs_others.png")
 ```{r echo=FALSE, out.width = "95%"}
 include_graphics("results/04_corr_matrix.png")
 ```
-
-
-## Results 
-
-
 
 
 ## PCA
@@ -166,4 +182,4 @@ include_graphics("results/05_pca_clustering.png")
 -
 ## Classification
 
-
+## Discussion ?? 
