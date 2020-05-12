@@ -156,18 +156,24 @@ title = paste0('Performance of Neural Network (',
                'Total number of model parameters = ', count_params(model), ').')
 sub_title = paste0("Test Accuracy = ", acc_test, "%, n = ", nrow(test_x), ". ",
                    "Training Accuracy = ", acc_train, "%, n = ", nrow(train_x), ".")
-xlab  = 'Predicted (Class assigned by Keras/TensorFlow deep FFN)'
-ylab  = 'Measured (Real class, as predicted by netMHCpan-4.0)'
+xlab  = 'Predicted classes'
+ylab  = 'True classes'
 evaluation_classification <- results %>%
   ggplot(aes(x = y_pred, y = y_true, fill = Correct)) +
-  geom_jitter(pch = 21, size = 4, alpha = 0.4, colour = 'black') +
+  geom_jitter(pch = 21, size = 4, alpha = 0.6, colour = 'black') +
   geom_text(data = my_counts, aes(x = y_pred, y = y_true, label = n),
             size = 20, inherit.aes = FALSE) +
   xlab(xlab) +
   ylab(ylab) +
   ggtitle(label = title, subtitle = sub_title) +
   theme_bw() +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "bottom",
+        plot.title = element_text(size = 22),
+        plot.subtitle = element_text(size = 14),
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        legend.title = element_text(size = 14), 
+        legend.text =  element_text(size = 14)) +
   scale_color_manual(labels = c('No', 'Yes'),
                      values = c('tomato','cornflowerblue')) +
   facet_wrap(~data_type, nrow = 1)
