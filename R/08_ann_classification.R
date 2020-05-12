@@ -111,23 +111,32 @@ perf_test = model %>% evaluate(test_x, test_y)
 acc_test = perf_test %>% pluck('acc') %>% round(3) * 100
 perf_train = model %>% evaluate(test_x, test_y)
 acc_train = perf_train %>% pluck('acc') %>% round(3) * 100
+
+y_true_test = test_y %>%
+    apply(1, function(x){ return( which(x==1) - 1) }) %>%
+    factor
+
+y_pred_test = model %>%
+  predict_classes(test_x) %>%
+  factor(levels = c(0,1,2))
+
+y_true_train = train_y %>%
+  apply(1, function(x){ return( which(x==1) - 1) }) %>%
+  factor
+
+y_pred_train = model %>%
+  predict_classes(train_x) %>%
+  factor(levels = c(0,1,2))
+
 results = bind_rows(
-  tibble(y_true = test_y %>%
-           apply(1, function(x){ return( which(x==1) - 1) }) %>%
-           factor,
-         y_pred = model %>%
-           predict_classes(test_x) %>%
-           factor,
+  tibble(y_true = y_true_test,
+         y_pred = y_pred_test,
          Correct = ifelse(y_true == y_pred ,"yes", "no") %>%
            factor,
          data_type = 'test')
   ,
-  tibble(y_true = train_y %>%
-           apply(1, function(x){ return( which(x==1) - 1) }) %>%
-           factor,
-         y_pred = model %>%
-           predict_classes(train_x) %>%
-           factor,
+  tibble(y_true = y_true_train,
+         y_pred = y_pred_train,
          Correct = ifelse(y_true == y_pred ,"yes", "no") %>%
            factor,
          data_type = 'train'))
@@ -176,7 +185,7 @@ perf = model %>% evaluate(test_x, test_y)
 plot_dat = class_data %>%
   filter(partition == 'test') %>%
   mutate(cat_status = factor(cat_status),
-         y_test_pred = factor(predict_classes(model, test_x)),
+         y_test_pred = factor(predict_classes(model, test_x),levels = c(0,1,2)),
          correct = factor(ifelse(cat_status == y_test_pred, "Yes", "No")))
 plot_dat %>% head(3)
 
