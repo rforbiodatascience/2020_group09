@@ -17,7 +17,7 @@ library(DiagrammeR)
 ## The Project
 
 **Prostate Cancer Data Analysis**
-  
+
 - The Datasets
 - Cleaning
 - Augmenting
@@ -25,45 +25,11 @@ library(DiagrammeR)
 
 ## The Datasets
 
-```{r echo=FALSE}
-grViz(
-  diagram = "digraph boxes_and_circles {
+```{r echo=FALSE, out.width = "100%"}
+include_graphics("../docs/tidying_workflow.png")
+#png("../docs/tidying_workflow.png")
 
-  # a 'graph' statement
-  graph [overlap = true, 
-  fontsize = 10, 
-  bgcolor = white]
-#subgraph {
-#  rank = same; TCGA_phenothype; TCGA_survival;
-#  TCGA_phenothype [fillcolor = Honeydew]; 
-#  TCGA_survival [fillcolor = Honeydew];
-#}
-  # several 'node' statements
-  node [shape = oval,
-        fontname = Helvetica,
-        style = filled, 
-        fontsize = 7, 
-        penwidth = 0.3]
-  Prostate_Data [fillcolor = MistyRose];
-  Tidy_Prostate_Data [fillcolor = MistyRose]; 
-  Tidy_TCGA_Data [fillcolor = Honeydew]; 
-  Final_Tidy_Dataset [fillcolor = Lavender]
-
-  # several 'edge' statements
-  edge [color = black, arrowsize = 0.2]
-  TCGA_phenothype [fillcolor = Honeydew] 
-  TCGA_survival [fillcolor = Honeydew]
-  Prostate_Data -> Tidy_Prostate_Data
-  #TCGA_phenothype -> TCGA_survival [dir = none]
-  TCGA_phenothype -> Tidy_TCGA_Data
-  TCGA_survival -> Tidy_TCGA_Data 
-  Tidy_Prostate_Data -> Final_Tidy_Dataset 
-  Tidy_TCGA_Data -> Final_Tidy_Dataset
-}")
-
-  
 ```
-
 
 **Prostate Cancer Dataset**: 1976
 
@@ -84,26 +50,26 @@ divided in two datasets:
 ## Cleaning the data
 
 Why cleaning? What was wrong with our datasets? 
-
-## Augment 
-- We needed a way to identify the two dataset once joined --> dataset col
+  
+  ## Augment 
+  - We needed a way to identify the two dataset once joined --> dataset col
 - One Hot Encoding for each categorical variable in each dataset
 - Prostate Data: Creating categorical column "cat_status" describing the cause of death: 
   - Dead for prostate cancer
-  - Dead for other causes
-  - Alive
+- Dead for other causes
+- Alive
 - TCGA data: Making the common variables in the two datasets comparable
-    - os_time from days to months
-    - Binarize bone_scan_results
-    - Obtain sg value from gleason score
-    
+- os_time from days to months
+- Binarize bone_scan_results
+- Obtain sg value from gleason score
+
 ## What to look for
 
 - CLUSTERING: we use k-means and PCA to cluster based on the patient status: alive, dead of prostate cancer or dead of other causes. 
 - REGRESSION: we want to find a function to predict the survival of the patients basing on other variables(choose the variables looking at the scatterplots)
 - CLASSIFICATION we want to predict if a patient is going to survive or to die from prostate cancer or die from other causes 
-  
-  
+
+
 ## Matherials and Methods    
 
 ## Cleaning and Tidying Prostate Cancer Data
@@ -129,8 +95,8 @@ prostate_clean <- prostate_clean %>%
 - One Hot Encoding for each categorical variable 
 - Creating categorical column "cat_status" describing the cause of death: 
   - Dead for prostate cancer
-  - Dead for other causes
-  - Alive
+- Dead for other causes
+- Alive
 
 <!-- (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death) -->
 
@@ -177,21 +143,21 @@ We choose to only consider the 1976 dataset ...
 
 ```{r echo=FALSE, out.width = "80%"}
 
-include_graphics("results/04_histogram_and_boxplot_of_tumour_size.png")
+include_graphics("../results/04_histogram_and_boxplot_of_tumour_size.png")
 ```
 ## Data Visualization using ggplot
 
 - Survival versus each other variable 
 
 ```{r echo=FALSE, out.width = "95%"}
-include_graphics("results/04_months_fu_vs_others.png")
+include_graphics("../results/04_months_fu_vs_others.png")
 ```
 ## Data Visualization using ggplot
 
 - Correlation matrix
 
 ```{r echo=FALSE, out.width = "95%"}
-include_graphics("results/04_corr_matrix.png")
+include_graphics("../results/04_corr_matrix.png")
 ```
 
 
@@ -200,27 +166,27 @@ include_graphics("results/04_corr_matrix.png")
 For this part of the analysis we choose to only consider the 1976 dataset
 
 ```{r echo=FALSE, out.width = "95%"}
-include_graphics("results/05_pca_components.png")
+include_graphics("../results/05_pca_components.png")
 ```
 <!-- we can see that PC1 and PC2 capture the most variation in the data, although the cumulative variation explained by the two is only the 22%.  -->
-
-## PCA
-
-Plotting of PC1 and PC2. The colors reflect the status of the patients.  
+  
+  ## PCA
+  
+  Plotting of PC1 and PC2. The colors reflect the status of the patients.  
 ```{r echo=FALSE, out.width = "100%"}
-include_graphics("results/05_pca_status.png")
+include_graphics("../results/05_pca_status.png")
 ```
 <!-- There might be three clusters.  -->
-
-## k means clustering
-
+  
+  ## k means clustering
+  
 ```{r echo=FALSE, out.width = "100%"}
-include_graphics("results/05_pca_clustering.png")
+include_graphics("../results/05_pca_clustering.png")
 ```
 
 
 ## Regression
 -
-## Classification
-
-## Discussion ?? 
+  ## Classification
+  
+  ## Discussion ?? 
