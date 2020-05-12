@@ -19,9 +19,9 @@ source(file = "R/99_project_functions.R")
 joined_data <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 class_data <- joined_data %>%
-  select(-contains("status_"), -date_on_study, -patient_id) %>%
   filter(dataset == 0) %>%
-  select(-dataset)
+  select(-contains("status_"), -date_on_study, -patient_id, -dataset)
+
 #
 # Prepare data
 # ------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ test_x <- class_data %>%
 # ------------------------------------------------------------------------------
 
 # Set hyperparameters
-n_hidden_1 <- 4
+n_hidden_1 <- 16
 h1_activate <- "relu"
 drop_out_1 <- 0.1
 n_output <- 3
@@ -96,7 +96,7 @@ history <- model %>%
     y = train_y,
     epochs = n_epochs,
     batch_size = batch_size,
-    validation_split = 0.33
+    validation_split = 0.2
   )
 
 
@@ -109,7 +109,7 @@ plot_loss_acc<-plot(history,
 # ------------------------------------------------------------------------------
 perf_test = model %>% evaluate(test_x, test_y)
 acc_test = perf_test %>% pluck('acc') %>% round(3) * 100
-perf_train = model %>% evaluate(test_x, test_y)
+perf_train = model %>% evaluate(train_x, train_y)
 acc_train = perf_train %>% pluck('acc') %>% round(3) * 100
 
 y_true_test = test_y %>%
@@ -152,8 +152,8 @@ save_model_hdf5(
 
 # Visualise model performance
 # ------------------------------------------------------------------------------
-title = paste0('Performance of Neural Network (',
-               'Total number of model parameters = ', count_params(model), ').')
+title = paste0('Performance of Classification Neural Network(',
+               'Model parameters = ', count_params(model), ').')
 sub_title = paste0("Test Accuracy = ", acc_test, "%, n = ", nrow(test_x), ". ",
                    "Training Accuracy = ", acc_train, "%, n = ", nrow(train_x), ".")
 xlab  = 'Predicted classes'
@@ -179,30 +179,13 @@ evaluation_classification <- results %>%
   facet_wrap(~data_type, nrow = 1)
 evaluation_classification
 
-
-# ------------------------------------------------------------------------------
-# Predictions
-predictions <- model %>% predict(train_x)
-predictions
-
-perf = model %>% evaluate(test_x, test_y)
-
-
-plot_dat = class_data %>%
-  filter(partition == 'test') %>%
-  mutate(cat_status = factor(cat_status),
-         y_test_pred = factor(predict_classes(model, test_x),levels = c(0,1,2)),
-         correct = factor(ifelse(cat_status == y_test_pred, "Yes", "No")))
-plot_dat %>% head(3)
-
-
 # Save graph
 # ------------------------------------------------------------------------------
 ggsave("results/08_loss_acc.png", plot_loss_acc,
        width = 14,
        height = 7
 )
-ggsave("results/08_evaluation_classification.png", evaluation_classification,
+ggsave("results/08_evaluation_classification_best.png", evaluation_classification,
        width = 14,
        height = 7
 )   
