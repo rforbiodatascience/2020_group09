@@ -11,6 +11,8 @@ library(ggthemes)
 library(reshape2)
 library(cowplot)
 require(gridExtra)
+library(broom)
+library(patchwork)
 library(styler)
 
 # Define functions
@@ -49,12 +51,24 @@ data_to_plot_long <- prostate_ds_only %>%
 
 # correlation matrix on numeric values, on dataset 0,
 data_to_corr <- prostate_ds_only %>%
-  select(-c(date_on_study, patient_id, dataset)) %>%
+  select(-c(date_on_study, patient_id, dataset, cat_status_nominal)) %>%
   cor(.) %>%
   get_lower_tri(.) %>%
   melt(data = ., value.name = "value") %>%
   mutate(value = format(round(value, 2), nsmall = 2)) %>%
   mutate(value = as.numeric(value))
+
+# Data for linear model
+prostate_data_mdl <- prostate_ds_only %>%
+  group_by(stage) %>%
+  nest() %>%
+  mutate(mdls = map(data, get_mdls)) # get_mdls is a function that creates linear model
+
+prostate_data_mdl_tidy <- prostate_data_mdl %>%
+  mutate(tidy_col = map(mdls, tidy, conf.int = T)) %>%
+  unnest(tidy_col)
+
+
 
 # Visualise data
 # ------------------------------------------------------------------------------
@@ -119,6 +133,7 @@ months_vs_all <- data_to_plot_long %>%
   ) +
   scale_color_colorblind()
 
+# Correlation matrix
 corr_matrix <- ggplot(data = data_to_corr, aes(Var2, Var1, fill = value)) +
   geom_tile(color = "gray") +
   geom_text(aes(Var2, Var1, label = value), color = "black", size = 4) +
@@ -142,6 +157,65 @@ corr_matrix <- ggplot(data = data_to_corr, aes(Var2, Var1, fill = value)) +
     plot.title = element_text(size = 22)
   )
 
+#Plot months follow up vs age in both datasets (in different grids)
+months_fu_vs_age <- prostate_data %>%
+  ggplot(aes(y = months_fu, x = age)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  geom_point(aes(colour = cat_status_nominal), size = 2) +
+  ggtitle("Age vs Months of follow-up on both datasets") +
+  ylab("Months of follow-up") +
+  xlab("Age") +
+  facet_grid(rows = vars(dataset)) +
+  #ylim(0, max_common_MF)+
+  labs(color = "Status")+
+  scale_color_colorblind()
+
+# Plot months of follow up vs size in both datasets (mixed) 
+months_fu_vs_size <- prostate_data %>%
+  filter(dataset == 0) %>%
+  ggplot(mapping = aes(y = months_fu, x = tumour_size)) +
+  geom_smooth(method = "lm") +
+  geom_point(aes(colour = cat_status_nominal), size = 2) +
+  ggtitle("Tumour size vs Months of follow-up") +
+  ylab("Months of follow-up") +
+  xlab("Tumour size")+
+  labs(color = "Status")+
+  scale_color_colorblind()
+
+# Linear model
+months_fu_vs_size_lm <- prostate_data_mdl_tidy %>%
+  filter(term == "tumour_size") %>%
+  ggplot(aes(
+    x = estimate,
+    y = stage
+  )) +
+  geom_point() +
+  geom_errorbar(aes(
+    xmin = conf.low,
+    xmax = conf.high,
+    width = 0.1
+  )) +
+  scale_y_continuous("Tumour stage",
+                     breaks = c(4, 3),
+                     limits = c(2.5, 4.5),
+                     # expand = c(0,0)
+  ) +
+  # sets the origin to zero
+  labs(
+    y = " ",
+    title = str_c(
+      "Estimated increase of months of FU ",
+      "per\none squared centimeter increase of tumor size"
+    )
+  )
+
+
+
+months_fu_vs_size_double_plot <- months_fu_vs_size_lm +
+  months_fu_vs_size +
+  facet_grid(rows = vars(desc(stage)))
+
 
 # Write data
 # ------------------------------------------------------------------------------
@@ -162,6 +236,27 @@ for (i in 1:length(plot_list)) {
 }
 
 ggsave("results/04_corr_matrix.png", corr_matrix,
+  width = 14,
+  height = 7
+)
+
+ggsave(
+  filename = "results/04_months_fu_vs_age.png",
+  plot = months_fu_vs_age,
+  width = 14,
+  height = 7
+)
+
+ggsave(
+  filename = "results/04_months_fu_vs_tumour_size.png",
+  plot = months_fu_vs_size,
+  width = 14,
+  height = 7
+)
+
+ggsave(
+  filename = "results/04_months_fu_vs_tumour_size_stage.png",
+  plot = months_fu_vs_size_double_plot,
   width = 14,
   height = 7
 )
