@@ -273,4 +273,4 @@ ggsave("results/08_loss_acc.png", plot_loss_acc,
 ggsave("results/08_evaluation_classification.png", evaluation_classification,
        width = 14,
        height = 7
-)  
+)   
