@@ -133,11 +133,13 @@ history <- model %>%
   )
 
 
-plot_loss_acc <- plot(history) + labs(title = "Loss and Accuracy of the classification") +
-  theme(
-    legend.title = element_blank(), title = element_text(size = 22),
-    axis.title.x = element_text(size = 12)
-  )
+plot_loss_acc<-plot(history, method= "ggplot2", smooth = getOption("keras.plot.history.smooth", FALSE))
+
+# plot_loss_acc <- plot(history) + labs(title = "Loss and Accuracy of the classification") +
+#   theme(
+#     legend.title = element_blank(), title = element_text(size = 22),
+#     axis.title.x = element_text(size = 12)
+#   )
 plot_loss_acc
 # Evaluate model
 # ------------------------------------------------------------------------------
@@ -274,3 +276,4 @@ ggsave("results/08_evaluation_classification.png", evaluation_classification,
        width = 14,
        height = 7
 )   
+
