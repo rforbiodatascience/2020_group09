@@ -133,84 +133,14 @@ history <- model %>%
   )
 
 
-plot_loss_acc <- plot(history) + labs(title = "Loss and Accuracy of the classification") +
-  theme(
-    legend.title = element_blank(), title = element_text(size = 22),
-    axis.title.x = element_text(size = 12)
-  )
+plot_loss_acc<-plot(history, method= "ggplot2", smooth = getOption("keras.plot.history.smooth", FALSE))
+
+# plot_loss_acc <- plot(history) + labs(title = "Loss and Accuracy of the classification") +
+#   theme(
+#     legend.title = element_blank(), title = element_text(size = 22),
+#     axis.title.x = element_text(size = 12)
+#   )
 plot_loss_acc
-# Evaluate model
-# ------------------------------------------------------------------------------
-# Calculate performance on test data
-y_test_true <- test_y
-y_test_pred <- model %>%
-  predict(test_x) %>%
-  as.vector()
-# pcc_test = round(cor(y_test_pred, y_test_true, method = "pearson"), 3)
-
-# Calculate performance on training data
-y_train_true <- train_y
-y_train_pred <- model %>%
-  predict(train_x) %>%
-  as.vector()
-
-perf_test <- model %>% evaluate(test_x, test_y)
-perf_test
-
-results <- bind_rows(
-  tibble(
-    y_true = test_y %>%
-      apply(1, function(x) {
-        return(which(x == 1) - 1)
-      }) %>%
-      factor(),
-    y_pred = model %>%
-      predict_classes(test_x) %>%
-      factor(),
-    Correct = ifelse(y_true == y_pred, "yes", "no") %>%
-      factor(),
-    data_type = "test"
-  ),
-  tibble(
-    y_true = train_y %>%
-      apply(1, function(x) {
-        return(which(x == 1) - 1)
-      }) %>%
-      factor(),
-    y_pred = model %>%
-      predict_classes(train_x) %>%
-      factor(),
-    Correct = ifelse(y_true == y_pred, "yes", "no") %>%
-      factor(),
-    data_type = "train"
-  )
-)
-my_counts <- results %>% count(y_pred, y_true, data_type)
-
-
-# Save model
-# ------------------------------------------------------------------------------
-save_model_hdf5(
-  object = model,
-  filepath = "models/08_classification.h5"
-)
-
-# ------------------------------------------------------------------------------
-# Predictions
-predictions <- model %>% predict(train_x)
-predictions
-
-perf = model %>% evaluate(test_x, test_y)
-perf
-
-
-plot_dat = class_data %>%
-  filter(partition == 'test') %>%
-  mutate(cat_status = factor(cat_status),
-         y_test_pred = factor(predict_classes(model, test_x)),
-         correct = factor(ifelse(cat_status == y_test_pred, "Yes", "No")))
-plot_dat %>% head(3)
-
 
 
 # Evaluate model
@@ -241,6 +171,14 @@ results = bind_rows(
          data_type = 'train'))
 my_counts = results %>% count(y_pred, y_true, data_type)
 
+# Save model
+# ------------------------------------------------------------------------------
+save_model_hdf5(
+  object = model,
+  filepath = "models/08_classification.h5"
+)
+
+
 # Visualise model performance
 # ------------------------------------------------------------------------------
 title = paste0('Performance of Neural Network (',
@@ -264,6 +202,24 @@ evaluation_classification <- results %>%
   facet_wrap(~data_type, nrow = 1)
 evaluation_classification
 # 3d plot
+
+# ------------------------------------------------------------------------------
+# Predictions
+predictions <- model %>% predict(train_x)
+predictions
+
+perf = model %>% evaluate(test_x, test_y)
+perf
+
+
+plot_dat = class_data %>%
+  filter(partition == 'test') %>%
+  mutate(cat_status = factor(cat_status),
+         y_test_pred = factor(predict_classes(model, test_x)),
+         correct = factor(ifelse(cat_status == y_test_pred, "Yes", "No")))
+plot_dat %>% head(3)
+
+
 # Save graph
 # ------------------------------------------------------------------------------
 ggsave("results/08_loss_acc.png", plot_loss_acc,
@@ -274,3 +230,4 @@ ggsave("results/08_evaluation_classification.png", evaluation_classification,
        width = 14,
        height = 7
 )   
+

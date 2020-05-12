@@ -1,9 +1,9 @@
 # Define project functions
 # ------------------------------------------------------------------------------
 
+# one hot encoder function that transforms a factor to binary 
+# with a column for each factor level.
 one_hot_encoder <- function(dataset, prefix, colname){
-  
-  
   dataset_one_hot_encoded <- dataset %>%
                               mutate(count = 1) %>%
                               pivot_wider(names_from = (colname), 
@@ -24,7 +24,7 @@ get_mdls <- function(dataset) {
 # ---------------------------------------------------------------------------
 # Get lower triangle of the correlation matrix
 
-get_lower_tri<-function(cormat){
-  cormat[lower.tri(cormat)] <- NA
-  return(cormat)
+get_lower_tri<-function(data){
+  data[lower.tri(data)] <- NA
+  return(data)
 }
