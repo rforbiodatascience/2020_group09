@@ -16,10 +16,11 @@ To add more information and patients the dataset was sublemented with the GDC - 
 ### Packages
 
 The following packages needs to be installed for this project to run.\
-modelr_0.1.7 &nbsp;    keras_2.2.5.0  &nbsp; &nbsp;   devtools_2.3.0  &nbsp;   usethis_1.6.1    &nbsp; clusteval_0.2.1\
-styler_1.3.2   &nbsp;  ggthemes_4.2.0    &nbsp; patchwork_1.0.0 &nbsp; broom_0.5.6  &nbsp;    forcats_0.5.0  \
+modelr_0.1.7 &nbsp;    keras_2.2.5.0  &nbsp;   devtools_2.3.0  &nbsp;   usethis_1.6.1    &nbsp; clusteval_0.2.1\
+styler_1.3.2   &nbsp;  ggthemes_4.2.0    &nbsp; patchwork_1.0.0 &nbsp; broom_0.5.6  &nbsp;   foreign_0.8-71  \
 stringr_1.4.0  &nbsp; dplyr_0.8.5     &nbsp; purrr_0.3.4   &nbsp;   readr_1.3.1   &nbsp;   tidyr_1.0.3    \
-tibble_3.0.1  &nbsp; ggplot2_3.3.0   &nbsp; tidyverse_1.3.0
+tibble_3.0.1  &nbsp; ggplot2_3.3.0   &nbsp; tidyverse_1.3.0 &nbsp; gridExtra_2.3  &nbsp; cowplot_1.0.0 \
+reshape2_1.4.4 &nbsp;  haven_2.2.0  &nbsp; lubridate_1.7.8 &nbsp; chron_2.3-55
 
 ### Installations 
 ##### Keras 
@@ -30,16 +31,19 @@ For installing Keras you need to run the following code:
 install.packages("devtools")
 library("devtools")
 install_github("rstudio/keras")
-# Would you like to install miniconda? Y
 library(keras)
 install_keras(tensorflow = "1.13.1")
+# Would you like to install miniconda? Y
 ```
 
 ##### Clusterval 
-Clusterval is used for evaluatinig the different clusters genertated running K means clustering. 
+Clusterval is used for evaluatinig the different clusters generated running K means clustering. 
 To install Clusterval one needs to do the following:
 
 ```
 install.packages("remotes")
 remotes::install_github("ramhiser/clusteval")
 ```
+
+
+
