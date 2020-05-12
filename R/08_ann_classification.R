@@ -9,18 +9,6 @@ library(devtools)
 library(keras)
 library(modelr) 
 library(clusteval)
-#install.packages("remotes")
-#remotes::install_github("ramhiser/clusteval")
-
-
-# Install keras
-# # ------------------------------------------------------------------------------
-# install.packages("devtools")
-# library("devtools")
-# install_github("rstudio/keras")
-# # Would you like to install miniconda? Y
-# #library(keras)
-# install_keras(tensorflow = "1.13.1")
 
 # Define functions
 # ------------------------------------------------------------------------------
@@ -38,16 +26,12 @@ class_data <- joined_data %>%
 # Prepare data
 # ------------------------------------------------------------------------------
 ## select 80% of the sample size for training
-# smp_size <- floor(0.9 * nrow(class_data))
-# set.seed(42)
-# train_ind <- sample(seq_len(nrow(class_data)), size = smp_size)
 test_f <- 0.2
 class_data <- class_data %>%
-  mutate(partition = sample(x = c("train", "test"), size = nrow(.), replace = TRUE, prob = c(1 - test_f, test_f)))
-# train <- class_data %>%
-#   filter(row_number() %in% train_ind)
-# test <- class_data %>%
-#   filter(!(row_number() %in% train_ind))
+  mutate(partition = sample(x = c("train", "test"), 
+                            size = nrow(.),
+                            replace = TRUE,
+                            prob = c(1 - test_f, test_f)))
 
 train_y <- class_data %>%
   filter(partition == "train") %>%
@@ -76,35 +60,18 @@ test_x <- class_data %>%
 n_hidden_1 <- 4
 h1_activate <- "relu"
 drop_out_1 <- 0.1
-# n_hidden_2 = 128
-# h2_activate = 'relu'
-# drop_out_2 = 0.3
-# n_hidden_3 = 45
-# h3_activate = 'relu'
-# drop_out_3 = 0.2
-# n_hidden_4 = 20
-# h4_activate = 'relu'
-# drop_out_4 = 0.1
 n_output <- 3
 o_ativate <- "softmax"
 n_epochs <- 200
 batch_size <- 50
 loss_func <- ""
 learn_rate <- 0.005
+
 # Set architecture
 model <- keras_model_sequential() %>%
   layer_dense(
     units = n_hidden_1,
-    activation = h1_activate, input_shape = c(24)
-  ) %>%
-  # kernel_regularizer =  regularizer_l2(0.001)) %>%
-  # layer_dropout(rate = drop_out_1) %>%
-  # layer_dense(units = n_hidden_2, activation = h2_activate) %>%
-  # layer_dropout(rate = drop_out_2) %>%
-  # layer_dense(units = n_hidden_3, activation = h3_activate) %>%
-  # layer_dropout(rate = drop_out_3) %>%
-  # layer_dense(units = n_hidden_4, activation = h4_activate) %>%
-  # layer_dropout(rate = drop_out_4) %>%
+    activation = h1_activate, input_shape = c(24)) %>%
   layer_dense(units = n_output, activation = o_ativate)
 
 # Compile model
@@ -120,7 +87,7 @@ model %>%
   summary() %>%
   print()
 model
-# train_x
+
 # Train model
 # ------------------------------------------------------------------------------
 history <- model %>%
@@ -133,14 +100,9 @@ history <- model %>%
   )
 
 
-plot_loss_acc<-plot(history, method= "ggplot2", smooth = getOption("keras.plot.history.smooth", FALSE))
-
-# plot_loss_acc <- plot(history) + labs(title = "Loss and Accuracy of the classification") +
-#   theme(
-#     legend.title = element_blank(), title = element_text(size = 22),
-#     axis.title.x = element_text(size = 12)
-#   )
-plot_loss_acc
+plot_loss_acc<-plot(history,
+                    method= "ggplot2",
+                    smooth = getOption("keras.plot.history.smooth", FALSE))
 
 
 # Evaluate model
@@ -201,7 +163,7 @@ evaluation_classification <- results %>%
                      values = c('tomato','cornflowerblue')) +
   facet_wrap(~data_type, nrow = 1)
 evaluation_classification
-# 3d plot
+
 
 # ------------------------------------------------------------------------------
 # Predictions
@@ -209,7 +171,6 @@ predictions <- model %>% predict(train_x)
 predictions
 
 perf = model %>% evaluate(test_x, test_y)
-perf
 
 
 plot_dat = class_data %>%

@@ -10,8 +10,6 @@ library(patchwork)
 library(ggthemes)
 library(styler)
 library(clusteval)
-#install.packages("remotes")
-#remotes::install_github("ramhiser/clusteval")
 
 # Define functions
 # ------------------------------------------------------------------------------

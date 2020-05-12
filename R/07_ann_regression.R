@@ -10,14 +10,6 @@ library(keras)
 library(modelr)
 library(styler)
 
-# Install keras
-# ------------------------------------------------------------------------------
-# install.packages("devtools")
-# library("devtools")
-# install_github("rstudio/keras")
-# Would you like to install miniconda? Y
-# library(keras)
-# install_keras(tensorflow = "1.13.1")
 
 # Define functions
 # ------------------------------------------------------------------------------
@@ -132,14 +124,6 @@ history <- model %>%
 
 # Evaluate model
 # ------------------------------------------------------------------------------
-# Calculate performance on test data using the pearsons correlation coefficient
-# y_train_true = train_y
-# y_train_pred = model %>% predict(train_x) %>% as.vector
-# pcc_train = round(cor(y_train_pred, y_train_true, method = "pearson"), 3)
-#
-# y_test_true = test_y
-# y_test_pred = model %>% predict(test_x) %>% as.vector
-# pcc_test = round(cor(y_test_pred, y_test_true, method = "pearson"), 3)
 
 # Calculate performance on training data
 y_train_true <- train_y
