@@ -68,8 +68,7 @@ prostate_pca_aug_k_org_pca <- prostate_k_pca %>%
 # ------------------------------------------------------------------------------
 
 #visualisation of the scree plot
-variance_explained_plot <- prostate_pca %>%
-  tidy("pcs") %>%
+variance_explained_plot <- variance_explained %>%
   ggplot(aes(x = PC, y = percent)) +
   geom_col() +
   theme_bw() +
@@ -153,7 +152,7 @@ clustering <- pl1 + pl2 + pl3
 # Check the similarity between the clustering 
 # and the original data classification
 # 0 is no similarity, 1 is exactly the same classification
-# External library, tidyverse related
+# External library, clusterval
 
 sim_org <- jaccard(prostate_pca_aug_k_org_pca$cat_status,
                    prostate_pca_aug_k_org_pca$cluster_org) 
