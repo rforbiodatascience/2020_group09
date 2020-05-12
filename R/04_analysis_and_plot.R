@@ -73,13 +73,13 @@ prostate_data_mdl_tidy <- prostate_data_mdl %>%
 # Visualise data
 # ------------------------------------------------------------------------------
 
-plot_list <- vector("list", length = length(data_to_plot))
+plot_list <- vector(mode = "list", length = length(data_to_plot))
 
-for (i in 1:length(data_to_plot)
-) {
+for (i in 1:length(data_to_plot)) {
+  
   col <- data_to_plot[[i]]
   x_lab <- colnames(data_to_plot)[i]
-
+  
   barplot_i <- ggplot(data = data_to_plot, mapping = aes(x = col)) +
     geom_histogram(aes(y = ..density..),
       binwidth = function(x) 2 * IQR(x) / length(x)^(1 / 3)
@@ -87,7 +87,7 @@ for (i in 1:length(data_to_plot)
     geom_density(color = "red") +
     labs(x = x_lab) +
     theme(axis.title = element_text(size = 16))
-
+  length(col)
   boxplot_i <- ggplot(data = data_to_plot, mapping = aes(y = col)) +
     geom_boxplot() +
     labs(x = x_lab) +
