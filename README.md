@@ -13,13 +13,13 @@ The original data was found
 To add more information and patients the dataset was sublemented with the GDC - TCGA-PRAD [dataset](shorturl.at/emT04 "UCSCXena"). This contains two different data sets, phenotype and survival, each with 623 observations, and 127 and 4 variables respectively.    
 
 
-### Packages and their versions
+### Packages
 
 The following packages needs to be installed for this project to run.\
 modelr_0.1.7 &nbsp;    keras_2.2.5.0  &nbsp; &nbsp;   devtools_2.3.0  &nbsp;   usethis_1.6.1    &nbsp; clusteval_0.2.1\
 styler_1.3.2   &nbsp;  ggthemes_4.2.0    &nbsp; patchwork_1.0.0 &nbsp; broom_0.5.6  &nbsp;    forcats_0.5.0  \
 stringr_1.4.0  &nbsp; dplyr_0.8.5     &nbsp; purrr_0.3.4   &nbsp;   readr_1.3.1   &nbsp;   tidyr_1.0.3    \
-tibble_3.0.1  &nbsp; ggplot2_3.3.0   &nbsp; tidyverse_1.3.0\
+tibble_3.0.1  &nbsp; ggplot2_3.3.0   &nbsp; tidyverse_1.3.0
 
 ### Installations 
 ##### Keras 
