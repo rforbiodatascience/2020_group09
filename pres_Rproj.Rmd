@@ -25,6 +25,46 @@ library(DiagrammeR)
 
 ## The Datasets
 
+```{r echo=FALSE}
+grViz(
+  diagram = "digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, 
+  fontsize = 10, 
+  bgcolor = white]
+#subgraph {
+#  rank = same; TCGA_phenothype; TCGA_survival;
+#  TCGA_phenothype [fillcolor = Honeydew]; 
+#  TCGA_survival [fillcolor = Honeydew];
+#}
+  # several 'node' statements
+  node [shape = oval,
+        fontname = Helvetica,
+        style = filled, 
+        fontsize = 7, 
+        penwidth = 0.3]
+  Prostate_Data [fillcolor = MistyRose];
+  Tidy_Prostate_Data [fillcolor = MistyRose]; 
+  Tidy_TCGA_Data [fillcolor = Honeydew]; 
+  Final_Tidy_Dataset [fillcolor = Lavender]
+
+  # several 'edge' statements
+  edge [color = black, arrowsize = 0.2]
+  TCGA_phenothype [fillcolor = Honeydew] 
+  TCGA_survival [fillcolor = Honeydew]
+  Prostate_Data -> Tidy_Prostate_Data
+  #TCGA_phenothype -> TCGA_survival [dir = none]
+  TCGA_phenothype -> Tidy_TCGA_Data
+  TCGA_survival -> Tidy_TCGA_Data 
+  Tidy_Prostate_Data -> Final_Tidy_Dataset 
+  Tidy_TCGA_Data -> Final_Tidy_Dataset
+}")
+
+  
+```
+
+
 **Prostate Cancer Dataset**: 1976
 
 - 18 variables
