@@ -4,7 +4,7 @@ rm(list = ls())
 
 # Load libraries
 # ------------------------------------------------------------------------------
-library(tidyverse)
+library(tidyverse) 
 library(styler)
 
 # Define functions
@@ -49,7 +49,7 @@ prostate_one_hot <- prostate_data %>%
   mutate(ekg = str_replace_all(string = ekg, pattern = " ",
                                replacement = "_"))%>%
   mutate(ekg = str_to_lower(string = ekg, locale = "en"))
-  
+
 prostate_one_hot <- one_hot_encoder(prefix = "ekg_", 
                                     dataset = prostate_one_hot, 
                                     colname = "ekg")
@@ -75,13 +75,18 @@ prostate_one_hot <- one_hot_encoder(prefix = "activity_",
 # one hot with three status classes: alive, dead - prostata ca, dead_other 
 
 prostate_one_hot <- prostate_one_hot %>% 
-  mutate(cat_status = status)
-  
+  mutate(cat_status = status)%>%
+  mutate(cat_status_nominal = case_when(
+    status == 0 ~ "Alive",
+    status == 2 ~ "Death other",
+    status == 1 ~ "Death prostate cancer"
+  ))
+
 
 prostate_one_hot <- one_hot_encoder(dataset = prostate_one_hot, 
                                     prefix = "status_", 
                                     colname = "status")
-  
+
 prostate_one_hot <- prostate_one_hot %>% 
   rename("status_dead_other" = "status_2",
          "status_dead_prostatic_ca" = "status_1",
@@ -144,17 +149,22 @@ tcga_final <- tcga_final %>%
 # another reason
 tcga_final <- tcga_final %>%
   mutate(status = case_when(vital_status_demographic == "Alive" ~ "alive",
-                              vital_status_demographic == "Dead" & patient_death_reason == "Prostate Cancer" ~ "dead_prostatic_ca",
-                              vital_status_demographic == "Dead" & is.na(patient_death_reason) ~ "dead_other"
-                              ), 
-         vital_status_demographic = NULL, 
-         patient_death_reason = NULL)
+                            vital_status_demographic == "Dead" & patient_death_reason == "Prostate Cancer" ~ "dead_prostatic_ca",
+                            vital_status_demographic == "Dead" & is.na(patient_death_reason) ~ "dead_other"
+  ), 
+  vital_status_demographic = NULL, 
+  patient_death_reason = NULL)
 
 tcga_final <- tcga_final %>%
-  mutate("cat_status" = (case_when(
+  mutate(cat_status = (case_when(
     status == "alive" ~ 0,
     status == "dead_prostatic_ca" ~ 1, 
-    status == "dead_other" ~ 2)))
+    status == "dead_other" ~ 2)))%>%
+  mutate(cat_status_nominal = case_when(
+    status == "alive" ~ "Alive",
+    status == "dead_prostatic_ca" ~ "Death other",
+    status == "dead_other" ~ "Death prostate cancer"
+  ))
 
 tcga_final <- tcga_final %>% 
   drop_na(cat_status)
@@ -164,22 +174,23 @@ tcga_final <- one_hot_encoder(dataset = tcga_final,
                               colname = "status")
 
 
-# Select the interesting columns, change names if necessary (patient_id),
+# Select the interesting columns, 
 # and add data that can be extracted from the existing columns (sg)
 prostate_final <- full_join(x = prostate_one_hot,
-                           y = tcga_final, 
-                           by = c("patient_id", "months_fu", 
-                                  "age", "sg", "bone_metastases", 
-                                  "dataset", "cat_status", 
-                                  "status_alive", "status_dead_prostatic_ca", 
-                                  "status_dead_other"))
+                            y = tcga_final, 
+                            by = c("patient_id", "months_fu", 
+                                   "age", "sg", "bone_metastases", 
+                                   "dataset", "cat_status", "cat_status_nominal" , 
+                                   "status_alive", "status_dead_prostatic_ca", 
+                                   "status_dead_other"))
 
 prostate_final <- prostate_final %>% 
   select(patient_id, months_fu, age, sg, bone_metastases, cat_status, 
-         status_alive, status_dead_prostatic_ca, status_dead_other, 
-         dataset, everything())
+         cat_status_nominal, status_alive, status_dead_prostatic_ca, 
+         status_dead_other, dataset, everything())
 
 # ------------------------------------------------------------------------------
 
 write_tsv(x = prostate_final,
           path = "data/03_prostate_and_tcga_joined.tsv")
+
