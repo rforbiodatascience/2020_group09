@@ -23,12 +23,12 @@ prostate_data <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 # Wrangle data
 # ------------------------------------------------------------------------------
-prostate_for_pca <- prostate_data %>%
-  select(-contains("status_")) %>%
+prostate_ds_only <- prostate_data %>%
+  select(-starts_with("status_")) %>%
   filter(dataset == "0")
 
-prostate_for_pca <- prostate_for_pca %>% 
-  select(-c(date_on_study, patient_id, dataset))
+prostate_for_pca <- prostate_ds_only %>% 
+  select(-c(date_on_study, patient_id, dataset, cat_status_nominal))
 
 # Obtain components
 prostate_pca <- prostate_for_pca %>%
@@ -44,19 +44,12 @@ variance_explained_2PC <- variance_explained %>%
   select(cumulative)
 
 prostate_pca_aug <- prostate_pca %>% 
-  augment(prostate_for_pca)
+  augment(prostate_ds_only)
 
-# Add the nominal values of cat status
-prostate_pca_aug <- prostate_pca_aug %>%
-  mutate(cat_status_nominal = case_when(
-    cat_status == 0 ~ "Alive",
-    cat_status == 2 ~ "Death other",
-    cat_status == 1 ~ "Death prostate cancer"
-  ))
 
 # first clustering with kmeans based on our variables
 prostate_k_org <- prostate_pca_aug %>%
-  select(-c(cat_status_nominal, cat_status)) %>%
+  select(-c(date_on_study, patient_id, dataset, cat_status_nominal, cat_status)) %>%
   kmeans(centers = 3)
 
 prostate_pca_aug_k_org <- prostate_k_org %>%
