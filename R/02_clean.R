@@ -51,14 +51,9 @@ prostate_clean <- prostate_clean %>%
   )) %>%
   mutate(estrogen_mg = str_remove_all(string = estrogen_mg, pattern = " mg estrogen"))
 
-# Change format
-# prostate_clean <- prostate_clean %>%
-#  mutate(estrogen_mg = as.numeric(x = estrogen_mg, digits = 2))
-
-# Transfom the data variable in a more readable version
+# Transfom the date variable in a more readable version
 prostate_clean <- prostate_clean %>%
   mutate(date_on_study = as_date(x = date_on_study, origin = "1960-01-01"))
-
 
 ## Cleaning TCGA datasets
 tcga_prostate_clean <- tcga_prostate_raw %>%

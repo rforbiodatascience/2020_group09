@@ -25,6 +25,7 @@ tcga_prostate_survival_clean <- read_tsv(file = "data/02_tcga_survival_prostate_
 # Add column dataset
 prostate_data <- prostate_clean %>% 
   mutate("dataset" = 0)
+
 # creating categorical column cat_status describing the causes of death
 prostate_data <- prostate_data %>%
   mutate("status" = (case_when(
@@ -41,13 +42,13 @@ prostate_data <- prostate_data %>%
 
 
 # in the following lines we transform the dataset into a more useful format 
-# to take in to account of the categorigal variables in the analysis
+# to take in to account of the categorical variables in the analysis
 
 prostate_one_hot <- prostate_data %>% 
   mutate(ekg = str_replace_all(string = ekg, pattern = "&", 
-                               replacement = ""))%>%
+                               replacement = "")) %>%
   mutate(ekg = str_replace_all(string = ekg, pattern = " ",
-                               replacement = "_"))%>%
+                               replacement = "_")) %>%
   mutate(ekg = str_to_lower(string = ekg, locale = "en"))
 
 prostate_one_hot <- one_hot_encoder(prefix = "ekg_", 
@@ -72,10 +73,10 @@ prostate_one_hot <- one_hot_encoder(prefix = "activity_",
                                     dataset = prostate_one_hot, 
                                     colname = "activity_level")
 
-# one hot with three status classes: alive, dead - prostata ca, dead_other 
+# one hot with three status classes: alive, dead - prostate ca, dead_other 
 
 prostate_one_hot <- prostate_one_hot %>% 
-  mutate(cat_status = status)%>%
+  mutate(cat_status = status) %>%
   mutate(cat_status_nominal = case_when(
     status == 0 ~ "Alive",
     status == 2 ~ "Death other",

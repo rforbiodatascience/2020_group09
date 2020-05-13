@@ -174,7 +174,11 @@ include_graphics("../results/08_evaluation_classification.png")
 - There seems to be no correlation between the variables 
 
 - The classification, considering the small number of analized values, gives appreciable results
- 
+
+---
+## Link to our Git repository
+https://github.com/rforbiodatascience/2020_group09.git
+
 
 # Thank you for watching!
  

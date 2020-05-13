@@ -178,8 +178,6 @@ evaluation_classification <- results %>%
                      values = c('tomato','cornflowerblue')) +
   facet_wrap(~data_type, nrow = 1)
 
-print(evaluation_classification)
-
 # Save graph
 # ------------------------------------------------------------------------------
 ggsave("results/08_loss_acc.png", plot_loss_acc,
