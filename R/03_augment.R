@@ -26,6 +26,9 @@ tcga_prostate_survival_clean <- read_tsv(file = "data/02_tcga_survival_prostate_
 prostate_data <- prostate_clean %>% 
   mutate("dataset" = 0)
 
+prostate_data <- prostate_data %>% 
+  filter(ap < 100)
+
 # creating categorical column cat_status describing the causes of death
 prostate_data <- prostate_data %>%
   mutate("status" = (case_when(
