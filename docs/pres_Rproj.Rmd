@@ -1,7 +1,7 @@
 ---
 title: "Presentation R Project"
 author:
-date: May 14, 2020
+date: May 15, 2020
 output:
   ioslides_presentation:
   widescreen: true
@@ -10,7 +10,6 @@ output:
 ```{r include = FALSE}
 library(knitr)
 library(png)
-library(DiagrammeR)
 ```
 ## Introduction
 
@@ -30,41 +29,50 @@ library(DiagrammeR)
 
 - 623 observations
 
-7 variables in common between the datasets
+__7 variables in common__ between the datasets
 
 ## Replicability and reproducibility
 
 ```{r echo=FALSE, out.width = "100%"}
-include_graphics("../docs/git_slide.png")
+include_graphics("../docs/images/git_slide.png")
 ```
 
 ## What to look for
 
 Defining a predictive model of 
+
 - Survival in months of follow-up
 - Status of patients
-- Alive
-- Dead for prostate Cancer
-- Dead for other causes
+  - Alive
+  - Dead for prostate Cancer
+  - Dead for other causes
 
 ## Matherials and Methods 
 
-packages used 
+```{r echo=FALSE, out.width = "100%"}
+include_graphics("../docs/images/packages_slide.png")
+``` 
 
 ## Cleaning and Tidying 
+
 - Names 
 - Removing rows with NAs
 - Discard meaningless variables
 - Rearrange the data: estrogen_mg column
+```{r echo=FALSE, out.width = "80%"}
+include_graphics("../docs/images/estrogen_with_mg.png")
+```
 
 
 ## Cleaning and Tidying 
 - Rearrange the data: date format
-
 ```{r,  eval = FALSE}
 prostate_clean <- prostate_clean %>%
   mutate(date_on_study = as_date(x = date_on_study, 
                                  origin = "1960-01-01"))
+```
+```{r echo=FALSE, out.width = "80%"}
+include_graphics("../docs/images/date_on_study.png")
 ```
 
 ## Augment 
@@ -79,27 +87,27 @@ prostate_clean <- prostate_clean %>%
 <!-- (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death) -->
 
 ## Augment
-Joining of the TCGA datasets:
+Joining of the datasets:
 
 ```{r echo=FALSE, out.width = "100%"}
-include_graphics("../docs/join_slide.png")
+include_graphics("../docs/images/joining_workflow.png")
 ```
 
 ## PCA and Clustering 
-We calculated the principal components using prcomp
+Calculation of the principal components using __prcomp__
 ```{r,  eval = FALSE}
 # Obtain components
 prostate_pca <- prostate_for_pca %>%
   na.omit() %>%
   prcomp(center = TRUE, scale = TRUE)
 ```
-And we verify that the PC1 and PC2 account for the most variation in the data
+Verification that the PC1 and PC2 account for the most variation in the data
 ```{r,  eval = FALSE}
 # Calculate the variance explained by each component
 variance_explained <- prostate_pca %>% 
   tidy("pcs")
 ```
-Then we perform a clustering using kmeans
+Then we perform a clustering using __kmeans__
 
 ## Regression
 
@@ -117,7 +125,7 @@ prostate_data_mdl <- prostate_for_lr %>%
 ```
 
 ## Classification
-We used keras Tensorflow to classify the data basing on the "cat_status" variable
+We used __Keras TensorFlow__ to classify the data basing on the "cat_status" variable
 ```{r eval = FALSE}
 model <- keras_model_sequential() %>%
   layer_dense(
@@ -134,9 +142,9 @@ model <- keras_model_sequential() %>%
 - Histograms and barplots of all the continuous variables
 
 ```{r echo=FALSE, out.width = "80%"}
-
 include_graphics("../results/04_histogram_and_boxplot_of_tumour_size.png")
 ```
+
 ## Data Visualization using ggplot
 
 - Survival versus each other variable 
@@ -147,7 +155,7 @@ include_graphics("../results/04_months_fu_vs_others.png")
 
 ## PCA k means clustering
 
-For this part of the analysis we choose to only consider the 1976 dataset
+^[For this part of the analysis we choose to only consider the 1976 dataset]
 <!-- There might be three clusters.  -->
 ```{r echo=FALSE, out.width = "100%"}
 include_graphics("../results/05_pca_clustering.png")
@@ -159,8 +167,6 @@ include_graphics("../results/05_pca_clustering.png")
 ```{r echo=FALSE, out.width = "105%"}
 include_graphics("../results/04_months_fu_vs_tumour_size_stage.png")
 ```
-
-
 
 
 ## Classification
