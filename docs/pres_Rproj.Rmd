@@ -1,5 +1,6 @@
 ---
-title: "Presentation R Project"
+title: "Prostate Cancer Project"
+subtitle: "R for Bio Data Science - Group 09"
 author: Jager Maja, Meseguer Laia, Moranzoni Giorgia, Saro Stella 
 date: May 15, 2020
 output: 
@@ -47,7 +48,7 @@ Defining a predictive model of
   - Dead for prostate Cancer
   - Dead for other causes
 
-# Matherials and Methods 
+# Materials and Methods 
 
 ## Our packages {.flexbox .vcenter}
 
@@ -80,10 +81,14 @@ include_graphics("../docs/images/date_on_study.png")
 - Dataset identifier
 - One Hot Encoding 
 - Categorical column "cat_status" describing the cause of death 
-- TCGA data: Making the common variables in the two datasets comparable
-- os_time from days to months
-- Binarize bone_scan_results
-- Obtain sg value from gleason score
+
+__TCGA data__: 
+
+Making the common variables in the two datasets comparable
+
+  - os_time from days to months
+  - Binarize bone_scan_results
+  - Obtain sg value from gleason score and the tumour stage
 
 <!-- (The information we want to get from the data is the division between the patients that died for prostate cancer, for other causes and the ones that are still alive, we don't care about the distinction between the other causes of death) -->
 
@@ -163,19 +168,21 @@ include_graphics("../results/04_months_fu_vs_tumour_size_stage.png")
 ## Classification {.flexbox .vcenter}
 
 ```{r echo=FALSE, out.width = "100%"}
-include_graphics("../results/08_evaluation_classification.png")
+include_graphics("../results/08_evaluation_classification_best.png")
 ```
 
 
 # Conclusions
 
----
 
-- There seems to be no correlation between the variables 
+## Conclusions
 
-- The classification, considering the small number of analized values, gives appreciable results
+- <font size="6">There seems to be no correlation between the variables</font>
 
----
+- <font size="6">The classification, considering the small number of analized values, gives appreciable results</font>
+
+- <font size="6">Our work fully runs without errors from the 00_doit.R script</font>
+
 ## Link to our Git repository
 https://github.com/rforbiodatascience/2020_group09.git
 
