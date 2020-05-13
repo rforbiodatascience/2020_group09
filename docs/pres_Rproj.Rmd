@@ -146,8 +146,7 @@ include_graphics("../results/04_months_fu_vs_others.png")
 ```
 
 ## PCA k means clustering {.flexbox .vcenter}
-
-^[For this part of the analysis we choose to only consider the 1976 dataset]
+For this part of the analysis we choose to only consider the 1976 dataset
 <!-- There might be three clusters.  -->
 ```{r echo=FALSE, out.width = "100%"}
 include_graphics("../results/05_pca_clustering.png")
