@@ -20,7 +20,7 @@ joined_data <- read_tsv(file = "data/03_prostate_and_tcga_joined.tsv")
 
 class_data <- joined_data %>%
   filter(dataset == 0) %>%
-  select(-contains("status_"), -date_on_study, -patient_id, -dataset)
+  select(-c(contains("status_"), date_on_study, patient_id, dataset))
 
 #
 # Prepare data
@@ -40,7 +40,7 @@ train_y <- class_data %>%
 
 train_x <- class_data %>%
   filter(partition == "train") %>%
-  select(-cat_status, -partition) %>%
+  select(-c(cat_status, partition)) %>%
   as.matrix()
 
 test_y <- class_data %>%
@@ -50,7 +50,7 @@ test_y <- class_data %>%
 
 test_x <- class_data %>%
   filter(partition == "test") %>%
-  select(-cat_status, -partition) %>%
+  select(-c(cat_status, partition)) %>%
   as.matrix()
 
 # Define ANN model
@@ -100,7 +100,7 @@ history <- model %>%
   )
 
 
-plot_loss_acc<-plot(history,
+plot_loss_acc <- plot(history,
                     method= "ggplot2",
                     smooth = getOption("keras.plot.history.smooth", FALSE))
 
@@ -113,7 +113,7 @@ perf_train = model %>% evaluate(train_x, train_y)
 acc_train = perf_train %>% pluck('acc') %>% round(3) * 100
 
 y_true_test = test_y %>%
-    apply(1, function(x){ return( which(x==1) - 1) }) %>%
+    apply(1, function(x){ return( which(x == 1) - 1) }) %>%
     factor
 
 y_pred_test = model %>%
@@ -121,7 +121,7 @@ y_pred_test = model %>%
   factor(levels = c(0,1,2))
 
 y_true_train = train_y %>%
-  apply(1, function(x){ return( which(x==1) - 1) }) %>%
+  apply(1, function(x){ return( which(x == 1) - 1) }) %>%
   factor
 
 y_pred_train = model %>%
@@ -177,7 +177,8 @@ evaluation_classification <- results %>%
   scale_color_manual(labels = c('No', 'Yes'),
                      values = c('tomato','cornflowerblue')) +
   facet_wrap(~data_type, nrow = 1)
-evaluation_classification
+
+print(evaluation_classification)
 
 # Save graph
 # ------------------------------------------------------------------------------
