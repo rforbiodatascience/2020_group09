@@ -55,7 +55,7 @@ data_to_corr <- prostate_ds_only %>%
   cor(.) %>%
   get_lower_tri(.) %>%
   melt(data = ., value.name = "value") %>%
-  mutate(value = format(round(value, 2), nsmall = 2)) %>%
+  mutate(value = format(round(value, 2))) %>%
   mutate(value = as.numeric(value))
 
 # Data for linear model
@@ -87,7 +87,7 @@ for (i in 1:length(data_to_plot)) {
     geom_density(color = "red") +
     labs(x = x_lab) +
     theme(axis.title = element_text(size = 16))
-  length(col)
+  
   boxplot_i <- ggplot(data = data_to_plot, mapping = aes(y = col)) +
     geom_boxplot() +
     labs(x = x_lab) +
@@ -199,9 +199,7 @@ months_fu_vs_size_lm <- prostate_data_mdl_tidy %>%
   scale_y_continuous("Tumour stage",
                      breaks = c(4, 3),
                      limits = c(2.5, 4.5),
-                     # expand = c(0,0)
   ) +
-  # sets the origin to zero
   labs(
     y = " ",
     title = str_c(
