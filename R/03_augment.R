@@ -166,8 +166,8 @@ tcga_final <- tcga_final %>%
     status == "dead_other" ~ 2)))%>%
   mutate(cat_status_nominal = case_when(
     status == "alive" ~ "Alive",
-    status == "dead_prostatic_ca" ~ "Death other",
-    status == "dead_other" ~ "Death prostate cancer"
+    status == "dead_prostatic_ca" ~ "Death prostate cancer",
+    status == "dead_other" ~ "Death other"
   ))
 
 tcga_final <- tcga_final %>% 
